@@ -11,5 +11,14 @@
 - [Tekil (Singleton)]()
 
 ## Yapısal (Structural) Tasarım Desenleri
+![structural-design-patterns](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/2c44f4cf-8954-412c-9c5e-64548952dd05)
+
+- [Adaptör (Adapter)]()
+- [Köprü (Bridge)]()
+- [Bileşik (Composite)]()
+- [Dekoratör (Decorator)]()
+- [Cephe (Facade)]()
+- [Flyweight]()
+- [Vekil (Proxy)]()
 
 ## Davranışsal (Behavioral) Tasarım Desenleri
