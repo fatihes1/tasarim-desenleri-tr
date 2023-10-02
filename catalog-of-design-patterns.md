@@ -22,3 +22,15 @@
 - [Vekil (Proxy)]()
 
 ## Davranışsal (Behavioral) Tasarım Desenleri
+![behavioral-design-patterns](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/b645b262-1199-4b63-91b1-fc40741d0b62)
+
+- [Sorumluluk Zinciri (Chain of Responsibility)]()
+- [Komut (Command)]()
+- [Yineleyici (Iterator)]()
+- [Arabulucu (Mediator)]()
+- [Hatıra (Memento)]()
+- [Gözlemci (Observer)]()
+- [Durum (State)]()
+- [Strateji (Strategy)]()
+- [Şablon Yöntemi (Template Method)]()
+- [Ziyaretçi (Visitor)]()
