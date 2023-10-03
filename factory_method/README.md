@@ -175,9 +175,13 @@ Bu noktada, fabrika yöntemi kodu oldukça karmaşık görünebilir. Hangi ürü
 6. Tüm dışarı çıkarımlardan (export edilmelerden) sonra temel fabrika yöntemi boşalmışsa onu soyut (abstract) hale getirebilirsiniz. Eğer geriye bir şey kaldıysa, bunu yöntemin varsayılan davranışı haline getirebilirsiniz.
 
 ## ⚖️ Artıları ve Eksileri
+
 ✅ Yaratıcı (creator) ile oluşturulan ürünler arasında sıkı bir bağlantı oluşmasını önlersiniz.
+
 ✅ *Tek Sorumluluk İlkesi (Single Responsibility Principle)*. Ürün oluşturma kodunu programda tek bir yere taşıyabilir, böylece kodun kolayca desteklenmesini sağlayabilirsiniz.
+
 ✅ *Açık/Kapalı Prensibi (Open/Closed Principle)*. Mevcut client kodunu bozmadan programa yeni ürün türleri tanıtabilirsiniz/ekleyebilirsiniz.
+
 
 ❌ Deseni uygulamak için birçok yeni alt sınıf tanıtmanız gerektiğinden dolayı kod daha karmaşık hale gelebilir. En iyi durum senaryosu, deseni mevcut yaratıcı sınıf hiyerarşisine dahil ettiğiniz zamandır.
 
@@ -213,6 +217,7 @@ Farklı diyalog türleri, kendi türlerindeki öğeleri zorunlu tutar. Bu nedenl
 Artık her diyalog türü uygun düğme (`Button`) sınıflarını başlatacaktır. Oluşturulan alt sınıflar, ortak arayüzlerini (interfaces) kullanan ürünlerle çalışır, bu nedenle kodu tüm değişikliklerden sonra işlevsel kalır.
 
 **📁 buttons**
+
 ⤵️ 📄 `buttons/Button.java`: Ortak ürün (product) arayüzü (interface):
 ```java
 package fatihes1.factory_method.example.buttons;
@@ -404,6 +409,7 @@ public class Demo {
 ```
 
 **🖨️ Çıktılar**
+
 ⤵️ 📄 `OutputDemo.txt`: Çalıştırma Sonucu (HtmlDialog)
 ```
 <button>Test Button</button>
