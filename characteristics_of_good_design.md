@@ -103,7 +103,7 @@ Zamanla, önceden basit bir işlemi yapan bir yönteme daha fazla sorumluluk ekl
 
 *Program bir arayüze yöneliktir, bir uygulamaya değil. Somut sınıflara değil, soyutlamalara bağlı olun.*
 
-Tasarımın yeterince esnek olduğunu söyleyebilirsiniz, çünkü mevcut kodu bozmadan kolayca genişletebiliyorsanız. Bu ifadenin doğru olduğundan emin olmak için başka bir kedi örneğine bakalım. Herhangi bir yiyeceği yiyebilen bir kedi, sadece sosisleri yiyebilen bir kediden daha esnektir. İlk kediye hala sosis verebilirsiniz çünkü sosisler "herhangi bir yiyeceğin" bir alt kümesidir; ancak bu kedinin menüsünü herhangi başka bir yiyecekle genişletebilirsiniz.
+Mevcut kodu bozmadan kolayca genişletebiliyorsanız, tasarımın yeterince esnek olduğunu söyleyebilirsiniz. Bu ifadenin doğru olduğundan emin olmak için başka bir kedi örneğine bakalım. Herhangi bir yiyeceği yiyebilen bir kedi, sadece sosisleri yiyebilen bir kediden daha esnektir. İlk kediye hala sosis verebilirsiniz çünkü sosisler "herhangi bir yiyeceğin" bir alt kümesidir; ancak bu kedinin menüsünü herhangi başka bir yiyecekle genişletebilirsiniz.
 
 İki sınıf arasında işbirliği yapmak istediğinizde, bunlardan birini diğerine bağımlı hale getirerek başlayabilirsiniz. Ama daha esnek bir nesneler arası işbirliği kurmanın başka bir yolu daha vardır:
 
