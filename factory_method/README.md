@@ -2,7 +2,7 @@
 > Diğer adıyla: Sanal Oluşturucu (Virtual Constructor)
 
 ## 💬 Amaç
-"Fabrika Yöntemi" (Factory Method), nesne oluşturmak için bir üst sınıfta bir arayüz sağlayan ancak alt sınıfların oluşturulacak nesne türünü değiştirmelerine izin veren bir yaratıcı tasarım desenidir. 
+"Fabrika Yöntemi" (Factory Method), nesne oluşturmak için bir üst sınıfta bir arayüz sağlayan bununla beraber alt sınıfların oluşturulacak nesne türünü değiştirmelerine izin veren bir yaratıcı tasarım desenidir. 
 
 ![](https://refactoring.guru/images/patterns/content/factory-method/factory-method-en.png)
 
