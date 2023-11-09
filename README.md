@@ -9,9 +9,9 @@ Bu depo, Refactoring Guru sitesinde bulunan tasarım desenlerinin Türkçe çevi
 
 Bu depo aşağıdaki tasarım desenlerini içerir:
 
-- [📖 Desen Adı 1](desenler/desen-adi-1.md)
-- [📖 Desen Adı 2](desenler/desen-adi-2.md)
-- [📖 Desen Adı 3](desenler/desen-adi-3.md)
+- [📖 OOP (Object Oriented Programming)](oop/README.md)
+- [📖 İyi Tasarımın Özellikleri](characteristics_of_good_design.md)
+- [📖 SOLID](solid.md)
 - ...
 
 ## 🚀 Nasıl Kullanılır
