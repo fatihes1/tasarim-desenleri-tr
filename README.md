@@ -14,7 +14,7 @@ Bu depo aşağıdaki tasarım desenlerini içerir:
 - [📖 OOP (Object Oriented Programming)](oop/README.md)
 - [📖 İyi Tasarımın Özellikleri](characteristics_of_good_design.md)
 - [📖 SOLID](solid.md)
-- [📖 Tasarım Desenlerine Giriş](introduction-to-design-paterns.md)
+- [📖 Tasarım Desenlerine Giriş](design_patterns.md)
 - [📖 Tasarım Desenlerini Kataloğu](catalog-of-design-patterns.md)
   
 - ### 📚 Yaratıcı Desenler (Creational Patterns)
