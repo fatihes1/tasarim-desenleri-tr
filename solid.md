@@ -49,15 +49,15 @@ Diğer tasarım prensipleri geniş yorumlamalara açıkken, değiştirme ilkesi,
 
 
 - Bir alt sınıfın bir yönteminde, süper sınıfın yöntemindeki parametre türleriyle eşleşmelidir veya daha soyut olmalıdır. Kulağa karışık mı geliyor? Bir örnek verelim.
-	- Bir yöntemle beslemesi gereken kedileri olan bir sınıf olduğunu varsayalım: `feed(Cat c)` . Müşteri kodu her zaman bu yönteme kedi nesneleri geçirir.
-	- İyi: Diyelim ki bu yöntemi yeniden tanımlayan bir alt sınıf oluşturdunuz, böylece herhangi bir hayvanı (kedilerin bir üst sınıfı) besleyebilir: `feed(Animal c)` . Şimdi, müşteri koduna üst sınıfın nesnesi yerine bu alt sınıfın bir nesnesini geçirirseniz, her şey yolunda çalışacaktır. Yöntem tüm hayvanları besleyebilir, bu nedenle müşteri tarafından iletilen herhangi bir kedi de beslenebilir.
-	- Kötü: Başka bir alt sınıf oluşturdunuz ve besleme yöntemini sadece Bengal kedilerini (kedilerin bir alt sınıfı) kabul edecek şekilde sınırladınız: `feed(BengalCat c)` . Müşteri kodunu, orijinal sınıf yerine bu gibi bir nesneyle ilişkilendirirseniz ne olur? Yöntem yalnızca belirli bir kedi türünü besleyebilir, bu nedenle müşteri tarafından iletilen genel kedilere hizmet etmeyecek ve ilgili tüm işlevselliği bozacaktır.
+	- Bir yöntemle beslemesi gereken kedileri olan bir sınıf olduğunu varsayalım: `feed(Cat c)` . İstemci kodu her zaman bu yönteme kedi nesneleri geçirir.
+	- İyi: Diyelim ki bu yöntemi yeniden tanımlayan bir alt sınıf oluşturdunuz, böylece herhangi bir hayvanı (kedilerin bir üst sınıfı) besleyebilir: `feed(Animal c)` . Şimdi, istemci koduna üst sınıfın nesnesi yerine bu alt sınıfın bir nesnesini geçirirseniz, her şey yolunda çalışacaktır. Yöntem tüm hayvanları besleyebilir, bu nedenle istemci tarafından iletilen herhangi bir kedi de beslenebilir.
+	- Kötü: Başka bir alt sınıf oluşturdunuz ve besleme yöntemini sadece Bengal kedilerini (kedilerin bir alt sınıfı) kabul edecek şekilde sınırladınız: `feed(BengalCat c)` . İstemci kodunu, orijinal sınıf yerine bu gibi bir nesneyle ilişkilendirirseniz ne olur? Yöntem yalnızca belirli bir kedi türünü besleyebilir, bu nedenle istemci tarafından iletilen genel kedilere hizmet etmeyecek ve ilgili tüm işlevselliği bozacaktır.
 
 - Bir alt sınıfın bir yönteminde, süper sınıfın yöntemindeki geri dönüş türüyle eşleşmelidir veya geri dönüş türü, süper sınıfın yöntemdeki geri dönüş türünün bir alt türü olmalıdır.
 Parametre türleri için gereksinimlerin tersine olduğunu gördüğünüz gibi, geri dönüş türü için gereksinimler aynıdır.
-	- Bir sınıfınızın `buyCat(): Cat` adında bir yöntemi olduğunu varsayalım. Müşteri kodu bu yöntemi çalıştırmanın bir sonucu olarak herhangi bir kedi almayı bekler.
-	- İyi: Bir alt sınıf, yöntemi şu şekilde yeniden tanımlar: `buyCat(): BengalCat` . Müşteri bir Bengal kedi alır, bu hala bir kedi olduğundan her şey yolundadır.
-	- Kötü: Bir alt sınıf, yöntemi şu şekilde yeniden tanımlar: `buyCat(): Animal` . Şimdi, müşteri kodu bozulur çünkü bilinmeyen genel bir hayvan (bir timsah? bir ayı?) alır ve bir kedi için tasarlanmış bir yapıya uymaz.
+	- Bir sınıfınızın `buyCat(): Cat` adında bir yöntemi olduğunu varsayalım. İstemci kodu bu yöntemi çalıştırmanın bir sonucu olarak herhangi bir kedi almayı bekler.
+	- İyi: Bir alt sınıf, yöntemi şu şekilde yeniden tanımlar: `buyCat(): BengalCat` . İstemci bir Bengal kedi alır, bu hala bir kedi olduğundan her şey yolundadır.
+	- Kötü: Bir alt sınıf, yöntemi şu şekilde yeniden tanımlar: `buyCat(): Animal` . Şimdi, istemci kodu bozulur çünkü bilinmeyen genel bir hayvan (bir timsah? bir ayı?) alır ve bir kedi için tasarlanmış bir yapıya uymaz.
 
 Başka bir karşı örnek, dinamik yazılım dillerinin dünyasından gelir: Temel yöntem bir dize döndürür, ancak üzerine yazılan yöntem bir sayı döndürür.
 
@@ -82,8 +82,8 @@ Sabitlerle ilgili kuralı ihlal etmek en kolay olandır çünkü karmaşık bir 
 
 *İstemci, kullanmadıkları yöntemlere bağlı kalmaya zorlanmamalıdır.*
 
-Arayüzlerinizi, müşteri sınıflarının ihtiyaç duymadıkları davranışları uygulamak zorunda kalmayacakları kadar dar yapmaya çalışın.
-Arayüz ayrım ilkesine göre, "şişman" arayüzleri daha ayrıntılı ve belirli olanlara bölmelisiniz. Müşteriler sadece gerçekten ihtiyaçları olan yöntemleri uygulamalıdır. Aksi takdirde, "şişman" bir arayüzün değiştirilmesi, değiştirilen yöntemleri kullanmayan müşterileri bile etkileyebilir.
+Arayüzlerinizi, istemci sınıflarının ihtiyaç duymadıkları davranışları uygulamak zorunda kalmayacakları kadar dar yapmaya çalışın.
+Arayüz ayrım ilkesine göre, "şişman" arayüzleri daha ayrıntılı ve belirli olanlara bölmelisiniz. İstemciler sadece gerçekten ihtiyaçları olan yöntemleri uygulamalıdır. Aksi takdirde, "şişman" bir arayüzün değiştirilmesi, değiştirilen yöntemleri kullanmayan istemcileri bile etkileyebilir.
 
 Sınıf kalıtımı bir sınıfın yalnızca bir üst sınıfa sahip olmasına izin verir, ancak sınıfın aynı anda uygulayabileceği arayüzlerin sayısını sınırlamaz. Bu nedenle, birden fazla ilgisiz yöntemi tek bir arayüze sıkıştırmanıza gerek yoktur. Onları daha fazla rafine edilmiş arayüzlere bölebilirsiniz, ihtiyacınız varsa hepsini aynı sınıfta uygulayabilirsiniz. Ancak, bazı sınıflar sadece birini uygulamakla yetinebilir.
 
