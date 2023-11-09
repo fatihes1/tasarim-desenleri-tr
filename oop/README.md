@@ -99,7 +99,7 @@ Hayvan örneklerine geri dönelim. Çoğu Hayvan (`Animal`) ses çıkarabilir. T
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/9a5e89ce-2bd0-42e4-ab36-8dec134fe25e)
 
-Hayvanları büyük bir çantaya koymuş olsak ve ardından gözlerimizi kapatsak ve birer birer hayvanları çantadan çıkarsak, çantadan bir hayvan aldıktan sonra onun kesin olarak ne olduğunu bilemeyiz. Ancak onu yeterince sıkıca seversek, hayvan, somut (concrete) sınıfına bağlı olarak belirli bir sevinç sesi çıkaracaktır.
+Hayvanları büyük bir çantaya koymuş olsak ve ardından gözlerimizi kapatsak ve birer birer hayvanları çantadan çıkarsak, çantadan bir hayvan aldıktan sonra onun kesin olarak ne olduğunu bilemeyiz. Ancak onu yeterince seversek, hayvan, somut (concrete) sınıfına bağlı olarak belirli bir mutluluk sesi çıkaracaktır.
 
 ```java
 bag = [new Cat(), new Dog()];
