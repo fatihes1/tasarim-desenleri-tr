@@ -37,7 +37,7 @@ Bir sınıf zaten geliştirilmiş, test edilmiş, gözden geçirilmiş ve bir ç
 
 Bu ilke, bir sınıfa yapılan tüm değişiklikler için uygulanacak bir ilke olarak düşünülmemelidir. Sınıfta bir hata olduğunu biliyorsanız, sadece düzeltin; bunun için bir alt sınıf oluşturmayın. Bir alt sınıf, ana sınıfın sorunlarından sorumlu olmamalıdır.
 
-## L iskov Substitution Principle
+## Liskov Substitution Principle
 
 *Bir sınıfı genişletirken, alt sınıf nesnelerini üst sınıf nesnelerinin yerine kullanabilmelisiniz ve istemci kodunu bozmadan bu nesneleri geçirebilmelisiniz.*
 
