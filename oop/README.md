@@ -5,7 +5,7 @@ Nesne yönelimli programlama (**O**bject-**o**riented **p**rogramming), nesneye 
 
 ## Nesneler & Sınıflar
 
-Kedileri sever misin? Umarım seversiniz; çünkü bu repo'da OOP kavramlarını çeşitli kedi örnekleri kullanarak açıklamaya çalışacağım.
+Kedileri sever misiniz? Umarım seversiniz; çünkü bu repo'da OOP kavramlarını çeşitli kedi örnekleri kullanarak açıklamaya çalışacağım.
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/caefdda0-4b10-4717-9929-a9934f1c6198)
 
