@@ -7,7 +7,7 @@ Nesne yönelimli programlama (**O**bject-**o**riented **p**rogramming), nesneye 
 
 Kedileri sever misin? Umarım seversiniz; çünkü bu repo'da OOP kavramlarını çeşitli kedi örnekleri kullanarak açıklamaya çalışacağım.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281369184-2fd7e257-7889-4ad7-85f7-9e1dc3ddbec1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T104126Z&X-Amz-Expires=300&X-Amz-Signature=7c9454f9db89ba9a3496418f8e0b8f489960d84ad8844a2eb04beb47f4e2ceb6&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/caefdda0-4b10-4717-9929-a9934f1c6198)
 
 *Bu bir UML sınıfı diyagramıdır. Bu repoda bu tür birçok diyagram göreceksiniz.*
 
