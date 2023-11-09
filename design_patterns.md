@@ -37,10 +37,10 @@ Gerçek şu ki, bir programcı olarak birçok yıl boyunca hiçbir desen hakkın
 
 ## Desenlerin Eleştirisi (Criticism of Patterns)
 
-Desenleri henüz eleştirmemiş olanlar sadece tembel insanlar gibi görünüyor. Desen kullanımına karşı en yaygın argümanlara bir göz atalım.
+Desen kullanımına karşı en yaygın argümanlara bir göz atalım;
 
 **Zayıf Bir Programlama Dili İçin Önem Arz Edebilir**
-Genellikle desenlere olan ihtiyaç, insanların gerekli soyutlama seviyesine sahip olmayan bir programlama dili veya teknolojiyi seçtiğinde ortaya çıkar. Bu durumda, desenler, dile çok ihtiyaç duyulan süper yetenekler kazandıran bir yapışkan haline gelir.
+Genellikle desenlere olan ihtiyaç, insanların gerekli soyutlama seviyesine sahip olmayan bir programlama dili veya teknolojiyi seçtiğinde ortaya çıkar. Bu durumda, desenler, dile çok ihtiyaç duyulan süper yetenekler kazandıran bir iksir haline gelir.
 Örneğin, Strateji deseni (Strategy pattern), çoğu modern programlama dilinde basit bir lambda işlevle uygulanabilir.
 
 **Verimsiz Çözümler**
