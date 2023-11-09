@@ -74,7 +74,7 @@ Bir alt sınıf oluşturdunuz ve bağlantıları yeniden kullanabilmek için ver
 - Üst sınıfın sabitleri korunmalıdır. Bu muhtemelen en az resmi kuraldır. Sabitler, bir nesnenin anlam kazandığı koşullardır. Örneğin, bir kedinin sabitleri, dört bacağa, bir kuyruğa, miyavlayabilme yeteneğine sahip olmaktır. Sabitler hakkında kafa karıştırıcı olan şey, bunların, arayüz sözleşmeleri veya yöntemler içinde bir dizi belirleme veya birim testi ve istemci kodunun beklentileri aracılığıyla dolaylı olarak belirlenebilmesidir.
 Sabitlerle ilgili kuralı ihlal etmek en kolay olandır çünkü karmaşık bir sınıfın tüm sabitlerini yanlış anlayabilir veya fark edemeyebilirsiniz. Bu nedenle, bir sınıfı genişletmenin en güvenli yolu, yeni alanlar ve yöntemler tanıtmak ve üst sınıfın mevcut üyeleriyle uğraşmamaktır. Tabii ki, bu her zaman gerçek hayatta mümkün olmayabilir.
 
-- Alt sınıf, üst sınıfın özel alanlarının değerlerini değiştirmemelidir. Ne? Bunu nasıl mümkün olabilir? Birçok programlama dili, bazı yansıma mekanizmaları aracılığıyla bir sınıfın özel üyelerine erişmenize izin verir. Diğer diller (Python, JavaScript gibi), özel üyeler için hiçbir koruma sağlamazlar.
+- Alt sınıf, üst sınıfın private alanlarının değerlerini değiştirmemelidir. Ne? Bunu nasıl mümkün olabilir? Birçok programlama dili, bazı yansıma mekanizmaları aracılığıyla bir sınıfın private üyelerine erişmenize izin verir. Diğer diller (Python, JavaScript gibi), private üyeler için hiçbir koruma sağlamazlar.
 
 ## Interface Segregation Principle
 
