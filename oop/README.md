@@ -110,7 +110,7 @@ foreach (Animal a : bag)
 // Woof!
 ```
 
-Polimorfizm, bir programın bir nesnenin gerçek sınıfını tespit edebilme ve mevcut bağlamda gerçek türü bilinmese bile uygulanabilirliğini ortaya çıkarabilme yeteneğidir. Polimorfizmi, bir nesnenin genellikle miras aldığı bir sınıf veya uyguladığı bir arabirim gibi numara yapabilme yeteneği olarak da düşünebilirsiniz. Örneğimizde, çantadaki köpekler ve kediler, genel hayvanları taklit ediyordu.
+Polimorfizm, bir programın bir nesnenin gerçek sınıfını tespit edebilme ve mevcut bağlamda gerçek türü bilinmese bile uygulanabilirliğini ortaya çıkarabilme yeteneğidir. Polimorfizmi, bir nesnenin genellikle miras aldığı bir sınıf veya uyguladığı bir arabirim gibi numara yapabilme yeteneği olarak da düşünebilirsiniz. Örneğimizde, çantadaki köpekler ve kediler, genel hayvanları taklit etmektedir.
 
 # Nesneler Arasındaki ilişkiler
 
