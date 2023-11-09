@@ -15,11 +15,11 @@ Bu depo aşağıdaki tasarım desenlerini içerir:
 - [📖 Tasarım Desenlerine Giriş](introduction-to-design-paterns.md)
 - [📖 Tasarım Desenlerini Kataloğu](catalog-of-design-patterns.md)
 - 📚 Yaratıcı Desenler (Creational Patterns)
-- [📖 Fabrika Yöntemi (Factory Method)](factory_method/README.md)
-- [📖 Soyut Fabrika (Abstract Factory)](abstract_factory/README.md)
-- [📖 Builder (İnşaatçı)](builder/README.md)
-- [📖 Prototip (Prototype)](prototype/README.md)
-- [📖 Tekil (Singleton)](singleton/README.md)
+  - [📖 Fabrika Yöntemi (Factory Method)](factory_method/README.md)
+  - [📖 Soyut Fabrika (Abstract Factory)](abstract_factory/README.md)
+  - [📖 Builder (İnşaatçı)](builder/README.md)
+  - [📖 Prototip (Prototype)](prototype/README.md)
+  - [📖 Tekil (Singleton)](singleton/README.md)
 - ...
 
 ## 🚀 Nasıl Kullanılır
