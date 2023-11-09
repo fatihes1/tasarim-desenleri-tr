@@ -19,7 +19,7 @@ Bu prensibin temel amacı karmaşıklığı azaltmaktır. Sadece yaklaşık 200 
 
 Gerçek sorunlar, programınızın sürekli büyüdüğü ve değiştiği noktada ortaya çıkar. Bir noktada sınıflar o kadar büyük hale gelir ki ayrıntılarını artık hatırlayamazsınız. Kod gezinmesi yavaşlar ve belirli şeyleri bulmak için tüm sınıfları veya hatta tüm programı taramanız gerekebilir. Programdaki varlıkların sayısı beyninizin kapasitesini aşar ve kod üzerinde kontrolü kaybetmeye başladığınızı hissedersiniz.
 
-Dahası, bir sınıf çok fazla iş yaparsa, her bir iş değiştiğinde sınıfı her seferinde değiştirmeniz gerekir. Bunu yaparken, değiştirmeyi niyetlemedik diğer sınıf parçalarını bozma riski altındasınız.
+Dahası, bir sınıf çok fazla iş yaparsa, her bir iş değiştiğinde sınıfı her seferinde değiştirmeniz gerekir. Bunu yaparken, değiştirmeyi planlamadığınız diğer sınıf parçalarını bozma riski altındasınız.
 
 Eğer programın belirli yönlerine odaklanmakta zorlandığınızı hissediyorsanız, tek sorumluluk ilkesini hatırlayın ve bazı sınıfları parçalara ayırmanın zamanı geldiğini fark edin.
 
