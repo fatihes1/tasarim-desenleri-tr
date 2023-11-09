@@ -69,7 +69,7 @@ Kapsülleme, bir nesnenin durumunun ve davranışlarının diğer nesnelerden gi
 
 Bir şeyi kapsüllenmiş hale getirmek, onu özel hale (private) getirmektir. Bu nedenle yalnızca kendi sınıfının yöntemlerinin içinden erişilebilir hale gelir. Daha az kısıtlayıcı bir mod olan korumalı (protected) olarak adlandırılan bir yapı daha vardır ve bu yapı, bir sınıfın üyelerini alt sınıflar için de erişilebilir yapar. 
 
-Çoğu programlama dilinin arayüzleri ve soyut sınıflar/yöntemleri soyutlama ve kapsülleme kavramlarına dayanmaktadır. Modern nesne yönelimli programlama dillerinde, arayüz mekanizması (genellikle interface veya protocol anahtar kelimesi ile bildirilir), nesneler arasındaki etkileşim anlaşmalarını tanımlamanıza olanak tanır. Bu, arayüzlerin yalnızca nesnelerin davranışlarıyla ilgilendiği ve neden bir arayüzde bir alan bildiremeyeceğiniz nedenlerden biridir.
+Çoğu programlama dilinde arayüzler, soyut sınıflar/yöntemleri soyutlama ve kapsülleme kavramlarına dayanmaktadır. Modern nesne yönelimli programlama dillerinde, arayüz mekanizması (genellikle interface veya protocol anahtar kelimesi ile bildirilir), nesneler arasındaki etkileşim anlaşmalarını tanımlamanıza olanak tanır. Bu, arayüzlerin yalnızca nesnelerin davranışlarıyla ilgilendiği ve neden bir arayüzde bir alan bildiremeyeceğiniz nedenlerden biridir.
 
 *"Arayüz" (interface) terimi programlamada gerçekten kafa karıştırıcı olabilir. Bu terim, bir nesnenin programın geri kalanı ile etkileşime giren public bir bölümünü ifade ederken bununla beraber birçok programlama dilinde "arayüz" olarak adlandırılan bir dil özelliği de bulunmaktadır. Bu terimin çift kullanımı, yazılım geliştirme alanındaki yeni başlayanlar için zorlayıcı olabilir.*
 
