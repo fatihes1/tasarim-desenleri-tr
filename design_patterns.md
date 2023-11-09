@@ -39,14 +39,14 @@ Gerçek şu ki, bir programcı olarak birçok yıl boyunca hiçbir desen hakkın
 
 Desen kullanımına karşı en yaygın argümanlara bir göz atalım;
 
-**Zayıf Bir Programlama Dili İçin Önem Arz Edebilir**
+**Zayıf Bir Programlama Dili İçin Önem Arz Edebilir :**
 Genellikle desenlere olan ihtiyaç, insanların gerekli soyutlama seviyesine sahip olmayan bir programlama dili veya teknolojiyi seçtiğinde ortaya çıkar. Bu durumda, desenler, dile çok ihtiyaç duyulan süper yetenekler kazandıran bir iksir haline gelir.
 Örneğin, Strateji deseni (Strategy pattern), çoğu modern programlama dilinde basit bir lambda işlevle uygulanabilir.
 
-**Verimsiz Çözümler**
+**Verimsiz Çözümler :**
 Desenler, zaten yaygın olarak kullanılan yaklaşımları sistemleştirmeye çalışır. Bu birleştirme, birçok kişi tarafından bir dogma olarak görülür ve desenleri projelerinin bağlamına uyarlamadan "to the letter" uygularlar.
 
-**Gereksiz Kullanım**
+**Gereksiz Kullanım :**
 > *"If all you have is a hammer, everything looks like a nail."* (Abraham Maslow)
 > 
 > Türkçe Karşılığı: *"Eğer elinizde sadece bir çekici varsa, her şey bir çivi gibi görünür."*
