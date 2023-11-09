@@ -18,7 +18,7 @@ Bütün kediler de benzer şekilde davranır: nefes alır, yer, koşar, uyur ve 
 
 💡 *Nesnenin alanlarında depolanan verilere genellikle durum (state) olarak ulaşılır ve nesnenin tüm yöntemleri davranışını tanımlar.*
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281370473-f11f5454-a99d-45e9-8596-7caacc8f202f.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T104612Z&X-Amz-Expires=300&X-Amz-Signature=d486072c642bdbf3c52f483814fa0062a9f20bce34f9aa77d7d1ebbd6b13a7e4&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/1d15cc58-6064-4f67-95b0-a549527d1e18)
 
 *Nesneler, sınıfların örnekleridir (instance).*
 
@@ -32,13 +32,13 @@ Bir sınıf hakkında konuştuğumuzda her şey yolunda görünebilir. Doğal ol
 
 Komşunuzun Fido adında bir köpeği olduğunu düşünelim. Görünüşe göre, köpeklerin ve kedilerin çok ortak noktası var: isim, cinsiyet, yaş ve renk gibi özellikler hem köpeklerin hem de kedilerin ortak nitelikleridir. Köpekler de, kedilerin yaptığı gibi nefes alabilir, uyuyabilir ve koşabilir. O halde, ortak nitelikleri ve davranışlar barındıracak temel `Animal` sınıfını tanımlayabiliriz.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281372173-faf6bf7a-f777-42bc-9594-02986bfc63be.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T105242Z&X-Amz-Expires=300&X-Amz-Signature=c8b5acea2dfe868120cd166cb75df7bc3a7d449c252d1339a7f2feab6ea55485&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/016410fc-a35a-4a53-abd0-d49cbf18f2a7)
 
 *Bir sınıf hiyerarşisinin UML diyagramı. Bu diyagramdaki tüm sınıflar Hayvan (Animal) sınıfı hiyerarşisinin bir parçasıdır.*
 
 Dilerseniz bir adım daha da ileri gidebilir ve Hayvanlar (`Animals`) ve Bitkiler (`Plants`) için bir üst sınıf haline gelecek olan tüm canlı Organizmalar (`Organisms`) için daha genel bir sınıf oluşturabiliriz. Böyle bir sınıf piramidi bir hiyerarşidir. Böyle bir hiyerarşide Kedi (`Cat`) sınıfı, hem Hayvan (`Animals`)  hem de Organizma (`Organisms`) sınıflarından her şeyi miras alır.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281373064-c99c819a-6fac-430a-af7e-b26e20aeaff5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T105611Z&X-Amz-Expires=300&X-Amz-Signature=55b53b4e3372626f3101daec3c065a8810af97d2f9f76fbfb28ff04ed8f1fbf0&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/ce136619-5a11-4252-8e9c-df454f94f938)
 
 *UML diyagramındaki sınıflar aralarındaki ilişkiyi göstermek, içeriklerini göstermekten daha önemliyse basitleştirilebilir.*
 
@@ -47,7 +47,7 @@ Dilerseniz bir adım daha da ileri gidebilir ve Hayvanlar (`Animals`) ve Bitkile
 
 Nesne yönelimli programlama, onu diğer programlama paradigmalarından ayıran kavramlar olarak dört prensibe dayanır.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281374180-fd3b52bf-1e93-4bcc-8701-b18a42678d5e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T110001Z&X-Amz-Expires=300&X-Amz-Signature=6dc8add4b843679f258d09bdb9899619429f403f6b50e8a2c30abc9632bbaf15&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/daf39393-1522-40ea-b453-9327a6e91c4a)
 
 ## Soyutlama (Abstraction)
 
@@ -55,7 +55,7 @@ Nesne yönelimli programlama, onu diğer programlama paradigmalarından ayıran 
 
 Örneğin, bir Uçak (`Airplane`) sınıfı muhtemelen hem bir uçuş simülatöründe hem de bir uçuş rezervasyon uygulamasında var olabilir. Ancak birinci durumda, gerçek uçuşa ilişkin ayrıntıları içerecektir, oysa ikinci durumda sadece koltuk düzenini ve hangi koltukların kullanılabilir olduğunu ele almanız yeterli olacaktır.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281374994-8c973724-f452-4636-81ee-2402137bb5cf.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T110301Z&X-Amz-Expires=300&X-Amz-Signature=f309cd123bacd2c4855257b166dbe7e4d39cb1182f46edcf8639b7cf939c956f&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/112eaf18-7cb4-40f7-b2d8-b6d79c13aa60)
 
 *Aynı gerçek dünya nesnesinin farklı modelleri.*
 
@@ -75,7 +75,7 @@ Bir şeyi kapsüllenmiş hale getirmek, onu özel hale (private) getirmektir. Bu
 
 Düşünü ki `FlyingTransport` adında bir arayüzünüz var ve içinde `fly(origin, destination, passengers)` adında bir metot bulunuyor. Hava taşımacılığı simülatörü tasarlarken, Havalanı (`Airport`) sınıfını yalnızca `FlyingTransport` arayüzünü uygulayan nesnelerle çalışacak şekilde sınırlayabilirsiniz. Böylece bir havalimanı nesnesine iletilen herhangi bir nesnenin (`Airplane`, `Helicopter` veya `DomesticatedGryphon` gibi) bu tür bir havalimanından kullanılabileceğinden emin olabilirsiniz.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281381339-9b7a1907-c62a-44e1-8875-626ed122789b.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T112137Z&X-Amz-Expires=300&X-Amz-Signature=00e4ca5a6367aa39d4d1f114b96c502f3369faded5e71ad156566cfa6082c170&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/3571097a-e87f-4af1-a64a-6b174968c753)
 
 *Bir arabirim uygulayan birkaç sınıfın UML diyagramı.*
 
@@ -87,7 +87,7 @@ Miras, mevcut sınıfların üzerine yeni sınıflar oluşturma yeteneğidir. Mi
 
 Miras kullanmanın sonucu olarak alt sınıflar, üst sınıfın arayüzüne sahip olurlar. Bir yöntem, üst sınıfta bildirildiyse, alt sınıfta gizleyemezsiniz. Ayrıca, alt sınıfınız için anlamsız olsa bile soyut yöntemleri uygulamak zorundasınız.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281382971-b71c0a84-86f7-4fa7-8d1c-4e18966e860f.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T112810Z&X-Amz-Expires=300&X-Amz-Signature=93288468ffd6fd8689bb5a98874f5f6b10562c03d795498bc08d9973bbe58d6b&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/fd4ff5a5-c21c-4233-9326-1ad4dc9e31cd)
 
 *Aynı anda birden çok arabirimi uygulamaya karşı tek bir sınıfı genişletmenin UML diyagramı.*
 
@@ -97,7 +97,7 @@ Miras kullanmanın sonucu olarak alt sınıflar, üst sınıfın arayüzüne sah
 
 Hayvan örneklerine geri dönelim. Çoğu Hayvan (`Animal`) ses çıkarabilir. Tüm alt sınıfların doğru sesi çıkarabilmesi için temel `makeSound` yöntemini geçersiz kılması gerekeceğini tahmin edebiliriz; bu nedenle onu hemen soyut (abstract) olarak tanımlayabiliriz. Bu, süper sınıfta yöntemin varsayılan uygulamasını atlayabilmemize ve tüm alt sınıfların kendi uygulamalarını oluşturmasını zorunlu kılmamıza olanak tanır.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281384189-909f8e0e-a3aa-4cd0-aeb8-a5aa834e401e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T113254Z&X-Amz-Expires=300&X-Amz-Signature=ee715bb3ad9968b452bb466fa7e148c4643aed6e33167b0146e5057ad92d483d&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/9a5e89ce-2bd0-42e4-ab36-8dec134fe25e)
 
 Hayvanları büyük bir çantaya koymuş olsak ve ardından gözlerimizi kapatsak ve birer birer hayvanları çantadan çıkarsak, çantadan bir hayvan aldıktan sonra onun kesin olarak ne olduğunu bilemeyiz. Ancak onu yeterince sıkıca seversek, hayvan, somut (concrete) sınıfına bağlı olarak belirli bir sevinç sesi çıkaracaktır.
 
