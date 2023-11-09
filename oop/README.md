@@ -116,7 +116,7 @@ Polimorfizm, bir programın bir nesnenin gerçek sınıfını tespit edebilme ve
 
 İncelediğimiz kavramlardan olan kalıtım (inheritance) ve uygulamanın (implementation) yanı sıra, henüz konuşmadığımız nesneler arasındaki diğer ilişki türleri de bulunmaktadır.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281385507-a38caaa9-929c-4f6c-be83-5299c0f0a12e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T113816Z&X-Amz-Expires=300&X-Amz-Signature=6bfc961ec3410eda7b899d5e5625aba6d2f763af134b8de02efcbe9714b94698&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/5fd64b13-ea7e-467d-96d8-e96c4c86844b)
 
 *UML Association: Profesör öğrencilerle iletişim kurar.*
 
@@ -125,13 +125,13 @@ Polimorfizm, bir programın bir nesnenin gerçek sınıfını tespit edebilme ve
 Genel olarak, bir bağlantıyı bir sınıfta bir alan gibi temsil etmek için kullanırsınız. Bağlantı her zaman orada bulunur, bir siparişten müşterisini isteyebilirsiniz. Gerçekten bir alan olması gerekmez, daha çok bir arabirim perspektifinden modellemeniz gerekiyorsa, sadece siparişin müşterisini döndürecek bir yöntemin varlığını gösterir.
 
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281386317-d44c9b2f-0643-4ebe-828f-2f89a6a6b3bc.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T114144Z&X-Amz-Expires=300&X-Amz-Signature=00aa3d42364973f58d8ab5df096233bda1acc16c5147932371a10907bae469d6&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/3393526f-a288-4567-8a5b-0d34b679ff70)
 
 *UML Dependency. Profesör maaşa bağlıdır.*
 
 **Bağımlılık (Dependency)**, genellikle nesneler arasında kalıcı bir bağlantı olmadığını ima eden bir birliktelik türüdür. Bağımlılık, genellikle (ancak her zaman değil) bir nesnenin bir başka nesneyi bir yöntem parametresi olarak kabul ettiği, başlattığı veya kullandığı anlamına gelir. Sınıflar arasında bir bağımlılığı nasıl belirleyebilirsiniz? Cevap oldukça basit: Bir sınıfın tanımındaki değişikliklerin başka bir sınıfta değişikliklere neden olması durumunda iki sınıf arasında bir bağımlılık vardır.
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281386907-ee1be8b1-e029-44bd-87ee-337aaeed9b40.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T114415Z&X-Amz-Expires=300&X-Amz-Signature=76626f75a3ace4189f72ebf28c3df5372d2580b24fc359cea35f69518c15f27b&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/028fd5ef-45c9-45cf-b038-2f4f268722bc)
 
 *UML Composition. Üniversite bölümlerden oluşmaktadır.*
 
@@ -139,7 +139,7 @@ Genel olarak, bir bağlantıyı bir sınıfta bir alan gibi temsil etmek için k
 
 *Nesneler arasındaki ilişkilerden bahsederken, UML'nin sınıflar arasındaki ilişkileri temsil ettiğini unutmayın. Bu, bir üniversite nesnesinin, diyagramdaki her varlık için sadece bir "blok" görseniz bile birden fazla bölümden oluşabileceği anlamına gelir. UML notasyonu ilişkilerin her iki tarafındaki miktarları temsil edebilir, ancak miktarlar bağlamdan açıkça görünüyorsa bunları göz ardı etmekte uygundur.*
 
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/54971670/281389562-d9d77130-dcf1-4594-9e0d-09c92b3ca0b0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231108T115506Z&X-Amz-Expires=300&X-Amz-Signature=c8c87bf5ae2888d5fffc0b8135ea9ec9b42e25fdef0c0424504a528e5d6ce885&X-Amz-SignedHeaders=host&actor_id=54971670&key_id=0&repo_id=699041305)
+![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/0db683da-d574-499a-8406-9f1d7a240e91)
 
 *UML Aggregation. Bölüm profesörlerden oluşmaktadır.*
 
