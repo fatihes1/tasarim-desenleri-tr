@@ -15,7 +15,7 @@ Her şeyde olduğu gibi, bu prensipleri düşünmeden kullanmak, işe yarar verm
 
 Her sınıfı, yazılım tarafından sağlanan işlevselliğin yalnızca bir bölümünden sorumlu olacak şekilde yapmaya çalışın ve bu sorumluluğun tamamen sınıf içinde kapsanmasını sağlayın (sınıf içinde gizlenmiş de denebilir).
 
-Bu prensibin temel amacı karmaşıklığı azaltmaktır. Sadece yaklaşık 200 satır kodu olan bir program için sofistike bir tasarım icat etmeniz gerekmez. Bir düzine yöntemi düzgün hale getirin ve sorun yaşamazsınız.
+Bu prensibin temel amacı karmaşıklığı azaltmaktır. Sadece yaklaşık 200 satır kodu olan bir program için sofistike bir tasarım icat etmeniz gerekmez. Bir düzine yöntemi düzgün hale getirin. Böylece sorun yaşamazsınız.
 
 Gerçek sorunlar, programınızın sürekli büyüdüğü ve değiştiği noktada ortaya çıkar. Bir noktada sınıflar o kadar büyük hale gelir ki ayrıntılarını artık hatırlayamazsınız. Kod gezinmesi yavaşlar ve belirli şeyleri bulmak için tüm sınıfları veya hatta tüm programı taramanız gerekebilir. Programdaki varlıkların sayısı beyninizin kapasitesini aşar ve kod üzerinde kontrolü kaybetmeye başladığınızı hissedersiniz.
 
