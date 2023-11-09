@@ -48,7 +48,40 @@ Bu depo aşağıdaki tasarım desenlerini içerir:
 
 ## 🚀 Nasıl Kullanılır
 
-Her bir tasarım deseninin detaylarını ve açıklamalarını içeren dosyalara depo içerisindeki ilgili bağlantılar aracılığıyla erişebilirsiniz. Her tasarım deseni, belirli bir sorunu çözmek veya bir görevi yerine getirmek için kullanabileceğiniz bir tasarım şeması ve örnekler içerir.
+Her bir tasarım deseninin detaylarını ve açıklamalarını içeren dosyalara depo içerisindeki ilgili bağlantılar aracılığıyla erişebilirsiniz. Her tasarım deseni, belirli bir sorunu çözmek veya bir görevi yerine getirmek için kullanabileceğiniz bir tasarım şeması ve örnekler içerir. Her bir tasarım deseni açıklaması içerisinde şu şekilde bir sıralama mevcuttur:
+
+💬 Amaç
+Tasarım deseninin temel amacını açıklar. Tasarım deseni neyi hedefliyor, hangi sorunu çözmeye çalışıyor?
+
+🙁 Problem
+Bu bölüm, tasarım deseninin çözmeye çalıştığı spesifik bir sorunu tanımlar. Genellikle bu kısım, yazılım geliştirme sürecinde karşılaşılan zorlukları içerir.
+
+😊 Çözüm
+Tasarım deseninin sunduğu çözümü ayrıntılı bir şekilde açıklar. Hangi prensiplere dayandığını ve sorunu nasıl ele aldığını belirtir.
+
+🚙 Gerçek Dünya Örneği
+Tasarım deseninin gerçek dünya bir örneğini sunar. Bu, tasarım deseninin pratikte nasıl kullanılabileceğini anlamak için örnek bir durumu içerir.
+
+⚙️ Yapı
+Tasarım deseninin temel yapısal elemanlarını tanımlar. Genellikle sınıflar, nesneler ve ilişkiler arasındaki organizasyonu içerir.
+
+💻 Sözde Kod (Pseudocode)
+Tasarım deseninin temel kavramlarını içeren basit bir sözde kod örneği sağlar. Bu, tasarım desenini daha iyi anlamak için bir başlangıç noktası sağlar.
+
+💡 Uygulanabilirlik
+Hangi durumlarda ve hangi koşullarda tasarım deseninin kullanışlı olduğunu belirtir. Kullanılabilirlik konusunda rehberlik sağlar.
+
+📝 Nasıl Uygulanır?
+Tasarım desenini uygulamanın adım adım yönergelerini içerir. Bu bölüm, tasarım desenini projenize nasıl entegre edeceğinizi anlamanıza yardımcı olur.
+
+⚖️ Artıları ve Eksileri
+Tasarım deseninin avantajlarını ve dezavantajlarını tartışır. Hangi durumlarda etkili olduğunu ve potansiyel zorlukları vurgular.
+
+🔀 Diğer Tasarım Desenleri İlişkileri
+Bu bölüm, incelenen tasarım deseninin diğer tasarım desenleriyle nasıl ilişkili olduğunu açıklar. Hangi desenlere benzerlik gösterir veya hangi desenlerle birlikte kullanılabilir.
+
+👾 Kod Örnekleri
+Her bir tasarım deseni için örnek kodları içerir. Bu kod örnekleri, tasarım desenini gerçek projelerde nasıl uygulayabileceğinizi gösterir.
 
 ## 🤝 Katkıda Bulunma
 
