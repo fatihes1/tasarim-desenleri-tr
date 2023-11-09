@@ -85,7 +85,7 @@ Bu sınıflardaki `fly` yönteminin uygulanmasını istediğiniz şekilde deği�
 
 Miras, mevcut sınıfların üzerine yeni sınıflar oluşturma yeteneğidir. Mirasın başlıca faydası kodun yeniden kullanılabilmesidir. Mevcut bir sınıftan biraz farklı bir sınıf oluşturmak isterseniz, kodu çoğaltmanıza gerek yoktur. Bunun yerine mevcut sınıfı genişletirsiniz ve ekstra işlevselliği sonuçta oluşturulan bir alt sınıfa (subclass) koyarsınız, bu alt sınıf, üst sınıfın alanlarını ve yöntemlerini devralır.
 
-Miras kullanmanın sonucu olarak alt sınıflar, üst sınıfın arayüzüne sahip olurlar. Bir yöntem, üst sınıfta bildirildiyse, alt sınıfta gizleyemezsiniz. Ayrıca, alt sınıfınız için anlamsız olsa bile soyut yöntemleri uygulamak zorundasınız.
+Miras kullanmanın sonucu olarak alt sınıflar, üst sınıfın arayüzüne sahip olurlar. Bir yöntem, üst sınıfta tanımlandıysa, alt sınıfta gizleyemezsiniz. Ayrıca, alt sınıfınız için anlamsız olsa bile soyut yöntemleri uygulamak zorundasınız.
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/fd4ff5a5-c21c-4233-9326-1ad4dc9e31cd)
 
