@@ -51,7 +51,7 @@ Nesne yönelimli programlama, onu diğer programlama paradigmalarından ayıran 
 
 ## Soyutlama (Abstraction)
 
-Çoğu zaman, OOP kullanarak bir program oluştururken, programın nesnelerini gerçek dünya nesnelerine dayalı olarak oluşturursunuz. Bununla birlikte, programın nesneleri, orijinallerini %100 doğrulukla temsil etmez. Aslında bakarsanız bu nadiren gereklidir Bunun yerine, nesneleriniz yalnızca belirli bir bağlamdaki gerçek nesnelerin özelliklerini ve davranışlarını modellemektedir, geri kalan kısmını göz ardı edebiliriz.
+Çoğu zaman, OOP kullanarak bir program oluştururken, programın nesnelerini gerçek dünya nesnelerine dayalı olarak oluşturursunuz. Bununla birlikte, programın nesneleri, orijinallerini %100 doğrulukla temsil etmez. Aslında bakarsanız bu nadiren gereklidir. Bunun yerine, nesneleriniz yalnızca belirli bir bağlamdaki gerçek nesnelerin özelliklerini ve davranışlarını modellemektedir, geri kalan kısmını göz ardı edebiliriz.
 
 Örneğin, bir Uçak (`Airplane`) sınıfı muhtemelen hem bir uçuş simülatöründe hem de bir uçuş rezervasyon uygulamasında var olabilir. Ancak birinci durumda, gerçek uçuşa ilişkin ayrıntıları içerecektir, oysa ikinci durumda sadece koltuk düzenini ve hangi koltukların kullanılabilir olduğunu ele almanız yeterli olacaktır.
 
