@@ -20,7 +20,7 @@ Bu işiniz için oldukça iyi bir gelişme değil mi? Ancak kodun durumu nasıl?
 Sonuç olarak, taşınan nesnelerinin sınıfına bağlı olarak uygulamanın davranışını değiştiren koşullu ifadelerle doldukça, günbegün daha karmaşık bir kod elde edersiniz.
 
 ## 😊 Çözüm
-"Factory Method" deseni, doğrudan nesne oluşturma çağrılarını (`new` operatörünü kullanarak) özel bir fabrika yöntemi çağrılarıyla değiştirmenizi önerir. Endişelenmeyin: nesneler hala `new` operatörü kullanılarak oluşturuyor olacaksınız, ancak bu işlem fabrika yöntemi içinden çağrılıyor. Bir fabrika (Factory) yöntemi tarafından döndürülen nesnelere genellikle ürünler (products) denir.
+"Factory Method" deseni, doğrudan nesne oluşturma çağrılarını (`new` operatörü ile) özel bir fabrika yöntemi çağrılarıyla değiştirmenizi önerir. Endişelenmeyin: nesneler hala `new` operatörü kullanılarak oluşturuyor olacaksınız, ancak bu işlem fabrika yöntemi içinden çağrılacaktır. Bir fabrika (Factory) yöntemi tarafından döndürülen nesnelere genellikle ürünler (products) denir.
 
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/solution1.png)
 
