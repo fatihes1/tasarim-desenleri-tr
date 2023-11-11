@@ -11,7 +11,7 @@ Düşünün ki bir lojistik yönetimi uygulaması oluşturuyorsunuz. Uygulamanı
 
 Bir süre sonra uygulamanız oldukça popüler hale gelir. Her gün deniz taşımacılığı şirketlerinden onlarca istek almaya başladınız ve deniz lojistiğini uygulamanıza dahil etmeye karar verdiniz.
 
-![](https://refactoring.guru/images/patterns/diagrams/factory-method/problem1-en.png)
+![](https://refactoring.guru/images/patterns/diagrxams/factory-method/problem1-en.png)
 
 *Kodun geri kalanı zaten mevcut sınıflara bağlıysa programa yeni bir sınıf eklemek sanıldığı kadar kolay olmayacaktır.*
 
@@ -46,7 +46,7 @@ Fabrika yöntemini kullanan kod (genellikle istemci kodu olarak adlandırılır)
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/structure.png)
 
 1. **Product**, yaratıcının (creator) ve alt sınıflarının (sub classes) üretebileceği tüm nesneler için ortak olan **arayüzü** (interface) tanımlar.
-2. **Beton ürünler (Concrete Products)**, ürün arayüzünün (Product interface) farklı uygulamalarıdır yani implementasyonudur.
+2. **Concrete Products**, ürün arayüzünün (Product interface) farklı uygulamalarıdır yani implementasyonudur.
 3. **Creator sınıfı**, yeni ürün nesnelerini döndüren fabrika yöntemini tanımlar. Bu yöntemin dönüş türünün ürün arayüzü (Product interface) ile eşleşmesi önemlidir.
 Fabrika yöntemini, tüm alt sınıflarında kendine özgü tanımlanmasını zorlamak için bu yöntemi soyut (abstract) olarak tanımlayabilirsiniz. Alternatif olarak, temel fabrika yöntemi varsayılan bir ürün türünü döndürebilir.
 Dikkat edilmesi gereken bir nokta, adına rağmen ürün oluşturma işleminin yaratıcının (ConcreteCreatorA ve ConcreteCreatorA) asıl sorumluluğu olmadığıdır. Genellikle yaratıcı sınıf, ürünlerle ilgili bazı temel iş mantığına zaten sahiptir. Fabrika yöntemi, bu mantığı somut ürün sınıflarından ayırmaya yardımcı olur. İşte bir benzetme: Büyük bir yazılım geliştirme şirketi, programcılar için bir eğitim departmanına sahip olabilir. Ancak şirketin bütün olarak ana işlevi hala kod yazmaktır, programcılar üretmek değildir.
