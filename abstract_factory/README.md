@@ -206,7 +206,7 @@ class ApplicationConfigurator is method main() is config = readApplicationConfig
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Birçok tasarım, Fabrika Yöntemi (Factory method) (daha az karmaşık ve alt sınıflar yoluyla daha fazla özelleştirilebilir) kullanılarak başlar ve Soyut Fabrika (Abstract Factory), Prototip (Prototype) veya Oluşturucuya (Builder) (daha esnek, ancak daha karmaşık) gibi tasarım desenlerine doğru gelişir.
+- Birçok tasarım, **Fabrika Yöntemi (Factory method)** (daha az karmaşık ve alt sınıflar yoluyla daha fazla özelleştirilebilir) kullanılarak başlar ve **Soyut Fabrika (Abstract Factory)**, **Prototip (Prototype)** veya **Oluşturucu/ İnşaatçı (Builder)** (daha esnek, ancak daha karmaşık) gibi tasarım desenlerine doğru gelişir.
 
 - Builder, karmaşık nesneleri adım adım oluşturmaya odaklanır. Abstract Factory, ilişkili nesnelerin ailelerini oluşturmayı özelleştirir. Abstract Factory, ürünü hemen döndürürken, Builder size ürünü almadan önce bazı ek inşaat adımlarını çalıştırma imkanı sunar.
 
