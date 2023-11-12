@@ -273,25 +273,25 @@ class ApplicationConfigurator is
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Adapter deseni, mevcut bir nesnenin arayüzünü değiştirirken, Decorator deseni nesneyi arayüzünü değiştirmeden geliştirir. Ayrıca, Decorator deseni, Adapter deseni kullanıldığında mümkün olmayan özyinelemeli bir bileşimi destekler.
+- **Adapter** deseni, mevcut bir nesnenin arayüzünü değiştirirken, **Decorator** deseni nesneyi arayüzünü değiştirmeden geliştirir. Ayrıca, **Decorator** deseni, **Adapter** deseni kullanıldığında mümkün olmayan özyinelemeli bir bileşimi destekler.
 
-- Adapter deseni, sarmalanan nesneye farklı bir arayüz sağlar, Proxy deseni ona aynı arayüzü sağlar ve Decorator deseni ona geliştirilmiş bir arayüz sağlar.
+- **Adapter** deseni, sarmalanan nesneye farklı bir arayüz sağlar, **Proxy** deseni ona aynı arayüzü sağlar ve Decorator deseni ona geliştirilmiş bir arayüz sağlar.
 
-- Sorumluluk Zinciri deseni ve Decorator deseni çok benzer sınıf yapılarına sahiptir. Her iki desen de işlemi bir dizi nesne üzerinden geçirmek için özyinelemeli kompozisyona dayanır. Ancak, birkaç önemli fark vardır.
+- **Sorumluluk Zinciri** deseni ve **Decorator** deseni çok benzer sınıf yapılarına sahiptir. Her iki desen de işlemi bir dizi nesne üzerinden geçirmek için özyinelemeli kompozisyona dayanır. Ancak, birkaç önemli fark vardır.
 
-- Sorumluluk Zinciri deseni elemanları, bağımsız olarak herhangi bir işlemi gerçekleştirebilirler. Ayrıca, isteği herhangi bir noktada iletmeyi de durdurabilirler. Öte yandan, çeşitli Decorator'lar nesnenin davranışını temel arayüzle uyumlu tutarken genişletebilirler. Ayrıca, dekoratörlerin isteği kesintiye uğratma yetkisi yoktur.
+- **Sorumluluk Zinciri** deseni elemanları, bağımsız olarak herhangi bir işlemi gerçekleştirebilirler. Ayrıca, isteği herhangi bir noktada iletmeyi de durdurabilirler. Öte yandan, çeşitli Decorator'lar nesnenin davranışını temel arayüzle uyumlu tutarken genişletebilirler. Ayrıca, dekoratörlerin isteği kesintiye uğratma yetkisi yoktur.
 
-- Kompozit deseni ve Decorator deseni benzer yapı diyagramlarına sahiptir, çünkü her ikisi de açık uçlu bir nesne sayısını düzenlemek için özyinelemeli bir kompozisyona dayanır.
+- **Kompozit** deseni ve **Decorator** deseni benzer yapı diyagramlarına sahiptir, çünkü her ikisi de açık uçlu bir nesne sayısını düzenlemek için özyinelemeli bir kompozisyona dayanır.
 
-- Bir Decorator, bir Kompozit'e benzer, ancak yalnızca bir çocuk bileşeni vardır. Başka önemli bir fark daha vardır: Decorator deseni, sarmalanan nesneye ek sorumluluklar eklerken, Kompozit deseni yalnızca çocuklarının sonuçlarını "toplar".
+- Bir **Decorator**, bir **Kompozit** desenine benzer, ancak yalnızca bir çocuk bileşeni vardır. Başka önemli bir fark daha vardır: **Decorator** deseni, sarmalanan nesneye ek sorumluluklar eklerken, **Kompozit** deseni yalnızca çocuklarının sonuçlarını "toplar".
 
-- Ancak, desenler aynı zamanda işbirliği yapabilir: Bir Kompozit ağacındaki belirli bir nesnenin davranışını genişletmek için Decorator kullanabilirsiniz.
+- Bununla beraber, desenler aynı zamanda işbirliği yapabilir: Bir **Kompozit** ağacındaki belirli bir nesnenin davranışını genişletmek için **Decorator** deseni kullanabilirsiniz.
 
-- Kompozit deseni ve Decorator desenini yoğun bir şekilde kullanan tasarımlar, genellikle Prototip deseni kullanmanın faydalarını görebilir. Desenin uygulanması, karmaşık yapıları sıfırdan yeniden oluşturmak yerine kopyalamanıza olanak tanır.
+- **Kompozit** deseni ve **Decorator** desenini yoğun bir şekilde kullanan tasarımlar, genellikle **Prototip** deseni kullanmanın faydalarını görebilir. **Desenin** uygulanması, karmaşık yapıları sıfırdan yeniden oluşturmak yerine kopyalamanıza olanak tanır.
 
-- Decorator deseni, bir nesnenin kabuğunu değiştirmenize olanak tanırken, Strateji deseni size içini değiştirme olanağı sunar.
+- **Decorator** deseni, bir nesnenin kabuğunu değiştirmenize olanak tanırken, **Strateji** deseni size içini değiştirme olanağı sunar.
 
-- Decorator deseni ve Proxy deseni benzer yapıları paylaşırlar, ancak çok farklı amaçlara sahiptirler. Her iki desen de bir nesnenin bazı işleri başka bir nesneye devretmesi gerektiği kompozisyon prensibine dayanmaktadır. Fark, bir Proxy'nin genellikle kendi hizmet nesnesinin yaşam döngüsünü kendi başına yönetmesidir, oysa Decorator'ların kompozisyonu her zaman istemci tarafından kontrol edilir.
+- **Decorator** deseni ve **Proxy** deseni benzer yapıları paylaşırlar, ancak çok farklı amaçlara sahiptirler. Her iki desen de bir nesnenin bazı işleri başka bir nesneye devretmesi gerektiği kompozisyon prensibine dayanmaktadır. Fark, bir **Proxy** deseninin genellikle kendi hizmet nesnesinin yaşam döngüsünü kendi başına yönetmesidir, oysa **Decorator** deseninin kompozisyonu her zaman istemci tarafından kontrol edilir.
 
   
 ##  👾 Kod Örnekleri
