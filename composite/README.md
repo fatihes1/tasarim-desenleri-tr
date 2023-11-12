@@ -191,13 +191,13 @@ Bu işlemlerin bileşen arayüzünde bildirilebileceğini unutmayın. Bu, Arayü
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Karmaşık Bileşik/Kompozit ağaçlar oluştururken Yapıcı (Builder) tasarım desenini kullanabilirsiniz, çünkü yapısını çalışma adımlarını tekrarlayan şekilde programlayabilirsiniz.
+- Karmaşık **Bileşik/Kompozit** ağaçlar oluştururken **Yapıcı (Builder)** tasarım desenini kullanabilirsiniz, çünkü yapısını çalışma adımlarını tekrarlayan şekilde programlayabilirsiniz.
 
-- Sorumluluk Zinciri (Chain of Responsibility) tasarım deseni, genellikle Kompozit deseni ile birlikte kullanılır. Bu durumda, bir yaprak bileşen bir isteği aldığında, bu isteği tüm üst bileşenlerin zinciri boyunca nesne ağacının köküne kadar iletebilir.
+- **Sorumluluk Zinciri (Chain of Responsibility)** tasarım deseni, genellikle **Kompozit** deseni ile birlikte kullanılır. Bu durumda, bir yaprak bileşen bir isteği aldığında, bu isteği tüm üst bileşenlerin zinciri boyunca nesne ağacının köküne kadar iletebilir.
 
-- Kompozit ağaçlarını gezmeniz için Yineleyicileri (Iterators) deseni kullanabilirsiniz.
+- **Kompozit** ağaçlarını gezmeniz için **Yineleyicileri (Iterators)** deseni kullanabilirsiniz.
 
-- Bir tüm Kompozit ağaç üzerinde bir işlem gerçekleştirmek için Ziyaretçi (Visitor) tasarım deseninini kullanabilirsiniz.
+- Bir tüm **Kompozit** ağaç üzerinde bir işlem gerçekleştirmek için **Ziyaretçi (Visitor)** tasarım deseninini kullanabilirsiniz.
 
 
 
