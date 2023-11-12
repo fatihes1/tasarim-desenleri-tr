@@ -128,7 +128,7 @@ hole.fits(large_sqpeg_adapter) // false
 
 ##  💡Uygulanabilirlik
 
-**🐞 Arayüzü kodunuzun geri kalanıyla uyumlu değilken ve mevcut bir sınıfı kullanmak istediğinizde Adapter sınıfını kullanın. **
+**🐞 Arayüzü kodunuzun geri kalanıyla uyumlu değilken ve mevcut bir sınıfı kullanmak istediğinizde Adapter sınıfını kullanın.**
 
 ⚡️ Bağdaştırıcı modeli, kodunuz ile eski bir sınıf, 3. taraf bir sınıf veya garip bir arayüze sahip başka bir sınıf arasında çevirmen görevi gören bir orta katman sınıfı oluşturmanıza olanak tanır.
   
