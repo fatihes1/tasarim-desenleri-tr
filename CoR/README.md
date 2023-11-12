@@ -242,7 +242,7 @@ Bu sınıf, zincirdeki bir sonraki işleyiciye bir referansı saklamak için bir
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
 - **Sorumluluk Zinciri**, **Command**, **Mediator** ve **Observer** desenleri, isteklerin göndericileri ve alıcıları arasında bağlantı kurmanın çeşitli yollarını ele alır:
-	- Sorumluluk Zinciri, bir talebi potansiyel alıcılardan oluşan dinamik bir zincir boyunca, içlerinden biri bunu yerine getirene kadar sırayla iletir.
+	- **Sorumluluk Zinciri**, bir talebi potansiyel alıcılardan oluşan dinamik bir zincir boyunca, içlerinden biri bunu yerine getirene kadar sırayla iletir.
 	- **Command**, gönderenler ve alıcılar arasında tek yönlü bağlantılar kurar.
 	- **Mediator**, gönderenler ve alıcılar arasındaki doğrudan bağlantıları ortadan kaldırarak onları bir aracı nesne aracılığıyla dolaylı olarak iletişim kurmaya zorlar.
 	- **Observer**, alıcıların dinamik olarak alma isteklerine abone olmalarını ve abonelikten çıkmalarını sağlar.
