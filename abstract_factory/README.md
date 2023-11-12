@@ -18,7 +18,7 @@ Bir mobilya mağazası simülatörü oluşturduğunuzu hayal edin. Kodunuz aşa�
 
 1. Ürünleriniz, Sandalye, Kanepe ve Kahve Masası için: `Chair` , `Sofa` ve `CoffeeTable` sınıfları.
 
-2. Bu ürün ailesinin çeşitli varyantları olabilir. Örneğin `Chair` + `Sofa` + `CoffeeTable`  ürünlerinin şu çeşitleri mevcuttur: `Modern`, `Victorian`, `ArtDeco`.
+2. Bu ürün ailesinin çeşitli varyantları olabilir. Örneğin `Chair` , `Sofa` , `CoffeeTable`  ürünlerinin her biri için şu çeşitleri mevcuttur: `Modern`, `Victorian`, `ArtDeco`.
 
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/problem-en-2x.png)
 
