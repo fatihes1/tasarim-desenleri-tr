@@ -187,7 +187,7 @@ Prototip deseni, çeşitli şekillerde yapılandırılmış önceden oluşturulm
 
 ##  📝 Nasıl Uygulanır?
 
-1. Prototip arayüzünü oluşturun ve içinde klonlama (`clone`) yöntemini bildirin. Eğer bir sınıf hiyerarşiniz varsa, zaten var olan bir sınıf hiyerarşisinin tüm sınıflarına yöntemi ekleyin, 
+1. Prototip arayüzünü oluşturun ve içinde klonlama (`clone`) yöntemini bildirin. Eğer bir sınıf hiyerarşiniz varsa, zaten var olan bir sınıf hiyerarşisinin tüm sınıflarına yöntemi ekleyin.
 
 2. Bir prototip sınıfı, bu sınıfın bir nesnesini bir argüman olarak kabul eden alternatif bir yapıcıyı tanımlamalıdır. Yapıcı, bu nesneden yeni oluşturulan örneğe bu sınıfta tanımlanan tüm alanların değerlerini kopyalamalıdır. Bir alt sınıfı değiştiriyorsanız, üst sınıfın kendi özel alanlarını klonlamasına izin vermek için üst sınıfın yapıcıyı çağırmanız gerekir.
 Programlama diliniz yöntem aşırı yüklemeyi desteklemiyorsa, ayrı bir "prototip" yapıcı oluşturamazsınız demektir. Bu nedenle nesnenin verilerini yeni oluşturulan klon içine kopyalama (`clone`) işlemi, klon yöntemi içinde gerçekleştirilmelidir. Yine de bu kodun düzenli bir yapıcı içinde olması daha güvenlidir çünkü sonuç nesnesi, `new` operatörünü çağırdıktan hemen sonra tamamen yapılandırılmış olarak döner.
