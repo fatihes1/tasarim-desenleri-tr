@@ -25,7 +25,7 @@ Asıl sorun parçacık sisteminizle ilgiliydi. Her bir parçacık, bir mermi, bi
 
 Parçacık (`Particle`) sınıfının daha yakından incelendiğinde, renk ve hareketli grafik alanlarının diğer alanlardan çok daha fazla bellek tükettiğini fark edebilirsiniz. Daha da kötüsü, bu iki alanın tüm parçacıklarda neredeyse aynı verileri depolamasıdır. Örneğin, tüm mermiler aynı renge ve hareketli grafiğe sahip olabilir.
 
-![](![Flyweight pattern solution](https://refactoring.guru/images/patterns/diagrams/flyweight/solution1-en.png)
+![Flyweight pattern solution](https://refactoring.guru/images/patterns/diagrams/flyweight/solution1-en.png)
 
 Bir parçacığın durumunun diğer kısımları, özellikle koordinatlar, hareket vektörü ve hız, her bir parçacık için benzersizdir. Sonuçta, bu alanların değerleri zaman içinde değişir. Bu veri, parçacığın var olduğu her zaman değişen bağlamı temsil ederken, renk ve sprite her bir parçacık için sabit kalır.
 
