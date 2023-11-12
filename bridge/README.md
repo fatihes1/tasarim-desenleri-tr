@@ -210,10 +210,10 @@ Bu arada, bu son madde, bir çok insanın Köprü tasarım desenini Strateji tas
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Köprü genellikle önceden tasarlanır ve size uygulamanın parçalarını birbirinden bağımsız olarak geliştirme olanağı sağlar. Öte yandan, Adaptör genellikle mevcut bir uygulama ile kullanılır ve aksi takdirde uyumsuz olan bazı sınıfların iyi bir şekilde birlikte çalışmasını sağlar.
-- Köprü, Durum, Strateji (ve belirli bir ölçüde Adaptör) oldukça benzer yapılar içerir. Aslında, bu desenlerin hepsi işi diğer nesnelere devretme prensibine dayanır. Ancak hepsi farklı sorunları çözer. Bir desen, sadece kodunuzu belirli bir şekilde yapılandırma reçetesi değildir. Aynı zamanda desen, desenin çözdüğü sorunu diğer geliştiricilere iletebilir.
-- Köprü ile birlikte Soyut Fabrika kullanabilirsiniz. Bu eşleme, Köprü tarafından tanımlanan bazı soyutlamaların yalnızca belirli uygulamalarla çalışabilmesi durumunda kullanışlıdır. Bu durumda, Soyut Fabrika, bu ilişkileri kapsayabilir ve karmaşıklığı istemci kodundan gizleyebilir.
-- Köprü ile Builder'ı birleştirebilirsiniz: yönetici sınıf soyutlamayı oynar, farklı oluşturucular ise uygulamaları gerçekler."
+- **Köprü** deseni genellikle önceden tasarlanır ve size uygulamanın parçalarını birbirinden bağımsız olarak geliştirme olanağı sağlar. Öte yandan, **Adaptör** deseni genellikle mevcut bir uygulama ile kullanılır ve aksi takdirde uyumsuz olan bazı sınıfların iyi bir şekilde birlikte çalışmasını sağlar.
+- **Köprü**, **Durum**, **Strateji** (ve belirli bir ölçüde **Adaptör**) desenleri oldukça benzer yapılar içerir. Aslında, bu desenlerin hepsi işi diğer nesnelere devretme prensibine dayanır. Ancak hepsi farklı sorunları çözer. Bir desen, sadece kodunuzu belirli bir şekilde yapılandırma reçetesi değildir. Aynı zamanda desen, desenin çözdüğü sorunu diğer geliştiricilere iletebilir.
+- **Köprü** deseni ile birlikte **Soyut Fabrika** desenini kullanabilirsiniz. Bu eşleme, Köprü tarafından tanımlanan bazı soyutlamaların yalnızca belirli uygulamalarla çalışabilmesi durumunda kullanışlıdır. Bu durumda, **Soyut Fabrika** deseni, bu ilişkileri kapsayabilir ve karmaşıklığı istemci kodundan gizleyebilir.
+- **Köprü** deseni ile **Builder** desenini birleştirebilirsiniz: yönetici sınıf soyutlamayı oynar, farklı oluşturucular ise uygulamaları gerçekler."
 
   
 ##  👾 Kod Örnekleri
