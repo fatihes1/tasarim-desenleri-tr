@@ -44,7 +44,7 @@ Hükümet, Singleton deseninin mükemmel bir örneğidir. Bir ülkede sadece bir
 
 ![](https://refactoring.guru/images/patterns/diagrams/singleton/structure-en-2x.png)
 
-1. Singleton sınıfı, kendi sınıfının aynı örneğini döndüren statik yöntem `getInstance` barındırır.
+1. **Singleton** sınıfı, kendi sınıfının aynı örneğini döndüren statik yöntem `getInstance` barındırır.
 Singleton'un yapıcısı (constructor) istemci kodundan gizlenmelidir. Singleton nesnesini almanın tek yolu `getInstance` yöntemini çağırmak olmalıdır.
 
   
