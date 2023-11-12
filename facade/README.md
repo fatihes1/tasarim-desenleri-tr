@@ -134,19 +134,19 @@ class Application is
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Facade, mevcut nesneler için yeni bir arayüz tanımlar, Adapter ise mevcut arayüzü kullanılabilir hale getirmeye çalışır. Adapter genellikle sadece bir nesneyi sarmalar, oysa Facade bir nesne alt sistemiyle çalışır.
+- **Facade** deseni, mevcut nesneler için yeni bir arayüz tanımlar. **Adapter** deseni ise mevcut arayüzü kullanılabilir hale getirmeye çalışır. **Adapter** deseni genellikle sadece bir nesneyi sarmalar, oysa **Facade** deseni bir nesne alt sistemiyle çalışır.
 
-- Abstract Factory, alt sistem nesnelerinin nasıl oluşturulduğunu istemci kodundan gizlemek istediğinizde Facade için bir alternatif olarak hizmet edebilir.
+- **Abstract Factory** deseni, alt sistem nesnelerinin nasıl oluşturulduğunu istemci kodundan gizlemek istediğinizde **Facade** deseni için bir alternatif olarak hizmet edebilir.
 
-- Flyweight, çok sayıda küçük nesne oluşturmanın nasıl yapıldığını gösterirken, Facade, bir alt sistemleri temsil eden tek bir nesne oluşturmanın nasıl yapıldığını gösterir.
+- **Flyweight** deseni, çok sayıda küçük nesne oluşturmanın nasıl yapıldığını gösterirken, **Facade** deseni, bir alt sistemleri temsil eden tek bir nesne oluşturmanın nasıl yapıldığını gösterir.
 
-- Facade ve Mediator benzer görevlere sahiptir: sıkı bir şekilde bağlı çok sayıda sınıf arasındaki işbirliğini düzenlemeye çalışırlar.
-	- Facade, nesneler arasındaki iletişimi düzenlemeye çalışırken, Mediator sistemin bileşenleri arasındaki iletişimi merkezileştirir.
+- **Facade** ve **Mediator** deseni benzer görevlere sahiptir: sıkı bir şekilde bağlı çok sayıda sınıf arasındaki işbirliğini düzenlemeye çalışırlar.
+	- **Facade** deseni, nesneler arasındaki iletişimi düzenlemeye çalışırken, **Mediator** deseni sistemin bileşenleri arasındaki iletişimi merkezileştirir.
 	- Bileşenler yalnızca aracı nesneyi bilirler ve doğrudan iletişim kurmazlar.
 
-- Bir Facade sınıfı, genellikle bir Singleton'a dönüştürülebilir, çünkü çoğu durumda tek bir facade nesnesi yeterlidir.
+- Bir **Facade** deseni sınıfı, genellikle bir **Singleton** desenine dönüştürülebilir, çünkü çoğu durumda tek bir facade nesnesi yeterlidir.
 
-- Facade, bir karmaşık varlığı tamponlayan ve kendi başına başlatan Proxy'ye benzer. Facade'nin aksine, Proxy, hizmet nesnesiyle aynı arayüze sahiptir, bu da onları değiştirilebilir kılar.
+- **Facade** deseni, bir karmaşık varlığı tamponlayan ve kendi başına başlatan **Proxy** desenine benzer. **Facade** deseninin aksine, **Proxy** deseni, hizmet nesnesiyle aynı arayüze sahiptir, bu da onları değiştirilebilir kılar.
 
   
 ##  👾 Kod Örnekleri
