@@ -89,7 +89,8 @@ Türkçe çevirilere katkıda bulunmak isterseniz, lütfen aşağıdaki adımlar
 
 1. Bu depoyu fork'layın.
 2. İlgili tasarım deseni dosyasını düzenleyin veya yeni bir tasarım deseni ekleyin.
-3. Değişikliklerinizi yansıtmak için bir pull request oluşturun.
+3. Yanlış çeviri veya ekleme yapmak istediğin yerleri özgürce düzenleyin veya oluşturun.
+4. Değişikliklerinizi yansıtmak için bir pull request oluşturun.
 
 Katkı contributionsı ve önerileri memnuniyetle karşılıyoruz!
 
