@@ -182,7 +182,7 @@ class ApplicationConfigurator is method main() is config = readApplicationConfig
 
 3. Tüm soyut ürünler için bir dizi oluşturma yöntemiyle soyut fabrika arayüzünü tanımlayın.
 
-4. Her ürün çeşidi için bir tane olmak üzere bir dizi soyut olmayan fabrikası sınıfı oluşturun.
+4. Her ürün çeşidi için bir tane olmak üzere bir dizi soyut olmayan fabrika (Factory) sınıfı oluşturun.
 
 5. Uygulamada bir yerde fabrika başlatma kodu oluşturun. Uygulama yapılandırmasına veya mevcut ortama bağlı olarak soyut olmayan fabrika sınıflarından birini oluşturmalıdır. Bu fabrika nesnesini ürünleri oluşturan tüm sınıflara iletin.
 
