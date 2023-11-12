@@ -167,11 +167,11 @@ Daha zarif bir çözüm, eksik işlevselliği bir adaptör sınıfına koymak ol
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Bridge genellikle önceden tasarlanır ve uygulamanın farklı bileşenlerini bağımsız olarak geliştirmenize olanak tanır. Öte yandan, Adapter genellikle mevcut bir uygulama ile kullanılır ve aksi takdirde uyumsuz olan sınıfları uyumlu bir şekilde bir araya getirmenizi sağlar.
-- Adapter, mevcut bir nesnenin arabirimini değiştirirken, Decorator, arabirimini değiştirmeden bir nesneyi geliştirir. Ayrıca, Decorator, Adapter kullanıldığında mümkün olmayan özyinelemeli bileşimi destekler.
-- Adapter, sarılan nesneye farklı bir arabirim sağlar, Proxy aynı arabirimle sağlar ve Decorator, geliştirilmiş bir arabirimle sağlar.
-- Facade, mevcut nesneler için yeni bir arabirim tanımlar, Adapter ise mevcut arabirimi kullanılabilir hale getirmeye çalışır. Adapter genellikle yalnızca bir nesneyi sarmalar, Facade ise nesne alt sistemiyle çalışır.
-- Bridge, State, Strategy (ve bir dereceye kadar Adapter), çok benzer yapıları paylaşır. Gerçekten de, bu desenlerin hepsi, işi başka nesnelere devreden kompozisyona dayanır. Bununla birlikte, hepsi farklı sorunları çözer. Bir desen, kodunuzu belirli bir şekilde yapılandırma reçetesi olmanın ötesinde, desenin hangi sorunu çözdüğünü diğer geliştiricilere iletebilir.
+- **Bridge** deseni genellikle önceden tasarlanır ve uygulamanın farklı bileşenlerini bağımsız olarak geliştirmenize olanak tanır. Öte yandan, **Adapter** deseni genellikle mevcut bir uygulama ile kullanılır ve aksi takdirde uyumsuz olan sınıfları uyumlu bir şekilde bir araya getirmenizi sağlar.
+- **Adapter** deseni, mevcut bir nesnenin arabirimini değiştirirken, **Decorator** deseni, arabirimini değiştirmeden bir nesneyi geliştirir. Ayrıca, **Decorator** deseni, **Adapter** deseni kullanıldığında mümkün olmayan özyinelemeli bileşimi destekler.
+- **Adapter** deseni, sarılan nesneye farklı bir arabirim sağlar, **Proxy** deseni aynı arabirimle sağlar ve **Decorator** deseni, geliştirilmiş bir arabirimle sağlar.
+- **Facade** deseni, mevcut nesneler için yeni bir arabirim tanımlar. **Adapter** deseni ise mevcut arabirimi kullanılabilir hale getirmeye çalışır. **Adapter** deseni genellikle yalnızca bir nesneyi sarmalar. **Facade** deseni ise nesne alt sistemiyle çalışır.
+- **Bridge**, **State**, **Strategy** (ve bir dereceye kadar **Adapter**) desenleri, çok benzer yapıları paylaşır. Gerçekten de, bu desenlerin hepsi, işi başka nesnelere devreden kompozisyona dayanır. Bununla birlikte, hepsi farklı sorunları çözer. Bir desen, kodunuzu belirli bir şekilde yapılandırma reçetesi olmanın ötesinde, desenin hangi sorunu çözdüğünü diğer geliştiricilere iletebilir.
 
   
 ##  👾 Kod Örnekleri
