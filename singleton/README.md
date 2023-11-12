@@ -149,11 +149,11 @@ Bu sınırlamayı istediğiniz zaman ayarlayabileceğinizi ve istediğiniz sayı
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Facade sınıfı genellikle çoğu durumda tek bir facade nesnesine dönüştürülebilir çünkü çoğu durumda tek bir facade nesnesi yeterlidir.
+- Çoğu durumda tek bir **Facade** nesnesi yeterli olduğundan, bir **Facade** sınıfı sıklıkla bir **Singleton**'a dönüştürülebilir.
 
-- Flyweight, nesnelerin tüm paylaşılan durumlarını sadece bir flyweight nesnesine indirgemeyi başarabilirseniz Singleton'a benzeyebilir. Ancak bu desenler arasında iki temel fark vardır:
-	- Tek bir Singleton örneği olmalıdır, oysa bir Flyweight sınıfı farklı içsel durumlara sahip çoklu örneklere sahip olabilir.
-	- Singleton nesnesi değiştirilebilirken, Flyweight nesneleri değiştirilemezler.
+- **Flyweight**, nesnelerin tüm paylaşılan durumlarını sadece bir flyweight nesnesine indirgemeyi başarabilirseniz **Singleton**'a benzeyebilir. Ancak bu desenler arasında iki temel fark vardır:
+	- Tek bir **Singleton** örneği olmalıdır, oysa bir **Flyweight** sınıfı farklı içsel durumlara sahip çoklu örneklere sahip olabilir.
+	- **Singleton** nesnesi değiştirilebilirken, **Flyweight** nesneleri değiştirilemezler.
 
 - Abstract Factory, Builder ve Prototype gibi desenlerin hepsi Singleton olarak uygulanabilir.
 
