@@ -208,17 +208,17 @@ class ApplicationConfigurator is method main() is config = readApplicationConfig
 
 - Birçok tasarım, **Fabrika Yöntemi (Factory method)** (daha az karmaşık ve alt sınıflar yoluyla daha fazla özelleştirilebilir) kullanılarak başlar ve **Soyut Fabrika (Abstract Factory)**, **Prototip (Prototype)** veya **Oluşturucu/ İnşaatçı (Builder)** (daha esnek, ancak daha karmaşık) gibi tasarım desenlerine doğru gelişir.
 
-- Builder, karmaşık nesneleri adım adım oluşturmaya odaklanır. Abstract Factory, ilişkili nesnelerin ailelerini oluşturmayı özelleştirir. Abstract Factory, ürünü hemen döndürürken, Builder size ürünü almadan önce bazı ek inşaat adımlarını çalıştırma imkanı sunar.
+- **Builder** deseni, karmaşık nesneleri adım adım oluşturmaya odaklanır. **Abstract Factory** deseni ise, ilişkili nesnelerin ailelerini oluşturmayı özelleştirir. **Abstract Factory**, ürünü hemen döndürürken, **Builder** size ürünü almadan önce bazı ek oluşturma adımlarını çalıştırma imkanı sunar.
 
-- Soyut Fabrika (Abstract Factory) deseni sınıfları genellikle bir dizi Fabrika Yöntemi (Factory method) desenine dayanır, ancak bu sınıflardaki yöntemleri oluşturmak için Prototip desenini de kullanabilirsiniz.
+- **Soyut Fabrika (Abstract Factory)** deseni sınıfları genellikle bir dizi **Fabrika Yöntemi (Factory method)** desenine dayanır, ancak bu sınıflardaki yöntemleri oluşturmak için Prototip desenini de kullanabilirsiniz.
 
-- Abstract Factory sınıfları genellikle bir dizi Factory Method'a dayanır, ancak bu sınıflardaki yöntemleri oluşturmak için Prototip deseni (Prototype) de kullanabilirsiniz.
+- **Abstract Factory** sınıfları genellikle bir dizi **Factory Method**'a dayanır, ancak bu sınıflardaki yöntemleri oluşturmak için **Prototip (Prototype)** deseni de kullanabilirsiniz.
 
-- Abstract Factory, yalnızca alt sistem nesnelerinin nasıl oluşturulduğunu istemci kodundan gizlemek istediğinizde Facade desenine alternatif olarak hizmet edebilir.
+- **Abstract Factory** deseni, yalnızca alt sistem nesnelerinin nasıl oluşturulduğunu istemci kodundan gizlemek istediğinizde **Facade** desenine alternatif olarak hizmet edebilir.
 
-- Abstract Factory'yi Bridge ile birlikte kullanabilirsiniz. Bu eşleştirme, Bridge tarafından tanımlanan bazı soyutlamaların yalnızca belirli uygulamalarla çalışabileceği durumlarda kullanışlıdır. Bu durumda, Abstract Factory bu ilişkileri kapsayabilir ve karmaşıklığı istemci kodundan gizleyebilir.
+- **Abstract Factory** desenini **Bridge** deseni ile birlikte kullanabilirsiniz. Bu eşleştirme, **Bridge** tarafından tanımlanan bazı soyutlamaların yalnızca belirli uygulamalarla çalışabileceği durumlarda kullanışlıdır. Bu durumda, **Abstract Factory** bu ilişkileri kapsayabilir ve karmaşıklığı istemci kodundan gizleyebilir.
 
-- Abstract Factory, Builder ve Prototype desenleri Singleton deseni olarak uygulanabilir.
+- **Abstract Factory**, **Builder** ve **Prototype** desenleri **Singleton** deseni olarak uygulanabilir.
   
 ##  👾 Kod Örnekleri
 
