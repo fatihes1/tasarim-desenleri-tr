@@ -214,19 +214,19 @@ Son olarak, alt sınıfların yapıcılarına doğrudan çağrıları, prototip 
 
 ##  🔀 Diğer Tasarım Desenleri İlişkileri
 
-- Abstract Factory, Factory Method, Prototype ve Builder gibi farklı tasarım desenleri, projelerinizin ihtiyaçlarına ve karmaşıklığına göre kullanılabilecek alternatifler sunar.
+- **Abstract Factory**, **Factory Method**, **Prototype** ve **Builder** gibi farklı tasarım desenleri, projelerinizin ihtiyaçlarına ve karmaşıklığına göre kullanılabilecek alternatifler sunar.
 
-- Abstract Factory sınıfları genellikle bir dizi Factory Method üzerine kurulur, ancak bu sınıflardaki yöntemleri oluşturmak için Prototype'i de kullanabilirsiniz.
+- **Abstract Factory** sınıfları genellikle bir dizi **Factory Method** üzerine kurulur, ancak bu sınıflardaki yöntemleri oluşturmak için **Prototype** deseni de kullanabilirsiniz.
 
-- Prototype, Command nesnelerini geçmişe kaydetmeniz gerektiğinde yardımcı olabilir.
+- **Prototype** deseni, **Command** nesnelerini geçmişe kaydetmeniz gerektiğinde yardımcı olabilir.
 
-- Kompozit ve Decorator desenlerini yoğun bir şekilde kullanan tasarımlarda, Prototype kullanmaktan fayda sağlayabilir. Bu deseni uygulamak, karmaşık yapıları sıfırdan yeniden oluşturmak yerine klonlamanıza olanak tanır.
+- **Kompozit (Composite)** ve **Decorator** desenlerini yoğun bir şekilde kullanan tasarımlarda, **Prototype** deseni kullanmaktan fayda sağlayabilir. Bu deseni uygulamak, karmaşık yapıları sıfırdan yeniden oluşturmak yerine klonlamanıza olanak tanır.
 
-- Prototype, miras alınmaya dayalı olmadığı için miras almanın getirdiği bazı sorunları içermez. Öte yandan, Prototype, klonlanan nesnenin karmaşık bir başlatılmasını gerektirir. Factory Method ise miras alınmaya dayalıdır, ancak başlatma adımını gerektirmez.
+- **Prototype** deseni, miras alınmaya dayalı olmadığı için miras almanın getirdiği bazı sorunları içermez. Öte yandan, **Prototype** deseni, klonlanan nesnenin karmaşık bir başlatılmasını gerektirir. **Factory Method** deseni ise miras alınmaya dayalıdır, ancak başlatma adımını gerektirmez.
 
-- Bazen Prototype, Memento'ya daha basit bir alternatif olabilir. Bu, geçmişte saklamak istediğiniz nesnenin durumu oldukça basitse ve harici kaynaklara bağlantıları yoksa veya bağlantıları yeniden kurmak kolaysa çalışır.
+- Bazen **Prototype** deseni, **Memento** desenine daha basit bir alternatif olabilir. Bu, geçmişte saklamak istediğiniz nesnenin durumu oldukça basitse ve harici kaynaklara bağlantıları yoksa veya bağlantıları yeniden kurmak kolaysa çalışır.
 
-- Abstract Factory, Builder ve Prototype gibi desenlerin hepsi Singleton olarak uygulanabilir.
+- **Abstract Factory** deseni, **Builder** ve **Prototype** gibi desenlerin hepsi Singleton olarak uygulanabilir.
 
   
 ##  👾 Kod Örnekleri
