@@ -209,7 +209,7 @@ Flyweight nesnelerinin yeniden kullanılmasının karmaşıklığı bir flyweigh
 ⤵️ 📄 `trees/Tree.java` : Her ağaç için benzersiz durumu içerir
 
 ```java
-package refactoring_guru.flyweight.example.trees;
+package fatihes1.flyweight.example.trees;
 
 import java.awt.*;
 
@@ -233,7 +233,7 @@ public class Tree {
 ⤵️ 📄 `trees/TreeType.java`: Birkaç ağaç tarafından paylaşılan durumu içerir
 
 ```java
-package refactoring_guru.flyweight.example.trees;
+package fatihes1.flyweight.example.trees;
 
 import java.awt.*;
 
@@ -261,7 +261,7 @@ public class TreeType {
 ⤵️ 📄 `trees/TreeFactory.java`
 
 ```java
-package refactoring_guru.flyweight.example.trees;
+package fatihes1.flyweight.example.trees;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -286,11 +286,11 @@ public class TreeFactory {
 ⤵️ 📄 `forest/Forest.java`
 
 ```java
-package refactoring_guru.flyweight.example.forest;
+package fatihes1.flyweight.example.forest;
 
-import refactoring_guru.flyweight.example.trees.Tree;
-import refactoring_guru.flyweight.example.trees.TreeFactory;
-import refactoring_guru.flyweight.example.trees.TreeType;
+import fatihes1.flyweight.example.trees.Tree;
+import fatihes1.flyweight.example.trees.TreeFactory;
+import fatihes1.flyweight.example.trees.TreeType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -319,9 +319,9 @@ public class Forest extends JFrame {
 ⤵️ 📄 `Demo.java`: İstemci Kodu
 
 ```java
-package refactoring_guru.flyweight.example;
+package fatihes1.flyweight.example;
 
-import refactoring_guru.flyweight.example.forest.Forest;
+import fatihes1.flyweight.example.forest.Forest;
 
 import java.awt.*;
 

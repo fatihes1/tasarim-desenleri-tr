@@ -181,7 +181,7 @@ Buna rağmen Java çekirdek kütüphanelerinde oldukça fazla Singleton örneği
 ⤵️ 📄 `Singleton.java`: Singleton
 
 ```java
-package refactoring_guru.singleton.example.non_thread_safe;
+package fatihes1.singleton.example.non_thread_safe;
 
 public final class Singleton {
     private static Singleton instance;
@@ -209,7 +209,7 @@ public final class Singleton {
 ⤵️ 📄 `DemoSingleThread.java`: İstemci Kodu
 
 ```java
-package refactoring_guru.singleton.example.non_thread_safe;
+package fatihes1.singleton.example.non_thread_safe;
 
 public class DemoSingleThread {
     public static void main(String[] args) {

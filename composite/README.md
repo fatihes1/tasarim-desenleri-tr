@@ -227,7 +227,7 @@ Bu örnek, daha basit şekillerden oluşan karmaşık grafik şekillerin nasıl 
 ⤵️ 📄 `shapes/Shape.java`: Tüm şekillerin ortak arayüzü
 
 ```java
-package refactoring_guru.composite.example.shapes;
+package fatihes1.composite.example.shapes;
 
 import java.awt.*;
 
@@ -248,7 +248,7 @@ public interface Shape {
 ⤵️ 📄 `shapes/BaseShape.java`: Temel işlevlere sahip soyut şekil sınıfı
 
 ```java
-package refactoring_guru.composite.example.shapes;
+package fatihes1.composite.example.shapes;
 
 import java.awt.*;
 
@@ -347,7 +347,7 @@ abstract class BaseShape implements Shape {
 ⤵️ 📄 `shapes/Dot.java`: Bir nokta (.)
 
 ```java
-package refactoring_guru.composite.example.shapes;
+package fatihes1.composite.example.shapes;
 
 import java.awt.*;
 
@@ -379,7 +379,7 @@ public class Dot extends BaseShape {
 ⤵️ 📄 `shapes/Circle.java`: Bir daire
 
 ```java
-package refactoring_guru.composite.example.shapes;
+package fatihes1.composite.example.shapes;
 
 import java.awt.*;
 
@@ -411,7 +411,7 @@ public class Circle extends BaseShape {
 ⤵️ 📄 `shapes/Rectangle.java`: Bir dikdörtgen
 
 ```java
-package refactoring_guru.composite.example.shapes;
+package fatihes1.composite.example.shapes;
 
 import java.awt.*;
 
@@ -446,7 +446,7 @@ public class Rectangle extends BaseShape {
 ⤵️ 📄 `shapes/CompoundShape.java`: Diğer şekil nesnelerinden oluşan bileşik/kompozit şekil
 
 ```java
-package refactoring_guru.composite.example.shapes;
+package fatihes1.composite.example.shapes;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -593,10 +593,10 @@ public class CompoundShape extends BaseShape {
 ⤵️ 📄 `editor/ImageEditor.java`: Şekil düzenleyici
 
 ```java
-package refactoring_guru.composite.example.editor;
+package fatihes1.composite.example.editor;
 
-import refactoring_guru.composite.example.shapes.CompoundShape;
-import refactoring_guru.composite.example.shapes.Shape;
+import fatihes1.composite.example.shapes.CompoundShape;
+import fatihes1.composite.example.shapes.Shape;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -675,13 +675,13 @@ public class ImageEditor {
 ⤵️ 📄 `Demo.java`: İstemci Kodu
 
 ```java
-package refactoring_guru.composite.example;
+package fatihes1.composite.example;
 
-import refactoring_guru.composite.example.editor.ImageEditor;
-import refactoring_guru.composite.example.shapes.Circle;
-import refactoring_guru.composite.example.shapes.CompoundShape;
-import refactoring_guru.composite.example.shapes.Dot;
-import refactoring_guru.composite.example.shapes.Rectangle;
+import fatihes1.composite.example.editor.ImageEditor;
+import fatihes1.composite.example.shapes.Circle;
+import fatihes1.composite.example.shapes.CompoundShape;
+import fatihes1.composite.example.shapes.Dot;
+import fatihes1.composite.example.shapes.Rectangle;
 
 import java.awt.*;
 

@@ -327,7 +327,7 @@ Bu sarmalayıcıları bir dekoratörü diğeriyle sararak bile birleştirebilirs
 ⤵️ 📄 `decorators/DataSource.java`: Okuma ve yazma işlemlerini tanımlayan ortak bir veri arayüzü
 
 ```java
-package refactoring_guru.decorator.example.decorators;
+package fatihes1.decorator.example.decorators;
 
 public interface DataSource {
     void writeData(String data);
@@ -339,7 +339,7 @@ public interface DataSource {
 ⤵️ 📄 `decorators/FileDataSource.java`: Basit veri okuyucu-yazarı
 
 ```java
-package refactoring_guru.decorator.example.decorators;
+package fatihes1.decorator.example.decorators;
 
 import java.io.*;
 
@@ -379,7 +379,7 @@ public class FileDataSource implements DataSource {
 ⤵️ 📄 `decorators/DataSourceDecorator.java`: Soyut temel dekoratör
 
 ```java
-package refactoring_guru.decorator.example.decorators;
+package fatihes1.decorator.example.decorators;
 
 public class DataSourceDecorator implements DataSource {
     private DataSource wrappee;
@@ -403,7 +403,7 @@ public class DataSourceDecorator implements DataSource {
 ⤵️ 📄 `decorators/EncryptionDecorator.java`: Şifreleme dekoratörü
 
 ```java
-package refactoring_guru.decorator.example.decorators;
+package fatihes1.decorator.example.decorators;
 
 import java.util.Base64;
 
@@ -444,7 +444,7 @@ public class EncryptionDecorator extends DataSourceDecorator {
 ⤵️ 📄 `decorators/CompressionDecorator.java`: Sıkıştırma dekoratörü
 
 ```java
-package refactoring_guru.decorator.example.decorators;
+package fatihes1.decorator.example.decorators;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -519,9 +519,9 @@ public class CompressionDecorator extends DataSourceDecorator {
 ⤵️ 📄 `Demo.java`: İstemci Kodu
 
 ```java
-package refactoring_guru.decorator.example;
+package fatihes1.decorator.example;
 
-import refactoring_guru.decorator.example.decorators.*;
+import fatihes1.decorator.example.decorators.*;
 
 public class Demo {
     public static void main(String[] args) {
