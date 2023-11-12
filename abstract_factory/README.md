@@ -469,12 +469,12 @@ public class Application {
 ⤵️ 📄 `Demo.java` : App configuration
 
 ```java
-package refactoring_guru.abstract_factory.example;
+package fatihes1.abstract_factory.example;
 
-import refactoring_guru.abstract_factory.example.app.Application;
-import refactoring_guru.abstract_factory.example.factories.GUIFactory;
-import refactoring_guru.abstract_factory.example.factories.MacOSFactory;
-import refactoring_guru.abstract_factory.example.factories.WindowsFactory;
+import fatihes1.abstract_factory.example.app.Application;
+import fatihes1.abstract_factory.example.factories.GUIFactory;
+import fatihes1.abstract_factory.example.factories.MacOSFactory;
+import fatihes1.abstract_factory.example.factories.WindowsFactory;
 
 /**
  * Demo class. Everything comes together here.
