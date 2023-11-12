@@ -95,36 +95,61 @@ Sonuç olarak, uygulamanıza yeni bir UI öğesi varyasyonu eklediğinizde her s
 
 ```java
 //Soyut fabrika arayüzü, farklı soyut ürünleri döndüren bir dizi yöntemi bildirir. Bu ürünler bir aileyi oluşturur ve yüksek seviye bir tema veya kavram tarafından ilişkilendirilirler. Bir ailenin ürünleri genellikle kendi aralarında işbirliği yapabilirler. Bir ürün ailesinin birkaç varyasyonu olabilir, ancak bir varyantın ürünleri diğer bir varyantın ürünleriyle uyumsuzdur. 
-interface GUIFactory is method createButton():Button method createCheckbox():Checkbox
+
+interface GUIFactory is
+  method createButton():Button
+  method createCheckbox():Checkbox
 
 // Soyut olmayan fabrikalar, tek bir varyanta ait ürün ailesini üretir. Fabrika, sonuç ürünlerinin uyumlu olduğunu garanti eder. Soyut olmayan fabrika yöntemlerinin imzaları soyut bir ürünü döndürürken, yöntem içinde soyut olmayan bir ürün oluşturulur. 
 
-class WinFactory implements GUIFactory is method createButton():Button is return new WinButton() method createCheckbox():Checkbox is return new WinCheckbox()
+class WinFactory implements GUIFactory is
+  method createButton():Button is
+    return new WinButton()
+  method createCheckbox():Checkbox is
+    return new WinCheckbox()
 
 // Her soyut olmayan fabrikanın karşılık gelen bir ürün varyantı vardır. 
-class MacFactory implements GUIFactory is method createButton():Button is return new MacButton() method createCheckbox():Checkbox is return new MacCheckbox()
+class MacFactory implements GUIFactory is
+  method createButton():Button is
+    return new MacButton()
+  method createCheckbox():Checkbox is
+    return new MacCheckbox()
 
 // Bir ürün ailesinin her farklı ürünü için bir temel arayüze sahip olmalıdır. Ürünün tüm varyasyonları bu arayüzü uygulamalıdır. 
-interface Button is method paint()
+interface Button is
+  method paint()
 
 // Soyut olmayan ürünler karşılık gelen soyut olmayan fabrika sınıfları tarafından oluşturulur. 
-class WinButton implements Button is method paint() is 
+class WinButton implements Button is
+  method paint() is 
 // Windows tarzında bir düğmeyi çiz.
 
-class MacButton implements Button is method paint() is 
+class MacButton implements Button is
+  method paint() is 
 // macOS tarzında bir düğmeyi çiz.
 
 // Aşağıda başka bir ürünün temel arayüzü verilmiştir. Tüm ürünler birbirleriyle etkileşimde bulunabilir, ancak doğru etkileşim yalnızca aynı soyut olmayan varyantın ürünleri arasında mümkündür. 
-interface Checkbox is method paint()
+interface Checkbox is
+  method paint()
 
-class WinCheckbox implements Checkbox is method paint() is 
-// Windows tarzında bir onay kutusunu çiz.
+class WinCheckbox implements Checkbox is
+  method paint() is 
+    // Windows tarzında bir onay kutusunu çiz.
 
-class MacCheckbox implements Checkbox is method paint() is 
-// macOS tarzında bir onay kutusunu çiz.
+class MacCheckbox implements Checkbox is
+  method paint() is 
+    // macOS tarzında bir onay kutusunu çiz.
 
 // İstemci kodu, fabrikalar ve ürünlerle yalnızca soyut türler aracılığıyla çalışır: GUIFactory, Button ve Checkbox. Bu, istemci koduna herhangi bir fabrika veya ürün alt sınıfını geçirmenize ve kodu bozmadan çalışmasını sağlar. 
-class Application is private field factory: GUIFactory private field button: Button constructor Application(factory: GUIFactory) is this.factory = factory method createUI() is this.button = factory.createButton() method paint() is button.paint()
+class Application is
+  private field factory: GUIFactory private
+  field button: Button
+  constructor Application(factory: GUIFactory) is
+    this.factory = factory
+  method createUI() is
+    this.button = factory.createButton()
+  method paint() is
+    button.paint()
 
 // Uygulama, mevcut yapılandırmaya veya ortam ayarlarına bağlı olarak fabrika türünü seçer ve genellikle çalışma zamanında (genellikle başlatma aşamasında) oluşturur.
 
