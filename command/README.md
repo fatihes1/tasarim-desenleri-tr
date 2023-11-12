@@ -21,7 +21,7 @@ Bu düğmelerin tümü benzer görünse de hepsinin farklı şeyler yapması ger
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem2-2x.png)
 
-*Çok sayıda düğme alt sınıfı oluştu. Ne yanlış gidebilir?*
+*Çok sayıda düğme alt sınıfı oluştu. Bir süre sonra kontrol edilemez hal alabilir.*
 
 Çok geçmeden bu yaklaşımın son derece kusurlu olduğunu fark edeceksiniz. İlk olarak, çok sayıda alt sınıfınız oluşacaktır. Eğer temel `Button` sınıfını her değiştirdiğinizde bu alt sınıflardaki kodu kırma riskini almıyorsanız bu sorun değil. Basitçe söylemek gerekirse, GUI kodunuz iş mantığının geçici koduna garip bir şekilde bağımlı hale geldi.
 
