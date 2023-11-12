@@ -66,15 +66,15 @@ Endüstri prototipleri kendilerini gerçekten kopyalamadığı için, deseni ço
 
 ![](https://refactoring.guru/images/patterns/diagrams/prototype/structure-2x.png)
   
-1. Prototip arayüzü klonlama yöntemlerini bildirir. Çoğu durumda, tek bir klon (`clone`) yöntemi vardır.
-2. Concrete Prototype sınıfı klonlama yöntemini uygular. Orijinal nesnenin verilerini klona kopyalamanın yanı sıra, bu yöntem bağlantılı nesneleri klonlamak, özyinelemeli bağımlılıkları çözmek vb. için de kullanılır. Ayrıca, ilgili klonlama işleminin bazı aşırı durumlarını da ele alabilir.
-3. İstemci, prototip arayüzünü takip eden herhangi bir nesnenin bir kopyasını üretebilir.
+1. **Prototip** arayüzü klonlama yöntemlerini bildirir. Çoğu durumda, tek bir klon (`clone`) yöntemi vardır.
+2. **Concrete Prototype** sınıfı klonlama yöntemini uygular. Orijinal nesnenin verilerini klona kopyalamanın yanı sıra, bu yöntem bağlantılı nesneleri klonlamak, özyinelemeli bağımlılıkları çözmek vb. için de kullanılır. Ayrıca, ilgili klonlama işleminin bazı aşırı durumlarını da ele alabilir.
+3. **İstemci (Client)**, prototip arayüzünü takip eden herhangi bir nesnenin bir kopyasını üretebilir.
 
 #### Prototip Kayıt Uygulaması
 
 ![](https://refactoring.guru/images/patterns/diagrams/prototype/structure-prototype-cache-2x.png)
 
-1. Prototip Registry, sık kullanılan prototiplere erişmenin kolay bir yolunu sağlar. Kopyalanmaya hazır bir dizi önceden oluşturulmuş nesneyi saklar. En basit prototip kayıt defteri, bir ad → prototip (`name -> prototype`) karma haritasıdır. Ancak, basit bir addan daha iyi arama ölçütlerine ihtiyacınız varsa, kayıt defterinin çok daha sağlam bir sürümünü oluşturabilirsiniz.
+1. **Prototip Registry**, sık kullanılan prototiplere erişmenin kolay bir yolunu sağlar. Kopyalanmaya hazır bir dizi önceden oluşturulmuş nesneyi saklar. En basit prototip kayıt defteri, bir ad → prototip (`name -> prototype`) karma haritasıdır. Ancak, basit bir addan daha iyi arama ölçütlerine ihtiyacınız varsa, kayıt defterinin çok daha sağlam bir sürümünü oluşturabilirsiniz.
 
   
 ##  💻 Sözde Kod (Pseudocode)
