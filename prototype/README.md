@@ -170,7 +170,7 @@ class Application is
 
 ##  💡Uygulanabilirlik
 
-**🐞 "Kodunuz kopyalamanız gereken nesne sınıflarına bağlı olmaması gerektiğinde Prototip desenini kullanın.**
+**🐞 Kodunuz kopyalamanız gereken nesne sınıflarına bağlı olmaması gerektiğinde Prototip desenini kullanın.**
 
 ⚡️ Bu durum, kodunuzun 3. taraf kod tarafından bir arayüz aracılığıyla size iletilen nesnelerle çalıştığında sıkça karşılaşır. Bu nesnelerin somut sınıfları bilinmez ve isteseniz bile bunlara bağlı olamazsınız.
 Prototip deseni, istemci koduna klonlamayı destekleyen tüm nesnelerle çalışmak için genel bir arayüz sunar. Bu arayüz, istemci kodunun klonladığı nesnelerin somut sınıflarından bağımsız olmasını sağlar.
