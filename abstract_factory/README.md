@@ -67,10 +67,10 @@ Açıklığa kavuşturulması gereken bir şey daha kaldı: Eğer istemci yalnı
 
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/structure-2x.png)
   
-1. Abstract Products, bir ürün ailesini oluşturan farklı ilgili ürünler için arayüzleri bildirir.
-2. Concrete Products, soyut ürünlerin farklı uygulamalarıdır ve varyantlar tarafından gruplandırılır. Her soyut ürün (sandalye/kanepe), verilen tüm varyasyonlarda (Viktorya/Modern) uygulanmalıdır.
-3. Abstract Factory arayüzü, her bir soyut ürünün oluşturulması için bir dizi yöntemi bildirir.
-4. Concrete Factories, soyut fabrikanın oluşturma yöntemlerini uygular. Her soyut olmayan fabrika, belirli bir ürün varyantına karşılık gelir ve yalnızca bu ürün varyasyonlarını oluşturur.
+1. **Abstract Products**, bir ürün ailesini oluşturan farklı ilgili ürünler için arayüzleri bildirir.
+2. **Concrete Products**, soyut ürünlerin farklı uygulamalarıdır ve varyantlar tarafından gruplandırılır. Her soyut ürün (sandalye/kanepe), verilen tüm varyasyonlarda (Viktorya/Modern) uygulanmalıdır.
+3. **Abstract Factory** arayüzü, her bir soyut ürünün oluşturulması için bir dizi yöntemi bildirir.
+4. **Concrete Factories**, soyut fabrikanın oluşturma yöntemlerini uygular. Her soyut olmayan fabrika, belirli bir ürün varyantına karşılık gelir ve yalnızca bu ürün varyasyonlarını oluşturur.
 5. Her ne kadar soyut olmayan fabrika sınıfları somut ürünleri oluştursa da, oluşturma yöntemlerinin imzaları karşılık gelen soyut ürünleri döndürmelidir. Bu sayede bir fabrikadan aldığı ürünün belirli bir varyasyonuna bağlı hale gelmeyen bir fabrikayı kullanan istemci kodu elde edilir. İstemci, soyut arayüzler (abstract interface) aracılığıyla nesneleriyle iletişim kurduğu sürece herhangi bir somut olmayan fabrika/ürün varyantı ile çalışabilir.
 
   
