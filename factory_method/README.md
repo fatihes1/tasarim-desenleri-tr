@@ -357,10 +357,10 @@ public class HtmlDialog extends Dialog {
 
 ⤵️ 📄 `factory/WindowsDialog.java:` Temel oluşturucudan elde edilen diğer bir alt oluşturucu
 ```java
-package refactoring_guru.factory_method.example.factory;
+package fatihes1.factory_method.example.factory;
 
-import refactoring_guru.factory_method.example.buttons.Button;
-import refactoring_guru.factory_method.example.buttons.WindowsButton;
+import fatihes1.factory_method.example.buttons.Button;
+import fatihes1.factory_method.example.buttons.WindowsButton;
 
 /**
  * Windows Dialog will produce Windows buttons.
