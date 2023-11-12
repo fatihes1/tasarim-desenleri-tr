@@ -56,10 +56,10 @@ Bu uygulama, nesne kompozisyonu ilkesini kullanır: bağdaştırıcı bir nesnen
 
 ![](https://refactoring.guru/images/patterns/diagrams/adapter/structure-object-adapter-2x.png)
 
-1. Client, programın mevcut iş mantığını içeren bir sınıftır.
-2. İstemci Arayüzü (Client Interface), istemci koduyla işbirliği yapabilmek için diğer sınıfların izlemesi gereken bir protokolü açıklar.
-3. Servis (Service) bazı yararlı sınıflardır (genellikle 3. taraf veya eski). İstemci, uyumsuz bir arayüze sahip olduğundan bu sınıfı doğrudan kullanamaz.
-4. Bağdaştırıcı yani adaptör, hem istemciyle hem de hizmetle çalışabilen bir sınıftır: hizmet nesnesini sararken istemci arayüzünü uygular. Bağdaştırıcı, istemci arayüzü aracılığıyla istemciden gelen çağrıları alır ve bunları, anlayabileceği bir formatta sarılmış hizmet nesnesine yapılan çağrılara dönüştürür.
+1. **Client**, programın mevcut iş mantığını içeren bir sınıftır.
+2. **İstemci Arayüzü (Client Interface)**, istemci koduyla işbirliği yapabilmek için diğer sınıfların izlemesi gereken bir protokolü açıklar.
+3. **Servis (Service)** bazı yararlı sınıflardır (genellikle 3. taraf veya eski). İstemci, uyumsuz bir arayüze sahip olduğundan bu sınıfı doğrudan kullanamaz.
+4. **Bağdaştırıcı yani adaptör**, hem istemciyle hem de hizmetle çalışabilen bir sınıftır: hizmet nesnesini sararken istemci arayüzünü uygular. Bağdaştırıcı, istemci arayüzü aracılığıyla istemciden gelen çağrıları alır ve bunları, anlayabileceği bir formatta sarılmış hizmet nesnesine yapılan çağrılara dönüştürür.
 5. İstemci kodu, istemci arabirimi aracılığıyla bağdaştırıcıyla birlikte çalıştığı sürece somut bağdaştırıcı sınıfına bağlanmaz. Bu sayede mevcut istemci kodunu bozmadan programa yeni adaptör türleri tanıtabilirsiniz. Bu, hizmet sınıfının arayüzü değiştirildiğinde veya değiştirildiğinde yararlı olabilir: istemci kodunu değiştirmeden yeni bir bağdaştırıcı sınıfı oluşturabilirsiniz.
 
 #### Sınıf Adaptörü
