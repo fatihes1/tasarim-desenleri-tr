@@ -11,7 +11,7 @@ Komut, bir isteği, istekle ilgili tüm bilgileri içeren bağımsız bir nesney
 
 ##  🙁 Problem
 
-Yeni bir metin düzenleyici uygulaması üzerinde çalıştığınızı hayal edin. Şu anki göreviniz, düzenleyicinin çeşitli işlemleri için bir dizi düğme içeren bir araç çubuğu oluşturmaktır. Araç çubuğundaki düğmelerin yanı sıra çeşitli iletişim kutularındaki genel düğmeler için kullanılabilecek çok düzgün bir `Button` sınıfı oluşturdunuz.
+Yeni bir metin düzenleyici uygulaması üzerinde çalıştığınızı hayal edin. Şu anki göreviniz, düzenleyicinin çeşitli işlemleri için bir dizi düğme içeren bir araç çubuğu oluşturmaktır. Araç çubuğundaki düğmelerin yanı sıra çeşitli iletişim kutularındaki genel düğmeler için kullanılabilecek normal bir `Button` sınıfı oluşturdunuz.
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem1-2x.png)
 
