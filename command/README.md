@@ -35,7 +35,7 @@ Başlangıçta, uygulamamızda yalnızca araç çubuğu bulunduğunda, çeşitli
 
 ##  😊 Çözüm
 
-İyi yazılım tasarımı genellikle endişelerin ayrılması ilkesine dayanır; bu da genellikle bir uygulamanın katmanlara bölünmesiyle sonuçlanır. En yaygın örnek: grafiksel kullanıcı arayüzü için bir katman ve iş mantığı için başka bir katman. GUI katmanı ekranda güzel bir resim oluşturmaktan, her türlü girişi yakalamaktan ve kullanıcının ve uygulamanın yaptıklarının sonuçlarını göstermekten sorumludur. Ancak iş ayın yörüngesini hesaplamak veya yıllık bir rapor oluşturmak gibi önemli bir şey yapmaya geldiğinde, GUI katmanı işi altta yatan iş mantığı katmanına devreder.
+İyi yazılım tasarımı genellikle endişelerin ayrılması ilkesine dayanır; bu da genellikle bir uygulamanın katmanlara bölünmesiyle sonuçlanır. En yaygın örnek: grafiksel kullanıcı arayüzü için bir katman ve iş mantığı için başka bir katman oluşturulmasıdır. GUI katmanı ekranda güzel bir resim oluşturmaktan, her türlü girişi yakalamaktan ve kullanıcının ve uygulamanın yaptıklarının sonuçlarını göstermekten sorumludur. Ancak iş ayın yörüngesini hesaplamak veya yıllık bir rapor oluşturmak gibi önemli bir şey yapmaya geldiğinde, GUI katmanı işi altta yatan iş mantığı katmanına devreder.
 
 Kodda şöyle görünebilir: Bir GUI nesnesi, bir iş mantığı nesnesinin yöntemini çağırır ve ona bazı argümanlar iletir. Bu süreç genellikle bir nesnenin diğerine istek göndermesi olarak tanımlanır.
 
