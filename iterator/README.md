@@ -20,7 +20,7 @@ Koleksiyonlar (Collections) programlamada en çok kullanılan veri türlerinden 
 
 Ancak bir koleksiyon nasıl yapılandırılmış olursa olsun, diğer kodların bu öğeleri kullanabilmesi için kendi öğelerine erişmenin bir yolunu sağlaması gerekir. Koleksiyonun her bir öğesinin üzerinden, aynı öğelere tekrar tekrar erişmeden geçmenin bir yolu olmalıdır.
 
-Listeye dayalı bir koleksiyonunuz varsa bu kolay bir iş gibi görünebilir. Tüm öğelerin üzerinden geçmeniz yeterli. Peki ağaç gibi karmaşık bir veri yapısının öğelerini sırayla nasıl geçersiniz? Örneğin, bir gün bir ağacın derinliğini ön planda tutarak geçiş yapmakta sorun yaşamazsınız. Ancak ertesi gün genişlik öncelikli geçişe ihtiyaç duyabilirsiniz. Gelecek hafta ağaç öğelerine rastgele erişim gibi başka bir şeye ihtiyacınız olabilir.
+Listeye dayalı bir koleksiyonunuz varsa bu kolay bir iş gibi görünebilir. Tüm öğelerin üzerinden geçmeniz yeterli. Peki ağaç gibi karmaşık bir veri yapısının öğelerini sırayla nasıl geçersiniz? Örneğin, bir gün bir ağacın derinliğini ön planda tutarak geçiş yapmakta sorun yaşamazsınız. Ancak ertesi gün genişlik öncelikli geçişe ihtiyaç duyabilirsiniz. Gelecek hafta ağaç öğelerine rastgele erişim gibi başka bir erişim yöntemine ihtiyacınız olabilir.
 
 
 ![](https://refactoring.guru/images/patterns/diagrams/iterator/problem2-2x.png)
