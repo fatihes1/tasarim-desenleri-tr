@@ -251,17 +251,17 @@ class PlayingState extends State is
 
 ##  📝 Nasıl Uygulanır?
 
-1. Bağlam olarak hangi sınıfın hareket edeceğine karar verin. Halihazırda duruma bağlı koda sahip olan mevcut bir sınıf olabilir; veya duruma özgü kod birden fazla sınıfa dağıtılmışsa yeni bir sınıf.
+1. Bağlam olarak hangi sınıfın hareket edeceğine karar verin. Halihazırda duruma bağlı koda sahip olan mevcut bir sınıf veya duruma özgü kod birden fazla sınıfa dağıtılmışsa yeni bir sınıf olabilir.
 
 2. Durum arayüzünü bildirin. Bağlamda bildirilen tüm yöntemleri yansıtabilse de yalnızca duruma özgü davranışlar içerebilenleri hedefleyin.
 
-3. Her gerçek durum için durum arayüzünden türetilen bir sınıf oluşturun. Daha sonra bağlamın yöntemlerinin üzerinden geçin ve bu durumla ilgili tüm kodları yeni oluşturulan sınıfınıza çıkarın.
+3. Her gerçek durum için durum arayüzünden türetilen bir sınıf oluşturun. Daha sonra bağlamın yöntemlerinin üzerinden geçin ve bu durumla ilgili tüm kodları yeni oluşturulan sınıfınıza ayırın.
 Kodu durum sınıfına taşırken, bunun bağlamın özel üyelerine bağlı olduğunu keşfedebilirsiniz. Birkaç geçici çözüm vardır:
-	- Bu alanları veya yöntemleri herkese açık hale getirin.
-	- Çıkardığınız davranışı bağlamda genel bir yönteme dönüştürün ve onu durum sınıfından çağırın. Bu yöntem çirkin ama hızlıdır ve bunu daha sonra istediğiniz zaman düzeltebilirsiniz.
-	- Durum sınıflarını bağlam sınıfına yuvalayın, ancak yalnızca programlama diliniz yuvalama sınıflarını destekliyorsa.
+	- Bu alanları veya yöntemleri herkese açık (public) hale getirin.
+	- Çıkardığınız davranışı bağlamda genel bir yönteme dönüştürün ve onu durum sınıfından çağırın. Bu yöntem pek güzel değildir ama hızlıdır ve bunu daha sonra istediğiniz zaman düzeltebilirsiniz.
+	- Programlama diliniz yuvalama sınıflarını (nesting classes) destekliyorsa, durum sınıflarını bağlam sınıfına yuvalayın.
 
-4. Bağlam sınıfında, durum arayüzü tipinde bir referans alanı ve bu alanın değerinin geçersiz kılınmasına izin veren bir genel ayarlayıcı ekleyin.
+4. Bağlam sınıfında, durum arayüzü tipinde bir referans alanı ve bu alanın değerinin geçersiz kılınmasına (overriding) izin veren bir genel ayarlayıcı ekleyin.
 
 5. Bağlam yönteminin üzerinden tekrar geçin ve boş durum şartlarını, durum nesnesinin karşılık gelen yöntemlerine yapılan çağrılarla değiştirin.
 
