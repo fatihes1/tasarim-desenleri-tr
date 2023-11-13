@@ -58,14 +58,14 @@ Kulenin tüm uçuşu kontrol etmesine gerek yok. Yalnızca terminal alanındaki 
 
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/structure-2x.png)
 
-1. **Bileşenler (Components)**, bazı iş mantığını içeren çeşitli sınıflardır. Her bileşenin, arabulucu arayüzünün türüyle bildirilen bir arabulucuya referansı vardır. Bileşen, aracının gerçek sınıfının farkında değildir; bu nedenle, bileşeni farklı bir aracıya bağlayarak diğer programlarda yeniden kullanabilirsiniz.
+1. **Bileşenler (Components)**, iş mantığını içeren çeşitli sınıfları ifade eder. Her bileşenin, arabulucu arayüzünün türüyle bildirilen bir arabulucuya referansı vardır. Bileşen, arabulucunun gerçek sınıfının farkında değildir; bu nedenle, bileşeni farklı bir aracıya bağlayarak diğer programlarda yeniden kullanabilirsiniz.
 
 2. **Mediator** arayüzü, genellikle tek bir bildirim yöntemini içeren bileşenlerle iletişim yöntemlerini bildirir. Bileşenler, kendi nesneleri de dahil olmak üzere herhangi bir bağlamı bu yöntemin argümanları olarak iletebilir. Ancak bu yalnızca alıcı bileşen ile gönderenin sınıfı arasında hiçbir bağlantı oluşmayacak şekilde yapılabilir.
 
-3. **Concrete Mediators** çeşitli bileşenler arasındaki ilişkileri kapsar. Somut aracılar genellikle yönettikleri tüm bileşenlere referanslar tutar ve hatta bazen yaşam döngülerini bile yönetirler.
+3. **Concrete Mediators** çeşitli bileşenler arasındaki ilişkileri kapsar. Concrete Mediator'lar genellikle yönettikleri tüm bileşenler için referanslar tutar. Hatta bazı durumlarda yaşam döngülerini (life cycle) bile yönetirler.
 
 4. Bileşenler diğer bileşenlerin farkında olmamalıdır. Bir bileşenin içinde veya bileşenin başına önemli bir şey gelirse, yalnızca arabulucuya bilgi vermelidir. Arabulucu bildirimi aldığında göndereni kolayca tanımlayabilir ve bu da karşılığında hangi bileşenin tetiklenmesi gerektiğine karar vermek için yeterli olabilir.
-Bir bileşenin bakış açısından her şey tamamen kara bir kutuya benzer. Gönderen, isteğini kimin yerine getireceğini bilmiyor ve alıcı da isteği ilk etapta kimin gönderdiğini bilmiyor.
+Bir bileşenin bakış açısından her şey tamamen kara bir kutuya benzer. Gönderen, isteğini kimin yerine getireceğini bilmez ve alıcı da isteği ilk etapta kimin gönderdiğini bilmeyecektir.
 
 
 ##  💻 Sözde Kod (Pseudocode)
@@ -166,13 +166,13 @@ class Checkbox extends Component is
 
 **🐞 Bir bileşeni, diğer bileşenlere çok bağımlı olduğundan farklı bir programda yeniden kullanamadığınızda bu modeli kullanın.**
 
-⚡️ Mediator'ı uyguladıktan sonra tek tek bileşenler diğer bileşenlerden habersiz hale gelir. Bir aracı nesne aracılığıyla dolaylı da olsa birbirleriyle hâlâ iletişim kurabiliyorlardı. Bir bileşeni farklı bir uygulamada yeniden kullanmak için ona yeni bir aracı sınıfı sağlamanız gerekir.
+⚡️ Mediator deseni uyguladıktan sonra tek tek bileşenler diğer bileşenlerden habersiz hale gelir. Bir aracı (arabulucu) nesne aracılığıyla dolaylı da olsa birbirleriyle hâlâ iletişim kurabilirler. Bir bileşeni farklı bir uygulamada yeniden kullanmak için ona yeni bir aracı sınıfı sağlamanız gerekir.
 
 ----------------
 
 **🐞 Çeşitli bağlamlarda bazı temel davranışları yeniden kullanmak için kendinizi tonlarca bileşen alt sınıfı oluştururken bulduğunuzda Mediator'ı kullanın.**
 
-⚡️ Bileşenler arasındaki tüm ilişkiler aracının içinde yer aldığından, bileşenleri kendileri değiştirmek zorunda kalmadan, yeni aracı sınıfları sunarak bu bileşenlerin işbirliği yapması için tamamen yeni yollar tanımlamak kolaydır.
+⚡️ Bileşenler arasındaki tüm ilişkiler arabulucu içinde yer aldığından, bileşenleri kendileri değiştirmek zorunda kalmadan, yeni aracı sınıfları sunarak bu bileşenlerin işbirliği yapması için tamamen yeni yollar tanımlamak kolaydır.
   
 
 ##  📝 Nasıl Uygulanır?
