@@ -4,7 +4,7 @@
 
 ##  💬 Amaç
 
-Komut, bir isteği, istekle ilgili tüm bilgileri içeren bağımsız bir nesneye dönüştüren davranışsal (behavioral) bir tasarım modelidir. Bu dönüşüm, istekleri yöntem bağımsız değişkenleri olarak aktarmanıza, bir isteğin yürütülmesini geciktirmenize veya sıraya koymanıza ve geri alınamayan işlemleri desteklemenize olanak tanır.
+Komut, bir isteği, istekle ilgili tüm bilgileri içeren bağımsız bir nesneye dönüştüren davranışsal (behavioral) bir tasarım modelidir. Bu dönüşüm, istekleri yöntem bağımsız değişkenleri olarak aktarmanıza, bir isteğin yürütülmesini geciktirmenize, sıraya koymanıza ve geri alınamayan işlemleri desteklemenize olanak tanır.
 
 ![](https://refactoring.guru/images/patterns/content/command/command-en-2x.png)
 
