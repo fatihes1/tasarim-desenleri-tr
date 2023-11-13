@@ -78,7 +78,7 @@ Tüm bu seçenekler (kafanızda doğan rastgele yönler, akıllı telefon gezgin
 4. **Concrete Collection**, müşteri her talep ettiğinde belirli bir somut yineleyici sınıfının yeni örneklerini döndürür. Koleksiyonun kodunun geri kalanının nerede olduğunu merak ediyor olabilirsiniz. Endişelenmeyin, aynı sınıfta olmalıdır. Sadece bu ayrıntılar asıl model için çok önemli değil, bu yüzden onları göz ardı edebiliriz.
 
 5. **İstemci (Client)**, arayüzleri aracılığıyla hem koleksiyonlarla hem de yineleyicilerle çalışır. Bu şekilde istemci somut sınıflara bağlanmaz ve aynı istemci koduyla çeşitli koleksiyonları ve yineleyicileri kullanmanıza olanak tanır.
-Genellikle istemciler yineleyicileri kendi başlarına oluşturmazlar; bunun yerine bunları koleksiyonlardan alırlar. Ancak bazı durumlarda müşteri doğrudan bir tane oluşturabilir; örneğin istemci kendi özel yineleyicisini tanımladığında.
+Genellikle istemciler, yineleyicileri kendi başlarına oluşturmazlar; bunun yerine bunları koleksiyonlardan alırlar. Ancak bazı durumlarda müşteri doğrudan bir tane oluşturabilir; örneğin istemci kendi özel yineleyicisini tanımladığında.
 
 
 ##  💻 Sözde Kod (Pseudocode)
