@@ -27,7 +27,7 @@ Listeye dayalı bir koleksiyonunuz varsa bu kolay bir iş gibi görünebilir. T�
 
 *Aynı koleksiyonda birkaç farklı şekilde geçiş yapılabilir.*
 
-Çok geçmeden bu yaklaşımın son derece kusurlu olduğunu fark edeceksiniz. İlk olarak, çok sayıda alt sınıfınız oluşacaktır. Eğer temel `Button` sınıfını her değiştirdiğinizde bu alt sınıflardaki kodu kırma riskini almıyorsanız bu sorun değil. Basitçe söylemek gerekirse, GUI kodunuz iş mantığının geçici koduna garip bir şekilde bağımlı hale geldi.
+Çok geçmeden bu yaklaşımın son derece kusurlu olduğunu fark edeceksiniz. İlk olarak, çok sayıda alt sınıfınız oluşacaktır. Eğer temel `Button` sınıfını her değiştirdiğinizde bu alt sınıflardaki kodu bozma riskini almıyorsanız bu sorun değil. Basitçe söylemek gerekirse, GUI kodunuz iş mantığının geçici koduna garip bir şekilde bağımlı hale geldi.
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem3-en-2x.png)
 
