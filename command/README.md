@@ -35,7 +35,7 @@ Başlangıçta, uygulamamızda yalnızca araç çubuğu bulunduğunda, çeşitli
 
 ##  😊 Çözüm
 
-İyi yazılım tasarımı genellikle endişelerin ayrılması ilkesine dayanır; bu da genellikle bir uygulamanın katmanlara bölünmesiyle sonuçlanır. En yaygın örnek: grafiksel kullanıcı arayüzü için bir katman ve iş mantığı için başka bir katman oluşturulmasıdır. GUI katmanı ekranda güzel bir resim oluşturmaktan, her türlü girişi yakalamaktan ve kullanıcının ve uygulamanın yaptıklarının sonuçlarını göstermekten sorumludur. Ancak iş ayın yörüngesini hesaplamak veya yıllık bir rapor oluşturmak gibi önemli bir şey yapmaya geldiğinde, GUI katmanı işi altta yatan iş mantığı katmanına devreder.
+İyi yazılım tasarımı genellikle endişelerin ayrılması ilkesine dayanır; bu da genellikle bir uygulamanın katmanlara bölünmesiyle sonuçlanır. En yaygın örnek: grafiksel kullanıcı arayüzü için bir katman ve iş mantığı için başka bir katman oluşturulmasıdır. GUI katmanı ekranda güzel bir resim oluşturmaktan, her türlü girişi yakalamaktan, kullanıcının ve uygulamanın yaptıklarının sonuçlarını göstermekten sorumludur. Ancak iş ayın yörüngesini hesaplamak veya yıllık bir rapor oluşturmak gibi önemli bir mantık (logic) hesabına geldiğinde, GUI katmanı işi altta yatan iş mantığı katmanına devreder.
 
 Kodda şöyle görünebilir: Bir GUI nesnesi, bir iş mantığı nesnesinin yöntemini çağırır ve ona bazı argümanlar iletir. Bu süreç genellikle bir nesnenin diğerine istek göndermesi olarak tanımlanır.
 
@@ -44,30 +44,30 @@ Kodda şöyle görünebilir: Bir GUI nesnesi, bir iş mantığı nesnesinin yön
 
 *GUI nesneleri, iş mantığı nesnelerine doğrudan erişebilir.*
 
-Komut modeli, GUI nesnelerinin bu istekleri doğrudan göndermemesi gerektiğini önerir. Bunun yerine, çağrılan nesne, yöntemin adı ve argümanların listesi gibi tüm istek ayrıntılarını, bu isteği tetikleyen tek bir yöntemle ayrı bir komut sınıfına çıkarmalısınız.
+Komut modeli, GUI nesnelerinin bu istekleri doğrudan göndermemesi gerektiğini savunur. Bunun yerine, çağrılan nesne, yöntemin adı ve argümanların listesi gibi tüm istek ayrıntılarını, bu isteği tetikleyen tek bir yöntemle ayrı bir komut sınıfına çıkarmalısınız.
 
-Komut nesneleri, çeşitli GUI ve iş mantığı nesneleri arasında bağlantı görevi görür. Artık GUI nesnesinin, isteği hangi iş mantığı nesnesinin alacağını ve nasıl işleneceğini bilmesine gerek yok. GUI nesnesi yalnızca tüm ayrıntıları işleyen komutu tetikler.
+Komut nesneleri, çeşitli GUI ve iş mantığı nesneleri arasında bağlantı görevi görür. Artık GUI nesnesinin, isteği hangi iş mantığı nesnesinin alacağını ve nasıl işleneceğini bilmesine gerek yoktur. GUI nesnesi yalnızca tüm ayrıntıları işleyen komutu tetikler.
 
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/solution2-en-2x.png)
 
 *İş mantığı katmanına bir komut aracılığıyla erişme.*
 
-Önümüzdeki adım, komutlarınızı aynı arayüzü uygulamak olmalıdır. Genellikle yalnızca parametre almayan tek bir yürütme yöntemine sahiptir. Bu arayüz, betik sınıflarının somut sınıflarına bağlı olmadan çeşitli komutları aynı istek gönderici ile kullanmanıza olanak tanır. Bir artı olarak, şimdi komut nesnelerini gönderici ile ilişkilendirebilir ve böylece göndericinin davranışını çalışma zamanında değiştirebilirsiniz.
+Önümüzdeki adım, komutlarınızı aynı arayüzü uygulamak (implement etmek) olmalıdır . Genellikle yalnızca parametre almayan tek bir yürütme yöntemine sahiptir. Bu arayüz, betik sınıflarının somut sınıflarına bağlı olmadan çeşitli komutları aynı istek gönderici ile kullanmanıza olanak tanır. Bir artı olarak, şimdi komut nesnelerini gönderici ile ilişkilendirebilir ve böylece göndericinin davranışını çalışma zamanında değiştirebilirsiniz.
 
-Belki de eksik parçayı fark etmişsinizdir, o da istek parametreleridir. Bir GUI nesnesi iş katmanı nesnesine bazı parametreler sağlamış olabilir. Ancak komut yürütme yönteminin herhangi bir parametresi olmadığı için, isteği alıcısına nasıl iletebiliriz? İşte komutun bu verilerle ya önceden yapılandırılması ya da kendi kendine alabilme yeteneğine sahip olması gerektiği ortaya çıkıyor.
+Belki de eksik parçayı fark etmişsinizdir. Nedir eksik olan parça? Elbette ki; istek parametreleri. Bir GUI nesnesi iş katmanı nesnesine bazı parametreler sağlamış olabilir. Ancak komut yürütme yönteminin herhangi bir parametresi olmadığı için, isteği alıcısına nasıl iletebiliriz? İşte komutun bu verilerle ya önceden yapılandırılması ya da kendi kendine alabilme yeteneğine sahip olması gerektiği ortaya çıkıyor.
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/solution3-en-2x.png)
 
 *GUI nesneleri, işi komutlara devreder.*
 
-Metin editörümüze geri dönelim. Komut (Command) modelini uyguladıktan sonra, çeşitli tıklama davranışlarını uygulamak için artık tüm bu düğme alt sınıflarına ihtiyacımız yok. Bir komut nesnesine referansı saklayan temel `Button` sınıfına tek bir alan koymak ve düğmenin bu komutu bir tıklamayla yürütmesini sağlamak yeterlidir.
+Metin editörümüze geri dönelim. Komut (Command) modelini uyguladıktan sonra, çeşitli tıklama davranışlarını uygulamak için artık tüm bu düğme alt sınıflarına ihtiyacımız kalmayacaktır. Bir komut nesnesine referansı saklayan temel `Button` sınıfına tek bir alan koymak ve düğmenin bu komutu bir tıklamayla yürütmesini sağlamak yeterlidir.
 
 Mümkün olan her işlem için bir dizi komut sınıfı uygulayacak ve düğmelerin amaçlanan davranışına bağlı olarak bunları belirli düğmelere bağlayacaksınız.
 
-Menüler, kısayollar veya diyalogların tamamı gibi diğer GUI öğeleri de aynı şekilde uygulanabilir. Bir kullanıcı GUI öğesiyle etkileşime girdiğinde yürütülen bir komuta bağlanacaklar. Tahmin edeceğiniz gibi, aynı işlemlerle ilgili öğeler aynı komutlara bağlanacak ve herhangi bir kod kopyası önlenecek.
+Menüler, kısayollar veya diyalogların tamamı gibi diğer GUI öğeleri de aynı şekilde uygulanabilir. Bir kullanıcı GUI öğesiyle etkileşime girdiğinde yürütülen bir komuta bağlanacaklar. Tahmin edeceğiniz gibi, aynı işlemlerle ilgili öğeler aynı komutlara bağlanacaktır. Böylelikle kod tekrarının önüne geçilecektir.
 
-Sonuç olarak komutlar, GUI ile iş mantığı katmanları arasındaki bağlantıyı azaltan kullanışlı bir orta katman haline gelir. Ve bu, Komut modelinin sunabileceği faydaların yalnızca küçük bir kısmı!
+Sonuç olarak komutlar, GUI ile iş mantığı katmanları arasındaki bağlantıyı azaltan kullanışlı bir orta katman haline gelir. Ve bu, Komut modelinin sunabileceği faydaların yalnızca küçük bir kısmıdır.
 
 
 ## 🚙 Gerçek Dünya Örneği
@@ -78,24 +78,23 @@ Sonuç olarak komutlar, GUI ile iş mantığı katmanları arasındaki bağlant�
 
 Şehirde uzun bir yürüyüşten sonra güzel bir restorana gelip pencere kenarındaki masaya oturduğunuzu düşünelim. Dost canlısı bir garson yanınıza yaklaşıyor ve siparişinizi hızla alıp bir kağıda yazıyor. Garson mutfağa gider ve siparişi duvara yapıştırır. Bir süre sonra sipariş şefe ulaşır, şef de onu okur ve yemeği ona göre pişirir. Aşçı yemeği siparişle birlikte tepsiye yerleştirir. Garson tepsiyi teslim alır, her şeyin istediğiniz gibi olduğundan emin olmak için siparişi kontrol eder. Eğer her şey olması gerektiği gibi ise siparişinizi masanıza getirir.
 
-Kağıt siparişi bir komut yani command görevi görür. Şef, siparişi servis etmeye hazır olana kadar kuyrukta kalır. Sipariş, yemeği pişirmek için gereken tüm bilgileri içerir. Bu, şefin sipariş ayrıntılarını doğrudan sizden öğrenmesi yerine hemen yemek pişirmeye başlamasını sağlar.
+Kağıt siparişi bir komut yani command görevi görür. Şef, siparişi servis etmeye hazır olana kadar kuyrukta kalır. Sipariş komutu, yemeği pişirmek için gereken tüm bilgileri içerir. Bu, şefin sipariş ayrıntılarını doğrudan sizden öğrenmesi yerine hemen yemek pişirmeye başlamasını sağlar.
 
 
 ##  ⚙️ Yapı
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/structure-2x.png)
 
-1. **Sender** sınıfı (diğer adıyla çağrıcı - invoker) istekleri başlatmadan sorumludur. Bu sınıfın, bir komut nesnesine referansı depolamak için bir alana sahip olması gerekir. Gönderen yani **Sender**, isteği doğrudan alıcıya göndermek yerine bu komutu tetikler. Gönderenin, komut nesnesinin oluşturulmasından sorumlu **olmadığını** unutmayın. Genellikle istemciden yapıcı aracılığıyla önceden oluşturulmuş bir komut alır.
+1. **Sender** sınıfı (diğer adıyla çağrıcı - invoker) istekleri başlatmadan sorumludur. Bu sınıfın, bir komut nesnesine referansı depolamak için bir alana sahip olması gerekir. Gönderen yani **Sender**, isteği doğrudan alıcıya göndermek yerine bu komutu tetikler. Gönderenin, komut nesnesinin oluşturulmasından sorumlu **olmadığını** unutmayın. Genellikle istemciden yapıcı (constructor) aracılığıyla önceden oluşturulmuş bir komut alır.
 
 2. **Komut** (Command) arayüzü (interface) genellikle komutun yürütülmesi için yalnızca tek bir yöntem bildirir.
 
 3. **Concrete Commands** çeşitli türde istekleri uygular (implement). Bir komutun işi kendi başına gerçekleştirmesi değil, çağrıyı iş mantığı nesnelerinden birine iletmesi gerekir. Ancak kodu basitleştirmek adına bu sınıflar birleştirilebilir.
-Alıcı nesnede bir yöntemi yürütmek için gereken parametreler, somut komutta alanlar olarak bildirilebilir. Bu alanların yalnızca yapıcı (constructor) aracılığıyla başlatılmasına izin vererek komut nesnelerini değişmez hale getirebilirsiniz.
+Alıcı nesnede bir yöntemi yürütmek için gereken parametreleri, komut içerisinde alanlar (fields) olarak bildirilebilir. Bu alanların yalnızca yapıcı (constructor) aracılığıyla başlatılmasına izin vererek komut nesnelerini değişmez hale getirebilirsiniz.
 
-4. **Alıcı (Receiver)** sınıfı bazı iş mantıklarını içerir. Hemen hemen her receiver görevi görebilir. Çoğu komut yalnızca bir isteğin alıcıya nasıl iletildiğinin ayrıntılarını ele alırken, asıl işi alıcının kendisi yapar.
+4. **Alıcı (Receiver)** sınıfı bazı iş mantıklarını içerir. Hemen hemen her nesne, receiver görevi görebilir. Çoğu komut yalnızca bir isteğin alıcıya nasıl iletildiğinin ayrıntılarını ele alırken, asıl işi alıcının kendisi yapar.
 
 5. **İstemci (Client)** somut komut nesneleri oluşturur ve yapılandırır. İstemci, alıcı örneği de dahil olmak üzere tüm istek parametrelerini komutun yapıcısına (constructor) aktarmalıdır. Bundan sonra ortaya çıkan komut bir veya daha fazla göndericiyle ilişkilendirilebilir.
-
 
 
 ##  💻 Sözde Kod (Pseudocode)
@@ -106,7 +105,7 @@ Bu örnekte **Komut** modeli, yürütülen işlemlerin geçmişinin izlenmesine 
 
 *Bir metin düzenleyicide geri alınamayan işlemler.*
 
-Komutlar, düzenleyicinin durumunu değiştiren komutla ilişkilendirilmiş bir işlemi gerçekleştirmeden önce düzenleyicinin durumunun yedek bir kopyasını oluştururlar (örneğin kesme ve yapıştırma gibi). Bir komut gerçekleştirildikten sonra, komut geçmişi (komut nesnelerinin bir yığını) ile o andaki düzenleyicinin durumunun yedeği birlikte saklanır. Daha sonra, kullanıcı bir işlemi geri alması gerektiğinde, uygulama geçmişten en son komutu alabilir, düzenleyicinin durumunun ilişkilendirilen yedeğini okuyabilir ve onu geri yükleyebilir.
+Komutlar, düzenleyicinin durumunu değiştiren komutla ilişkilendirilmiş bir işlemi gerçekleştirmeden önce düzenleyicinin durumunun yedek bir kopyasını oluştururlar (örneğin kesme ve yapıştırma gibi). Bir komut gerçekleştirildikten sonra, komut geçmişi (komut nesnelerinin bir yığını) ile o andaki düzenleyicinin durumunun bir yedeği birlikte saklanır. Daha sonra, kullanıcı bir işlemi geri alması gerektiğinde, uygulama geçmişten en son komutu alabilir, düzenleyicinin durumunun ilişkilendirilen yedeğini okuyabilir ve onu geri yükleyebilir.
 
 İstemci kodu (GUI öğeleri, komut geçmişi vb.), komut arayüzü üzerinden komutlarla çalıştığı için concrete komut sınıflarına bağlı değildir. Bu yaklaşım, mevcut kodu bozmadan uygulamaya yeni komutlar eklemenizi sağlar.
 
