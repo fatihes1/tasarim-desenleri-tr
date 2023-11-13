@@ -196,14 +196,14 @@ Gözlemci modeli, abone arayüzünü uygulayan herhangi bir nesnenin, yayıncı 
 
 1. İş mantığınızı gözden geçirin ve işlevselliği iki bölüme ayırmaya çalışın: diğer kodlardan bağımsız olan temel işlevsellik, yayıncı olarak hareket edecektir; geri kalanı bir dizi abone sınıfına dönüşecektir.
 
-2. Abone arabirimini bildirin. En azından tek bir güncelleme yöntemini bildirmelidir.
+2. Abone arabirimini tanımlayın. En azından tek bir güncelleme yöntemini barındırmalıdır.
 
-3. Yayıncı arabirimini bildirin ve bir abone nesnesini bir listeye eklemek ve onu çıkarmak için bir çift yöntemi tanımlayın. Unutmayın ki yayıncılar, abonelerle yalnızca abone arabirimi aracılığıyla çalışmalıdır.
+3. Yayıncı arabirimini tanımlayın ve bir abone nesnesini bir listeye eklemek veya onu çıkarmak için bir çift yöntemi tanımlayın. Unutmayın ki yayıncılar, abonelerle yalnızca abone arabirimi aracılığıyla çalışmalıdır.
 
 4. Gerçek abonelik listesini ve abonelik yöntemlerinin uygulanmasını nereye yerleştireceğinize karar verin. Genellikle bu kod, tüm yayın türleri için aynı görünür, bu nedenle koymak için en uygun yer, doğrudan yayıncı arabiriminden türetilmiş soyut bir sınıftır. Somut yayıncılar bu sınıfı genişleterek abonelik davranışını devralırlar.
 Ancak, deseni mevcut bir sınıf hiyerarşisine uyguluyorsanız, kompozisyona dayalı bir yaklaşımı düşünün: abonelik mantığını ayrı bir nesneye koyun ve tüm gerçek yayıncıların bunu kullanmasını sağlayın.
 
-5. Somut yayıncı sınıfları oluşturun. Bir yayıncı içinde önemli bir şey olduğunda, tüm abonelerine bildirmelidir.
+5. Somut yayıncı sınıfları oluşturun. Bir yayıncı içinde önemli bir şey olduğunda, bu durum tüm abonelerine bildirilmelidir.
 
 6. Somut abone sınıflarında güncelleme bildirim yöntemlerini uygulayın. Çoğu abone, etkinlikle ilgili bağlam verilerine ihtiyaç duyacaktır. Bu veriler, bildirim yönteminin bir argümanı olarak iletilir.
 Ancak başka bir seçenek de vardır. Bildirim aldıktan sonra, abone, verileri doğrudan bildirimden alabilir. Bu durumda, yayıncı kendisini güncelleme yöntemi aracılığıyla iletmelidir. Daha az esnek seçenek, bir yayıncıyı kalıcı olarak bir aboneye bağlamaktır, bunu yaparken yapıcı aracılığıyla.
