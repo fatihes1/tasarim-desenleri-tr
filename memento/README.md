@@ -12,18 +12,18 @@ Memento, uygulama ayrıntılarını açıklamadan bir nesnenin önceki durumunu 
 
 ##  🙁 Problem
 
-Bir metin düzenleyici uygulaması oluşturduğunuzu düşünün. Düzenleyiciniz, basit metin düzenlemenin yanı sıra metni biçimlendirebilir, satır içi görseller ekleyebilir vb. işlemleri gerçekleştirebilir.
+Bir metin düzenleyici uygulaması oluşturduğunuzu düşünün. Düzenleyiciniz, basit metin düzenlemenin yanı sıra metni biçimlendirme, satır içi görseller ekleme gibi işlemleri gerçekleştirebilir.
 
-Bir noktada kullanıcıların metin üzerinde gerçekleştirilen işlemleri geri almasına izin vermeye karar verdiniz. Bu özellik yıllar geçtikçe o kadar yaygınlaştı ki günümüzde insanlar her uygulamanın bu özelliğe sahip olmasını bekliyor. Uygulama için doğrudan yaklaşımı (direct approach) tercih ettiniz. Uygulama, herhangi bir işlem yapmadan önce tüm nesnelerin durumunu kaydeder ve bir depolama alanında tutar. Daha sonra kullanıcı bir eylemi geri almaya karar verdiğinde uygulama geçmişten en son anlık görüntüyü alır ve bunu tüm nesnelerin durumunu geri yüklemek için kullanır.
+Bir noktada kullanıcıların metin üzerinde gerçekleştirilen işlemleri geri almasına izin vermeye karar verebilirsiniz. Bu özellik, yıllar geçtikçe o kadar yaygınlaştı ki günümüzde insanlar her uygulamanın bu özelliğe sahip olmasını bekliyor. Uygulama için doğrudan yaklaşımı (direct approach) tercih ettiğinizi düşünelim. Uygulama, herhangi bir işlem yapmadan önce tüm nesnelerin durumunu kaydeder ve bir depolama alanında tutar. Daha sonra kullanıcı bir eylemi geri almaya karar verdiğinde uygulama geçmişten en son anlık görüntüyü alır ve bunu tüm nesnelerin durumunu geri yüklemek için kullanır.
 
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/problem1-en-2x.png)
 
 *Uygulama, bir işlemi gerçekleştirmeden önce nesnelerin durumunun anlık görüntüsünü kaydeder. Bu anlık görüntü, daha sonra nesneleri önceki durumlarına geri yüklemek için kullanılabilir.*
 
-Bu durum anlık görüntülerini düşünelim. Tam olarak nasıl bir tane üretirsiniz? Muhtemelen bir nesnedeki tüm alanları gözden geçirmeniz ve değerlerini depoya kopyalamanız gerekecektir. Ancak bu yalnızca nesnenin içeriğine yönelik oldukça esnek erişim kısıtlamalarına sahip olması durumunda işe yarar. Ne yazık ki çoğu gerçek nesne, diğerlerinin içlerine bu kadar kolay göz atmasına izin vermez ve tüm önemli verileri özel alanlarda gizler.
+Bu durum anlık görüntülerini (snapshot) düşünelim. Tam olarak nasıl bir tane oluştururdunuz? Muhtemelen bir nesnedeki tüm alanları gözden geçirmeniz ve değerlerini depoya kopyalamanız gerekecektir. Ancak bu yalnızca nesnenin içeriğine yönelik oldukça esnek erişim kısıtlamalarına sahip olması durumunda işe yarar. Ne yazık ki çoğu gerçek nesne, diğerlerinin içlerine bu kadar kolay göz atmasına izin vermez ve tüm önemli verileri özel alanlarda gizler.
 
-Şimdilik bu sorunu bir kenara bırakın ve nesnelerimizin hippiler gibi davrandığını varsayalım: açık ilişkileri tercih ediyor ve durumlarını halka açık (public) tutuyorlar. Bu yaklaşım acil sorunu çözecek ve nesnelerin durumlarının anlık görüntülerini istediğiniz zaman oluşturmanıza olanak tanıyacak olsa da, hala bazı ciddi sorunları var. Gelecekte, düzenleyici sınıflarından bazılarını yeniden düzenlemeye veya alanların bazılarını eklemeye veya kaldırmaya karar verebilirsiniz. Kulağa kolay geliyor ama aynı zamanda etkilenen nesnelerin durumunun kopyalanmasından sorumlu sınıfların değiştirilmesini de gerektiriyor.
+Şimdilik bu sorunu bir kenara bırakalım ve nesnelerimizin hippiler gibi davrandığını varsayalım: açık ilişkileri tercih ediyor ve durumlarını halka açık (public) tutuyorlar. Bu yaklaşım acil sorunu çözecek ve nesnelerin durumlarının anlık görüntülerini istediğiniz zaman oluşturmanıza olanak tanıyacak olsa da, hala bazı ciddi sorunları vardır. Gelecekte, düzenleyici sınıflarından bazılarını yeniden düzenlemeye veya alanların bazılarını eklemeye veya kaldırmaya karar verebilirsiniz. Kulağa kolay geliyor ama aynı zamanda etkilenen nesnelerin durumunun kopyalanmasından sorumlu sınıfların değiştirilmesini de gerektiriyor.
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/problem2-en-2x.png)
 
@@ -39,20 +39,20 @@ Görünüşe göre bir çıkmaza girmişiz: Ya sınıfların tüm iç ayrıntıl
 ##  😊 Çözüm
 
 
-Az önce yaşadığımız tüm sorunlar kapsüllemenin bozulmasından kaynaklanıyor. Bazı nesneler yapmaları gerekenden daha fazlasını yapmaya çalışır. Bir eylemi gerçekleştirmek için gereken verileri toplamak amacıyla, bu nesnelerin gerçek eylemi gerçekleştirmesine izin vermek yerine diğer nesnelerin özel alanlarını istila ederler.
+Az önce yaşadığımız tüm sorunlar kapsüllemenin (encapsulation) bozulmasından kaynaklanıyor. Bazı nesneler yapmaları gerekenden daha fazlasını yapmaya çalışır. Bir eylemi gerçekleştirmek için gereken verileri toplamak amacıyla, bu nesnelerin gerçek eylemi gerçekleştirmesine izin vermek yerine diğer nesnelerin özel alanlarını istila ederler.
 
 Memento modeli, durum anlık görüntülerinin oluşturulmasını o durumun gerçek sahibine, yani yaratıcı nesneye devreder. Dolayısıyla, editörün durumunu “dışarıdan” kopyalamaya çalışan diğer nesneler yerine, kendi durumuna tam erişime sahip olduğu için editör sınıfının kendisi anlık görüntüyü oluşturabilir.
 
-Desen, nesnenin durumunun kopyasının hatıra adı verilen özel bir nesnede saklanmasını önerir. Hatıranın içeriğine, onu üreten nesne dışında başka hiçbir nesne erişemez. Diğer nesnelerin, anlık görüntünün meta verilerinin (oluşturulma zamanı, gerçekleştirilen işlemin adı vb.) getirilmesine izin verebilecek, ancak anlık görüntüde yer alan orijinal nesnenin durumunu getiremeyen sınırlı bir arayüz kullanarak hatıralarla iletişim kurması gerekir.
+Desen, nesnenin durumunun kopyasının hatıra (memento) adı verilen özel bir nesnede saklanmasını önerir. Hatıranın içeriğine, onu üreten nesne dışında başka hiçbir nesne erişemez. Diğer nesnelerin, anlık görüntünün meta verilerinin (oluşturulma zamanı, gerçekleştirilen işlemin adı vb.) getirilmesine izin verebilecek, ancak anlık görüntüde yer alan orijinal nesnenin durumunu getiremeyen sınırlı bir arayüz kullanarak hatıralarla iletişim kurması gerekir.
 
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/solution-en-2x.png)
 
-*Oluşturan, hatıraya tam erişime sahipken bekçi yalnızca meta verilere erişebilir.*
+*Oluşturan, hatıraya tam erişime sahipken bakıcı yalnızca meta verilere erişebilir.*
 
-Bu kadar kısıtlayıcı bir politika, hatıraları genellikle bekçi olarak adlandırılan diğer nesnelerin içinde saklamanıza olanak tanır. Bekçi, hatıra ile yalnızca sınırlı arayüz aracılığıyla çalıştığından, hatıranın içinde saklanan duruma müdahale edemez. Aynı zamanda, yaratıcının hatıranın içindeki tüm alanlara erişimi vardır ve bu da onun istediği zaman önceki durumuna geri dönmesine olanak sağlar.
+Bu kadar kısıtlayıcı bir politika, hatıraları genellikle bakıcı (caretakers) olarak adlandırılan diğer nesnelerin içinde saklamanıza olanak tanır. Bakıcı, hatıra ile yalnızca sınırlı arayüz aracılığıyla çalıştığından, hatıranın içinde saklanan duruma müdahale edemez. Aynı zamanda, yaratıcının hatıranın içindeki tüm alanlara erişimi vardır ve bu da onun istediği zaman önceki durumuna geri dönmesine olanak sağlar.
 
-Metin düzenleyici örneğimizde, bekçi görevi görecek ayrı bir tarih sınıfı oluşturabiliriz. Editörün bir işlemi yürütmek üzere olduğu her seferde, bekçini içinde saklanan bir hatıra yığını büyüyecektir. Hatta bu yığını uygulamanın kullanıcı arayüzünde oluşturup daha önce gerçekleştirilen işlemlerin geçmişini kullanıcıya görüntüleyebilirsiniz.
+Metin düzenleyici örneğimizde, bakıcı görevi görecek ayrı bir memento sınıfı oluşturabiliriz. Editörün bir işlemi yürütmek üzere olduğu her seferde, bakıcının içinde saklanan bir memento yığını büyüyecektir. Hatta bu yığını uygulamanın kullanıcı arayüzünde oluşturup daha önce gerçekleştirilen işlemlerin geçmişini kullanıcıya görüntüleyebilirsiniz.
 
 Bir kullanıcı geri alma işlemini tetiklediğinde, geçmiş, yığından en son hatırayı alır ve onu geri alma talebinde bulunarak editöre geri iletir. Editör hatıraya tam erişime sahip olduğundan hatıradan alınan değerlerle kendi durumunu değiştirir.
 
@@ -69,18 +69,18 @@ Desenin klasik uygulaması, birçok popüler programlama dilinde (C++, C# ve Jav
 
 2. **Memento**, yaratıcının durumunun anlık görüntüsü görevi gören bir değer nesnesidir. Hatıranın değişmez hale getirilmesi ve verilerin yapıcı aracılığıyla yalnızca bir kez iletilmesi yaygın bir uygulamadır.
 
-3. **Bekçi (Caretaker)** yalnızca yaratıcının durumunu "ne zaman" ve "neden" yakalayacağını değil, aynı zamanda durumun ne zaman geri getirilmesi gerektiğini de bilir.
-Bir bekçi, bir yığın hatıra saklayarak, yaratıcının geçmişini takip edebilir. Yaratıcının tarihte geriye gitmesi gerektiğinde, bekçi yığından en üstteki hatırayı alır ve onu yaratıcının restorasyon yöntemine iletir.
+3. **Bakıcı (Caretaker)** yalnızca yaratıcının durumunu "ne zaman" ve "neden" yakalayacağını değil, aynı zamanda durumun ne zaman geri getirilmesi gerektiğini de bilir.
+Bir bakıcı, bir yığın hatıra saklayarak, yaratıcının geçmişini takip edebilir. Yaratıcının tarihte geriye gitmesi gerektiğinde, bakıcı yığından en üstteki hatırayı alır ve onu yaratıcının restorasyon yöntemine iletir.
 
-4. Bu uygulamada, hatıra sınıfı, oluşturucunun içine yerleştirilmiştir. Bu, özel olarak bildirilmiş olsalar bile, yaratıcının hatıranın alanlarına ve yöntemlerine erişmesine olanak tanır. Öte yandan, bekçinin hatıra alanlarına ve yöntemlerine çok sınırlı erişimi vardır, bu da hatıraları bir yığın halinde saklamasına ancak durumlarını değiştirmemesine olanak tanır.
+4. Bu uygulamada, hatıra sınıfı, oluşturucunun içine yerleştirilmiştir. Bu, özel olarak bildirilmiş olsalar bile, yaratıcının hatıranın alanlarına ve yöntemlerine erişmesine olanak tanır. Öte yandan, bakıcının hatıra alanlarına ve yöntemlerine çok sınırlı erişimi vardır, bu da hatıraları bir yığın halinde saklamasına ancak durumlarını değiştirmemesine olanak tanır.
 
 #### Ara arayüze dayalı uygulama
 
-İç içe geçmiş sınıfları desteklemeyen programlama dilleri için uygun alternatif bir uygulama var (evet, PHP, senden bahsediyoruz).
+İç içe geçmiş sınıfları desteklemeyen programlama dilleri için uygun alternatif bir uygulama var (evet, PHP, senden bahsediyoruz ☹️ ).
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/structure2-2x.png)
 
-1. Yuvalanmış sınıfların yokluğunda, bekçilerin yalnızca açıkça beyan edilen bir aracı arayüz aracılığıyla bir hatıra ile çalışabileceği ve yalnızca hatıranın meta verileriyle ilgili yöntemlerin bildirileceği bir kural oluşturarak hatıra alanlarına erişimi kısıtlayabilirsiniz.
+1. Yuvalanmış sınıfların yokluğunda, bakıcıların yalnızca açıkça beyan edilen bir aracı arayüz aracılığıyla bir hatıra ile çalışabileceği ve yalnızca hatıranın meta verileriyle ilgili yöntemlerin bildirileceği bir kural oluşturarak hatıra alanlarına erişimi kısıtlayabilirsiniz.
 
 2. Öte yandan, yaratıcılar memento sınıfında bildirilen alanlara ve yöntemlere erişerek doğrudan bir memento nesnesiyle çalışabilirler. Bu yaklaşımın dezavantajı, hatıranın tüm üyelerini kamuya açıklamanız gerekmesidir.
 
@@ -92,7 +92,7 @@ Hatıra yoluyla diğer sınıfların yaratıcının durumuna erişmesine en ufak
 
 1. Bu uygulama, birden fazla yaratıcı ve hatıra türüne sahip olmanıza olanak tanır. Her yaratıcı, karşılık gelen bir hatıra sınıfıyla çalışır. Ne yaratıcılar ne de hatıralar durumlarını kimseye ifşa etmez.
 
-2. Bekçilerin (Caretakers) artık hatıralarda saklanan durumu değiştirmeleri açıkça kısıtlanmıştır. Üstelik restorasyon yöntemi artık hatıra sınıfında tanımlandığı için bekçi sınıfı, yaratıcıdan bağımsız hale geliyor.
+2. Bakıcıların (Caretakers) artık hatıralarda saklanan durumu değiştirmeleri açıkça kısıtlanmıştır. Üstelik restorasyon yöntemi artık hatıra sınıfında tanımlandığı için bakıcı sınıfı, yaratıcıdan bağımsız hale geliyor.
 
 3. Her hatıra (memento), onu üreten yaratıcıya bağlanır. Oluşturucu, durumunun değerleriyle birlikte kendisini hatıranın yapıcısına aktarır. Bu sınıflar arasındaki yakın ilişki sayesinde, bir hatıra, yaratıcısının uygun ayarlayıcıları tanımlamış olması koşuluyla, yaratıcısının durumunu geri yükleyebilir.
 
@@ -106,7 +106,7 @@ Bu örnek, karmaşık metin düzenleyicisinin durumunun anlık görüntülerini 
 
 *Metin düzenleyicinin durumunun anlık görüntüleri kaydediliyor.*
 
-Komut nesneleri bekçi görevi görür. Komutlarla ilgili işlemleri yürütmeden önce editörün hatırasını alırlar. Bir kullanıcı en son komutu geri almaya çalıştığında, editör kendisini önceki duruma döndürmek için o komutta saklanan hatırayı kullanabilir.
+Komut nesneleri bakıcı görevi görür. Komutlarla ilgili işlemleri yürütmeden önce editörün hatırasını alırlar. Bir kullanıcı en son komutu geri almaya çalıştığında, editör kendisini önceki duruma döndürmek için o komutta saklanan hatırayı kullanabilir.
 
 Hatıra sınıfı herhangi bir genel alanı, alıcıyı veya ayarlayıcıyı bildirmez. Bu nedenle hiçbir nesne içeriğini değiştiremez. Hatıralar, onları oluşturan düzenleyici nesneye bağlıdır. Bu, bir hatıranın, verileri düzenleyici nesnesindeki ayarlayıcılar aracılığıyla ileterek bağlantılı düzenleyicinin durumunu geri yüklemesine olanak tanır. Hatıralar belirli düzenleyici nesnelere bağlı olduğundan, uygulamanızın merkezi bir geri alma yığınıyla birkaç bağımsız düzenleyici penceresini desteklemesini sağlayabilirsiniz.
 
@@ -152,7 +152,7 @@ class Snapshot is
         editor.setCursor(curX, curY)
         editor.setSelectionWidth(selectionWidth)
 
-// Bir komut nesnesi bir bekçi olarak hareket edebilir. Bu durumda,
+// Bir komut nesnesi bir bakıcı olarak hareket edebilir. Bu durumda,
 // komut, originator'ün durumunu değiştirmeden önce bir memento alır.
 // Geri alma istendiğinde, originator'ün durumunu bir memento'dan geri yükler.
 class Command is
@@ -189,21 +189,21 @@ Nasıl Uygulanır
 
 1.  Hangi sınıfın yaratıcı rolünü oynayacağını belirleyin. Programın bu türden tek bir merkezi nesneyi mi yoksa birden fazla küçük nesneyi mi kullandığını bilmek önemlidir.
     
-2.  Memento sınıfını oluşturun. Sırayla, originator sınıfında bildirilen alanları yansıtan bir dizi alanı bildirin.
+2.  Memento sınıfını oluşturun. Sırayla, originator sınıfında bildirilen alanları yansıtan bir dizi alanı taımlayın.
     
-3.  Memento sınıfını değişmez hale getirin. Bir memento yalnızca bir kez, yapıcı yöntemi aracılığıyla verileri kabul etmelidir. Sınıfta ayarlayıcı olmamalıdır.
+3.  Memento sınıfını değişmez (immutable) hale getirin. Bir memento yalnızca bir kez, yapıcı yöntemi aracılığıyla verileri kabul etmelidir. Sınıfta ayarlayıcı olmamalıdır.
     
 4.  Programlama diliniz gömülü sınıfları destekliyorsa, memento sınıfını yaratıcı içine gömün. Aksi takdirde, memento sınıfından boş bir arabirim çıkarın ve diğer nesnelerin mementoya başvurmak için bu arabirimi kullanmasını sağlayın. Arabirime bazı meta veri işlemleri ekleyebilirsiniz, ancak yaratıcının durumunu ortaya çıkarmayan işlemler eklemeyin.
     
 5.  Memento üretebilme yöntemi ekleyin. Yaratıcı, durumunu memento'ya bir veya birden çok memento yapıcısının argümanı aracılığıyla aktarmalıdır.
     
-6.  Yöntemin dönüş türü, önceki adımda çıkardığınız arabirim olmalıdır (çıkardıysanız). Alt yapıda, memento üretme yöntemi doğrudan memento sınıfı ile çalışmalıdır.
+6.  Yöntemin dönüş türü, önceki adımda çıkardığınız arabirim olmalıdır (eğer çıkardıysanız). Alt yapıda, memento üretme yöntemi doğrudan memento sınıfı ile çalışmalıdır.
     
 7.  Yaratıcı sınıfının durumunu geri yüklemek için bir yöntem ekleyin. Bir memento nesnesini bir argüman olarak kabul etmelidir. Önceki adımda bir arabirim çıkardıysanız, bu arabirimin türünü parametre türü yapın. Bu durumda, gelen nesneyi memento sınıfına dönüştürmeniz gerekecektir, çünkü yaratıcı nesnenin bu nesneye tam erişime ihtiyacı vardır.
     
-8.  Bekçi, bir komut nesnesini, bir geçmişi veya tamamen farklı bir şeyi temsil edip etmediğine bakılmaksızın, ne zaman yeni memento talep etmesi gerektiğini, nasıl depolayacağını ve belirli bir memento ile yaratıcı ne zaman geri yüklemesi gerektiğini bilmelidir.
+8.  Bakıcı, bir komut nesnesini, bir geçmişi veya tamamen farklı bir şeyi temsil edip etmediğine bakılmaksızın, ne zaman yeni memento talep etmesi gerektiğini, nasıl depolayacağını ve belirli bir memento ile yaratıcı ne zaman geri yüklemesi gerektiğini bilmelidir.
     
-9.  Bekçiler ve yaratıcı arasındaki bağlantı, memento sınıfına taşınabilir. Bu durumda, her memento, onu oluşturan yaratıcıya bağlı olmalıdır. Geri yükleme yöntemi de memento sınıfına taşınacaktır. Ancak bu, memento sınıfının yaratıcı tarafından sağlanan bir durumun üzerine yazılmasına yönelik yeterli ayarlayıcılar sunuyorsa anlamlı olur.
+9.  Bakıcılar ve yaratıcı arasındaki bağlantı, memento sınıfına taşınabilir. Bu durumda, her memento, onu oluşturan yaratıcıya bağlı olmalıdır. Geri yükleme yöntemi de memento sınıfına taşınacaktır. Ancak bu, memento sınıfının yaratıcı tarafından sağlanan bir durumun üzerine yazılmasına yönelik yeterli ayarlayıcılar sunuyorsa anlamlı olur.
 
 ##  ⚖️ Artıları ve Eksileri
 
@@ -214,7 +214,7 @@ Nasıl Uygulanır
 
 ❌ İstemciler çok sık hatıra oluşturursa uygulama çok fazla RAM tüketebilir.
 
-❌ Bekçiler, eski hatıraları yok edebilmek için yaratıcının yaşam döngüsünü takip etmelidir.
+❌ Bakıcılar, eski hatıraları yok edebilmek için yaratıcının yaşam döngüsünü takip etmelidir.
 
 ❌ PHP, Python ve JavaScript gibi çoğu dinamik programlama dili, hatıra içindeki durumun değişmeden kalacağını garanti edemez.
 
