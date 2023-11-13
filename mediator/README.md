@@ -177,12 +177,12 @@ class Checkbox extends Component is
 
 ##  📝 Nasıl Uygulanır?
 
-1. Daha bağımsız olunca fayda sağlayacak sıkı sıkıya bağlı bir sınıf grubunu tanımlayın (bu sınıfların daha kolay bakım veya daha basit yeniden kullanımı için).
+1. Daha bağımsız olunca fayda sağlayacak sıkı sıkıya bağlı bir sınıf grubunu tanımlayın. Bu tanımlama, sınıfların daha kolay bakım veya daha basit yeniden kullanımı için yapılır.
 
 2. Arabulucu arayüzünü tanımlayın ve arabulucular ile çeşitli bileşenler arasındaki istenen iletişim protokolünü tanımlayın. Çoğu durumda, bileşenlerden bildirim almak için tek bir yöntem yeterlidir.
 Bu arayüz, bileşen sınıflarını farklı bağlamlarda yeniden kullanmak istediğinizde kritiktir. Bileşen, arabulucusu ile genel arayüz aracılığıyla çalıştığı sürece, bileşeni arabulucunun farklı bir uygulaması ile ilişkilendirebilirsiniz.
 
-3. Somut arabulucu sınıfını uygulayın yani implement edin. Arabulucu içindeki tüm bileşenlere referansları saklamayı düşünün. Bu şekilde, arabulucunun yöntemlerinden herhangi bir bileşeni çağırabilirsiniz.
+3. Soyut olmayan arabulucu **(Concrate Mediator)** sınıfını uygulayın yani implement edin. Arabulucu içindeki tüm bileşenlere referansları saklamayı düşünün. Bu şekilde, arabulucunun yöntemlerinden herhangi bir bileşeni çağırabilirsiniz.
 
 4. Bir adım daha ileri giderek arabulucuyu bileşen nesnelerinin oluşturulmasından ve yok edilmesinden sorumlu yapabilirsiniz. Bu durumda, arabulucu bir **fabrika (factory)** veya bir **cephe (facade)** gibi görünebilir.
 
