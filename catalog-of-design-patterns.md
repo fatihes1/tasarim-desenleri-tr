@@ -1,8 +1,18 @@
 ﻿# Tasarım Desenleri Kataloğu
+
+<div align="center">
+ 
 ![tasarim-desenleri](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/f303aa7f-73e7-4e7f-978a-b99a7457c547)
 
+</div>
+
 ## Yaratıcı (Creational) Tasarım Desenleri
+
+<div align="center">
+  
 ![creational-design-pattern](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/15c89b24-cbdf-4621-aac3-964f66aa7675)
+
+</div>
 
   - [📖 Fabrika Yöntemi (Factory Method)](factory_method/README.md)
   - [📖 Soyut Fabrika (Abstract Factory)](abstract_factory/README.md)
@@ -11,7 +21,12 @@
   - [📖 Tekil (Singleton)](singleton/README.md)
 
 ## Yapısal (Structural) Tasarım Desenleri
+
+<div align="center">
+  
 ![structural-design-patterns](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/2c44f4cf-8954-412c-9c5e-64548952dd05)
+
+</div>
 
   - [📖 Adaptör (Adapter)](adapter/README.md)
   - [📖 Köprü (Bridge)](bridge/README.md)
@@ -22,7 +37,12 @@
   - [📖 Tekil (Proxy)](proxy/README.md)
 
 ## Davranışsal (Behavioral) Tasarım Desenleri
+
+<div align="center">
+  
 ![behavioral-design-patterns](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/b645b262-1199-4b63-91b1-fc40741d0b62)
+
+</div>
 
   - [📖 Sorumluluk Zinciri (Chain Of Responsibility)](CoR/README.md)
   - [📖 Komut (Command)](command/README.md)
