@@ -4,16 +4,24 @@
 ## 💬 Amaç
 "Fabrika Yöntemi" (Factory Method), nesne oluşturmak için bir üst sınıfta bir arayüz sağlayan bununla beraber alt sınıfların oluşturulacak nesne türünü değiştirmelerine izin veren bir yaratıcı tasarım desenidir. 
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/factory-method/factory-method-en.png)
+
+</div>
 
 ## 🙁 Problem
 Düşünün ki bir lojistik yönetimi uygulaması oluşturuyorsunuz. Uygulamanızın ilk sürümü yalnızca kamyonlarla taşımacılığı işleyebiliyor, bu nedenle kodun büyük bir kısmı Kamyon sınıfının (Truck class) içindedir.
 
 Bir süre sonra uygulamanız oldukça popüler hale gelir. Her gün deniz taşımacılığı şirketlerinden onlarca istek almaya başladınız ve deniz lojistiğini uygulamanıza dahil etmeye karar verdiniz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrxams/factory-method/problem1-en.png)
 
 *Kodun geri kalanı zaten mevcut sınıflara bağlıysa programa yeni bir sınıf eklemek sanıldığı kadar kolay olmayacaktır.*
+
+</div>
 
 Bu işiniz için oldukça iyi bir gelişme değil mi? Ancak kodun durumu nasıl? Şu anda kodun büyük bir kısmı Kamyon (`Truck`) sınıfına  bağlıdır. Gemileri (`Ships`) uygulamaya eklemek, tüm kod tabanında değişiklik yapmayı gerektirecektir. Dahası, ileride uygulamaya başka bir taşıma türü eklemeye karar verirseniz, muhtemelen tüm bu değişiklikleri yeniden yapmanız gerekecektir.
 
@@ -22,28 +30,45 @@ Sonuç olarak, taşınan nesnelerinin sınıfına bağlı olarak uygulamanın da
 ## 😊 Çözüm
 "Factory Method" deseni, doğrudan nesne oluşturma çağrılarını (`new` operatörü ile) özel bir fabrika yöntemi çağrılarıyla değiştirmenizi önerir. Endişelenmeyin: nesneler hala `new` operatörü kullanılarak oluşturuyor olacaksınız, ancak bu işlem fabrika yöntemi içinden çağrılacaktır. Bir fabrika (Factory) yöntemi tarafından döndürülen nesnelere genellikle ürünler (products) denir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/solution1.png)
 
 *Alt sınıflar, fabrika yöntemiyle döndürülen nesnelerin sınıfını değiştirebilir.*
+
+</div>
 
 İlk bakışta, bu değişiklik anlamsız gibi görünebilir; sadece yapılandırıcı (constructor) çağrısını programın bir bölümünden başka bir bölümüne taşıdık gibi. Ancak şu şekilde  düşünün: şimdi fabrika (Factory) yöntemini bir alt sınıfta geçersiz kılabilir (override) ve bu yöntem tarafından oluşturulan ürünlerin sınıfını değiştirebilirsiniz.
 
 Ancak küçük bir kısıtlama vardır: alt sınıflar, bu ürünlerin ortak bir temel sınıfa veya arayüze (interface) sahip olduğu durumlarda yalnızca farklı türde ürünler döndürebilirler. Ayrıca, temel sınıftaki fabrika yöntemi bu arayüze sahip bir dönüş türüne sahip olmalıdır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/solution2-en.png)
 
 *Tüm ürünler aynı arayüzü (interface) takip etmelidir.*
 
+</div>
+
 Örneğin, hem Kamyon (`Truck`) hem de Gemi (`Ship`) sınıfları, `deliver` adlı bir yöntemi tanımlayan `Transport` arayüzünü (interface) uygulamalıdır. Her sınıf bu yöntemi farklı şekillerde kullanır: kamyonlar paketleri/kargoları karayoluyla teslim eder, gemiler ise paketleri/kargoları deniz yoluyla teslim eder. `RoadLogistics` sınıfındaki fabrika (factory) yöntemi kamyon nesneleri döndürürken, `SeaLogistics` sınıfındaki fabrika (factory) yöntemi gemileri döndürür.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/solution3-en.png)
 
 *Tüm ürün sınıfları ortak bir arayüz (interface) uyguladığı sürece nesnelerini müşterilere, bozmadan iletebilirsiniz.* 
 
+</div>
+
 Fabrika yöntemini kullanan kod (genellikle istemci kodu olarak adlandırılır), çeşitli alt sınıflar tarafından döndürülen gerçek ürünler arasında bir fark görmemektedir. İstemci, tüm ürünleri soyut (abstract) `Transport` olarak ele alır. İstemci, tüm taşıma nesnelerinin `deliver` yöntemine sahip olması gerektiğini bilir, ancak bu yöntemin tam olarak nasıl çalıştığı istemci için önemli değildir.
 
 ## ⚙️ Yapı
+
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/structure.png)
+
+</div>
 
 1. **Product**, yaratıcının (creator) ve alt sınıflarının (sub classes) üretebileceği tüm nesneler için ortak olan **arayüzü** (interface) tanımlar.
 2. **Concrete Products**, ürün arayüzünün (Product interface) farklı uygulamalarıdır yani implementasyonudur.
@@ -56,9 +81,13 @@ Unutmayın ki fabrika yöntemi her zaman yeni örnekler oluşturmak zorunda değ
 ## 💻 Sözde Kod (Pseudocode)
 Bu örnek, Factory Method'un istemci kodunu oluşturucu UI sınıflarına bağlamadan çapraz platform kullanıcı arayüzü öğeleri oluşturmak için nasıl kullanılabileceğini göstermektedir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/example.png)
 
 *Platformlar arası iletişim kutusu örneği.*
+
+</div>
 
 Temel `Dialog` sınıfı, penceresini oluşturmak için farklı UI öğelerini kullanır. Çeşitli işletim sistemlerinde bu öğeler biraz farklı görünebilir, ancak yine de tutarlı bir şekilde davranmalıdır. Windows işetim sistemindeki bir düğme hala Linux'taki bir düğmedir. İşlev olarak aynı amaca hizmet ederler.
 
