@@ -308,6 +308,7 @@ public class WindowsButton implements Button {
 }
 ```
 **📁 factory**
+
 ⤵️ 📄 `factory/Dialog.java`: Temel oluşturucu
 
 ```java
