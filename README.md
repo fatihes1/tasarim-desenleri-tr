@@ -33,7 +33,7 @@ Bu depo aşağıdaki tasarım desenlerini içerir:
   - [📖 Flyweight ](flyweight/README.md)
   - [📖 Tekil (Proxy)](proxy/README.md)
  
-- ### 📚 Yapısal Desenler (Structural Patterns)
+- ### 📚 Davranışsal Desenler (Behavioral Patterns)
   - [📖 Sorumluluk Zinciri (Chain Of Responsibility)](CoR/README.md)
   - [📖 Komut (Command)](command/README.md)
   - [📖 Yineleyici (Iterator)](iterator/README.md)
