@@ -5,24 +5,36 @@
 
 Ziyaretçi, algoritmaları üzerinde çalıştıkları nesnelerden ayırmanıza olanak tanıyan davranışsal (behavioral) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/visitor/visitor-2x.png)
+
+<div align="center">
 
 
 ##  🙁 Problem
 
 Ekibinizin devasa bir grafik (graph) halinde yapılandırılmış coğrafi bilgilerle çalışan bir uygulama geliştirdiğini hayal edin. Grafiğin her düğümü (node), şehir gibi karmaşık bir varlığın yanı sıra endüstriler, gezi alanları gibi daha ayrıntılı şeyleri de temsil edebilir. Temsil ettikleri nesneler arasında bir yol varsa, düğümler diğerleriyle bağlanır. Temelde her düğüm türü kendi sınıfı tarafından temsil edilirken, her belirli düğüm bir nesnedir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/visitor/problem1-2x.png)
 
 *Grafiği XML'e aktarma.*
+
+</div>
 
 Bir noktada grafiği XML formatına aktarmanız gerekebilir. İlk başta iş oldukça basit görünür. Her düğüm sınıfına bir dışa aktarma yöntemi eklemeyi ve ardından grafiğin her bir düğümünün üzerinden geçmek için özyinelemeden yararlanarak dışa aktarma yöntemini yürütmeyi planlayabilirsiniz. Çözüm basit ve zarifti: Polimorfizm sayesinde, dışa aktarma yöntemini çağıran kodu somut düğüm sınıflarına bağlayamazsınız.
 
 Maalesef sistem mimarı mevcut düğüm sınıflarını değiştirmenize izin vermedi. Kodun halihazırda canlıda (production) olduğunu ve değişikliklerinizdeki olası bir hata nedeniyle kodu bozma riskini almak istemediğini söyledi. Bu durumda ne yapacaksınız?
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/visitor/problem2-en-2x.png)
 
 *XML dışa aktarma yönteminin (export) tüm düğüm sınıflarına eklenmesi gerekir. Ancak bu şekilde, değişiklikle birlikte herhangi bir hatanın da gözden kaçması durumunda tüm uygulamanın bozulması riskini taşır.*
+
+</div>
 
 Ayrıca sistem mimarı XML dışa aktarma kodunun düğüm sınıfları içinde olmasının mantıklı olup olmadığını sorgulayabilir. Bu sınıfların birincil işi coğrafi verilerle çalışmaktır. XML dışa aktarma davranışı burada yanlış bir konumlandırma olabilir.
 
@@ -83,9 +95,13 @@ Artık tüm ziyaretçiler için ortak bir arayüz çıkarırsak, mevcut tüm dü
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/visitor/visitor-comic-1-2x.png)
 
 *İyi bir sigorta acentesi her zaman çeşitli kuruluş türlerine farklı poliçeler sunmaya hazırdır.*
+
+</div>
 
 Yeni müşteriler kazanmaya hevesli deneyimli bir sigorta acentesini hayal edin. Mahalledeki her binayı gezebiliyor, karşılaştığı herkese sigorta satmaya çalışıyor. Binayı kullanan kuruluşun türüne bağlı olarak özel sigorta poliçeleri sunabilir:
 
@@ -96,7 +112,11 @@ Yeni müşteriler kazanmaya hevesli deneyimli bir sigorta acentesini hayal edin.
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/visitor/structure-en-2x.png)
+
+</div>
 
 1. **Ziyaretçi (Visitor)** arayüzü, bir nesne yapısının somut öğelerini argüman olarak alabilen bir dizi ziyaret yöntemini bildirir. Program aşırı yüklemeyi destekleyen bir dilde yazılmışsa bu yöntemler aynı adlara sahip olabilir ancak parametrelerinin türü farklı olmalıdır.
 
@@ -114,9 +134,13 @@ Yeni müşteriler kazanmaya hevesli deneyimli bir sigorta acentesini hayal edin.
 
 Bu örnekte Ziyaretçi modeli, geometrik şekillerin sınıf hiyerarşisine XML dışa aktarma desteği ekler.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/visitor/example-2x.png)
 
 *Bir ziyaretçi nesnesi aracılığıyla çeşitli nesne türlerini XML biçimine aktarma.*
+
+</div>
 
 ```java
 // Element arayüzü, temel ziyaretçi arayüzünü bir bağımsız değişken olarak alan 'accept' metodunu bildirir.
