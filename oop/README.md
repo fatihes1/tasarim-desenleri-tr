@@ -7,9 +7,13 @@ Nesne yönelimli programlama (**O**bject-**o**riented **p**rogramming), nesneye 
 
 Kedileri sever misiniz? Umarım seversiniz; çünkü bu repo'da OOP kavramlarını çeşitli kedi örnekleri kullanarak açıklamaya çalışacağım.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/caefdda0-4b10-4717-9929-a9934f1c6198)
 
 *Bu bir UML sınıfı diyagramıdır. Bu repoda bu tür birçok diyagram göreceksiniz.*
+
+</div>
 
 Diyelim ki Oscar adında bir kediniz var. Oscar bir nesnedir, `Cat` sınıfının bir örneğidir (instance). Her kedinin birçok standart özelliği vardır: isim, cinsiyet, yaş, kilo, renk, en sevdiği yiyecek vb. 
 Bunlar sınıfın alanlarını (fields) tanımlar.
@@ -18,9 +22,13 @@ Bütün kediler de benzer şekilde davranır: nefes alır, yer, koşar, uyur ve 
 
 💡 *Nesnenin alanlarında depolanan verilere genellikle durum (state) olarak ulaşılır ve nesnenin tüm yöntemleri davranışını tanımlar.*
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/1d15cc58-6064-4f67-95b0-a549527d1e18)
 
 *Nesneler, sınıfların örnekleridir (instance).*
+
+</div>
 
 Arkadaşınızın kedisi Luna da `Cat` sınıfının bir örneğidir. Oscar'la aynı özelliklere sahiptir. Aralarındaki fark, bu özelliklerin değerlerindedir: cinsiyeti kadındır, farklı bir rengi ve daha hafif olabilir.
 
@@ -32,22 +40,34 @@ Bir sınıf hakkında konuştuğumuzda her şey yolunda görünebilir. Doğal ol
 
 Komşunuzun Fido adında bir köpeği olduğunu düşünelim. Görünüşe göre, köpeklerin ve kedilerin çok ortak noktası var: isim, cinsiyet, yaş ve renk gibi özellikler hem köpeklerin hem de kedilerin ortak nitelikleridir. Köpekler de, kedilerin yaptığı gibi nefes alabilir, uyuyabilir ve koşabilir. O halde, ortak nitelikleri ve davranışlar barındıracak temel `Animal` sınıfını tanımlayabiliriz.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/016410fc-a35a-4a53-abd0-d49cbf18f2a7)
 
 *Bir sınıf hiyerarşisinin UML diyagramı. Bu diyagramdaki tüm sınıflar Hayvan (Animal) sınıfı hiyerarşisinin bir parçasıdır.*
 
+</div>
+
 Dilerseniz bir adım daha da ileri gidebilir ve Hayvanlar (`Animals`) ve Bitkiler (`Plants`) için bir üst sınıf haline gelecek olan tüm canlı Organizmalar (`Organisms`) için daha genel bir sınıf oluşturabiliriz. Böyle bir sınıf piramidi bir hiyerarşidir. Böyle bir hiyerarşide Kedi (`Cat`) sınıfı, hem Hayvan (`Animals`)  hem de Organizma (`Organisms`) sınıflarından her şeyi miras alır.
+
+<div align="center">
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/ce136619-5a11-4252-8e9c-df454f94f938)
 
 *UML diyagramındaki sınıflar aralarındaki ilişkiyi göstermek, içeriklerini göstermekten daha önemliyse basitleştirilebilir.*
+
+</div>
 
 
 # OOP Prensipleri
 
 Nesne yönelimli programlama, onu diğer programlama paradigmalarından ayıran kavramlar olarak dört prensibe dayanır.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/daf39393-1522-40ea-b453-9327a6e91c4a)
+
+</div>
 
 ## Soyutlama (Abstraction)
 
@@ -55,9 +75,13 @@ Nesne yönelimli programlama, onu diğer programlama paradigmalarından ayıran 
 
 Örneğin, bir Uçak (`Airplane`) sınıfı muhtemelen hem bir uçuş simülatöründe hem de bir uçuş rezervasyon uygulamasında var olabilir. Ancak birinci durumda, gerçek uçuşa ilişkin ayrıntıları içerecektir, oysa ikinci durumda sadece koltuk düzenini ve hangi koltukların kullanılabilir olduğunu ele almanız yeterli olacaktır.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/112eaf18-7cb4-40f7-b2d8-b6d79c13aa60)
 
 *Aynı gerçek dünya nesnesinin farklı modelleri.*
+
+</div>
 
 Soyutlama (Abstraction) belirli bir bağlama sınırlı, bu bağlamla ilgili tüm ayrıntıları yüksek doğrulukla temsil eden ve geri kalanları atlayan gerçek dünya nesnesi olarak düşünülebilir.
 
@@ -75,9 +99,13 @@ Bir şeyi kapsüllenmiş hale getirmek, onu özel hale (private) getirmektir. Bu
 
 Düşünü ki `FlyingTransport` adında bir arayüzünüz var ve içinde `fly(origin, destination, passengers)` adında bir metot bulunuyor. Hava taşımacılığı simülatörü tasarlarken, Havalanı (`Airport`) sınıfını yalnızca `FlyingTransport` arayüzünü uygulayan nesnelerle çalışacak şekilde sınırlayabilirsiniz. Böylece bir havalimanı nesnesine iletilen herhangi bir nesnenin (`Airplane`, `Helicopter` veya `DomesticatedGryphon` gibi) bu tür bir havalimanından kullanılabileceğinden emin olabilirsiniz.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/3571097a-e87f-4af1-a64a-6b174968c753)
 
 *Bir arabirim uygulayan birkaç sınıfın UML diyagramı.*
+
+</div>
 
 Bu sınıflardaki `fly` yönteminin uygulanmasını istediğiniz şekilde değiştirebilirsiniz. Yöntemin imzası, arayüzde bildirildiği gibi olduğu sürece, Havalimanı (`Airport`) sınıfının tüm örnekleri uçan nesnelerinizle sorunsuz bir şekilde çalışabilir.
 
@@ -87,9 +115,13 @@ Miras, mevcut sınıfların üzerine yeni sınıflar oluşturma yeteneğidir. Mi
 
 Miras kullanmanın sonucu olarak alt sınıflar, üst sınıfın arayüzüne sahip olurlar. Bir yöntem, üst sınıfta tanımlandıysa, alt sınıfta gizleyemezsiniz. Ayrıca, alt sınıfınız için anlamsız olsa bile soyut yöntemleri uygulamak zorundasınız.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/fd4ff5a5-c21c-4233-9326-1ad4dc9e31cd)
 
 *Aynı anda birden çok arabirimi uygulamaya karşı tek bir sınıfı genişletmenin UML diyagramı.*
+
+</div>
 
 Çoğu programlama dilinde bir alt sınıf yalnızca bir üst sınıfı genişletebilir. Öte yandan, herhangi bir sınıf aynı anda birden fazla arayüzü uygulayabilir. Ancak, daha önce belirttiğim gibi, bir üst sınıf bir arayüzü uygularsa, tüm alt sınıflar da uygulamak zorundadır.
 
@@ -97,7 +129,11 @@ Miras kullanmanın sonucu olarak alt sınıflar, üst sınıfın arayüzüne sah
 
 Hayvan örneklerine geri dönelim. Çoğu Hayvan (`Animal`) ses çıkarabilir. Tüm alt sınıfların doğru sesi çıkarabilmesi için temel `makeSound` yöntemini geçersiz kılması gerekeceğini tahmin edebiliriz; bu nedenle onu hemen soyut (abstract) olarak tanımlayabiliriz. Bu, süper sınıfta yöntemin varsayılan uygulamasını atlayabilmemize ve tüm alt sınıfların kendi uygulamalarını oluşturmasını zorunlu kılmamıza olanak tanır.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/9a5e89ce-2bd0-42e4-ab36-8dec134fe25e)
+
+</div>
 
 Hayvanları büyük bir çantaya koymuş olsak ve ardından gözlerimizi kapatsak ve birer birer hayvanları çantadan çıkarsak, çantadan bir hayvan aldıktan sonra onun kesin olarak ne olduğunu bilemeyiz. Ancak onu yeterince seversek, hayvan, somut (concrete) sınıfına bağlı olarak belirli bir mutluluk sesi çıkaracaktır.
 
@@ -116,49 +152,46 @@ Polimorfizm, bir programın bir nesnenin gerçek sınıfını tespit edebilme ve
 
 İncelediğimiz kavramlardan olan kalıtım (inheritance) ve uygulamanın (implementation) yanı sıra, henüz konuşmadığımız nesneler arasındaki diğer ilişki türleri de bulunmaktadır.
 
+<div align="center">
+
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/5fd64b13-ea7e-467d-96d8-e96c4c86844b)
 
 *UML Association: Profesör öğrencilerle iletişim kurar.*
+
+</div>
 
 **Bağlantı (Association)**, bir nesnenin başka bir nesneyi kullanmasına veya onunla etkileşimde bulunmasına dayalı bir ilişki türüdür. UML diyagramlarında, bir nesnenin diğerini kullandığını gösteren bir okla gösterilen bir ilişki ile gösterilir. Ayrıca, iki yönlü bir ilişkiye sahip olmak tamamen normaldir. Bu durumda, ok her iki ucunda bir sivriliğe sahiptir. 
 
 Genel olarak, bir bağlantıyı bir sınıfta bir alan gibi temsil etmek için kullanırsınız. Bağlantı her zaman orada bulunur, bir siparişten müşterisini isteyebilirsiniz. Gerçekten bir alan olması gerekmez, daha çok bir arabirim perspektifinden modellemeniz gerekiyorsa, sadece siparişin müşterisini döndürecek bir yöntemin varlığını gösterir.
 
+<div align="center">
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/3393526f-a288-4567-8a5b-0d34b679ff70)
 
 *UML Dependency. Profesör maaşa bağlıdır.*
 
+</div>
+
 **Bağımlılık (Dependency)**, genellikle nesneler arasında kalıcı bir bağlantı olmadığını ima eden bir birliktelik türüdür. Bağımlılık, genellikle (ancak her zaman değil) bir nesnenin bir başka nesneyi bir yöntem parametresi olarak kabul ettiği, başlattığı veya kullandığı anlamına gelir. Sınıflar arasında bir bağımlılığı nasıl belirleyebilirsiniz? Cevap oldukça basit: Bir sınıfın tanımındaki değişikliklerin başka bir sınıfta değişikliklere neden olması durumunda iki sınıf arasında bir bağımlılık vardır.
+
+<div align="center">
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/028fd5ef-45c9-45cf-b038-2f4f268722bc)
 
 *UML Composition. Üniversite bölümlerden oluşmaktadır.*
 
+</div>
+
 **Kompozisyon (Composition)**, iki nesne arasındaki "bütün-bölüm" ilişkisidir, bunlardan biri diğerinin bir veya daha fazla örneğinden oluşur. Bu ilişki ile diğer ilişkiler arasındaki ayrım, bileşenin yalnızca bir konteynerin parçası olarak var olabileceğidir. UML'de kompozisyon ilişkisi, konteynerin sonunda doldurulmuş bir elmas şekli ve bileşenin tarafında bir ok ile gösterilir.
 
 *Nesneler arasındaki ilişkilerden bahsederken, UML'nin sınıflar arasındaki ilişkileri temsil ettiğini unutmayın. Bu, bir üniversite nesnesinin, diyagramdaki her varlık için sadece bir "blok" görseniz bile birden fazla bölümden oluşabileceği anlamına gelir. UML notasyonu ilişkilerin her iki tarafındaki miktarları temsil edebilir, ancak miktarlar bağlamdan açıkça görünüyorsa bunları göz ardı etmekte uygundur.*
+
+<div align="center">
 
 ![](https://github.com/fatihes1/tasarim-desenleri-tr/assets/54971670/0db683da-d574-499a-8406-9f1d7a240e91)
 
 *UML Aggregation. Bölüm profesörlerden oluşmaktadır.*
 
+</div>
+
 **Birleştirme/Toplama (Aggregation)**, sadece bir nesnenin başka bir nesneye bir başvuru içerdiği daha az katı bir kompozisyon türüdür. Konteyner, bileşenin yaşam döngüsünü kontrol etmez. Bileşen, konteyner olmadan var olabilir. Bununla beraber, aynı anda birkaç konteynerle ilişkilendirilebilir. UML'de, birleştirme ilişkisi, birleşme ile aynı şekilde çizilir, ancak okun tabanında boş bir elmas ile işaretlenir.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
