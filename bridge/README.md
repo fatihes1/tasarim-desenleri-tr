@@ -5,7 +5,11 @@
 
 Köprü, büyük bir sınıfı veya yakından ilişkili sınıflar kümesini, birbirinden bağımsız olarak geliştirilebilen iki ayrı hiyerarşiye (soyutlama ve uygulama - abstraction and implementation) ayırmanıza olanak tanıyan yapısal (structural) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/bridge/bridge-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -15,9 +19,13 @@ Abstraction? Implementation? Kavramsal olarak anlaması zor terimler olabilir. N
 
 Diyelim ki bir geometrik Şekil (`Shape`) sınıfınız var ve bu sınıfın iki alt sınıfı var: Daire (`Circle`) ve Kare (`Square`). Bu sınıf hiyerarşisine renkleri dahil etmek istiyorsunuz, bu nedenle Kırmızı (`Red`) ve Mavi (`Blue`) şekil alt sınıfları oluşturmayı planlıyorsunuz. Ancak zaten iki alt sınıfa sahip olduğunuzdan,  MaviDaire (`BlueCircle`) ve KırmızıKare (`RedSquare`) alt sınıfları gibi dört sınıf kombinasyonu oluşturmanız gerekecektir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/bridge/problem-en-2x.png)
 
 *Sınıf kombinasyonlarının sayısı geometrik artış ile çoğalır.*
+
+</div>
 
 Yeni şekil türlerini ve renkleri hiyerarşiye eklemek, yeni sınıflar ekler ve hiyerarşiyi üzerine koyarak büyütür. Örneğin, bir üçgen şekli eklemek için her renk için birer alt sınıf tanımlamanız gerekecektir. Bunun gibi, bundan sonra yeni bir renk eklemek, her şekil türü için birer alt sınıf oluşturmayı gerektirecektir. Böylece gittikçe karmaşıklaşan bir yapı ortaya çıkar.
 
@@ -27,9 +35,13 @@ Bu sorun, şekil sınıflarını iki bağımsız boyutta genişletmeye çalışt
 
 Bridge deseni, bu sorunu çözmeye çalışırken kalıtımdan nesne bileşimine (object composition) geçiş yaparak bu sorunu çözmeye çalışır. Bunun anlamı, boyutlardan birini ayrı bir sınıf hiyerarşisine ayıklamanızdır, böylece orijinal sınıflar, tüm durumunu ve davranışlarını tek bir sınıf içinde tutmak yerine yeni hiyerarşinin bir nesnesine başvurur.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/bridge/solution-en-2x.png)
 
 *Bir sınıf hiyerarşisinin sorununu, onu birkaç ilgili hiyerarşiye dönüştürerek önleyebilirsiniz.*
+
+</div>
 
 Bu yaklaşımı takiben, renkle ilgili kodu iki alt sınıfa bölerek kendi sınıfına çıkarabiliriz: Kırmızı (`Red`) ve Mavi (`Blue`). Şekil (`Shape`) sınıfı daha sonra renk nesnelerinden birine işaret eden bir başvuru alanı alır. Artık şekil, renkle ilgili herhangi bir işi bağlantılı renk nesnesine devredebilir. Bu referans, Şekil (`Shape`) ve Renk (`Color`) sınıfları arasında bir köprü görevi görecektir. Bundan sonra, yeni renkler eklemek şekil hiyerarşisini değiştirmeyi gerektirmeyecek ve aynı şekilde yeni şekiller eklenmesi de renk hiyerarşisini değiştirmemize neden olmayacaktır.
 
@@ -54,9 +66,13 @@ Köprü desenini kullanarak daha temiz ve sürdürülebilir bir kod tabanı olu�
 
 Genel olarak, Köprü deseni gibi tasarım desenleri, yazılım tasarımındaki yaygın zorluklara zarif çözümler sunar ve uygulamalarınızda bakım, esneklik ve ölçeklenebilirliği teşvik eder.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/bridge/bridge-3-en-2x.png)
 
 *Monolitik bir kod tabanında basit bir değişiklik yapmak bile oldukça zordur çünkü her şeyi çok iyi anlamanız ve her şeye hakim olmanız gerekir. Daha küçük, iyi tanımlanmış modüllerde değişiklik yapmak çok daha kolaydır.*
+
+</div>
 
 Belirli arayüz-platform kombinasyonlarıyla ilgili kodu ayrı sınıflara ayırarak bu kaosa düzen getirebilirsiniz. Ancak, yakında bu gibi sınıflayın sayısının çok olduğunu fark edeceksiniz. Sınıf hiyerarşisi katlanarak büyüyecektir çünkü yeni bir GUI eklemek veya farklı bir API'yi desteklemek giderek daha fazla sınıf oluşturmayı gerektirecektir.
 
@@ -65,9 +81,13 @@ Bu sorunu Köprü deseni ile çözmeye çalışalım. Sınıfları iki hiyerarş
 - Soyutlama (Abstraction): uygulamanın GUI katmanı.
 - Uygulama (Implementation): işletim sistemlerinin API'leri.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/bridge/bridge-2-en-2x.png)
 
 *Platformlar arası bir uygulamayı yapılandırmanın yollarından biri.*
+
+</div>
 
 Soyutlaştırma nesnesi, uygulamanın görünümünü kontrol eder ve gerçek çalışmayı bağlı uygulama nesnesine iletir. Farklı uygulamalar, ortak bir arayüzü takip ettikleri sürece değiştirilebilir, bu da aynı GUI'nin Windows ve Linux altında çalışmasını sağlar.
 
@@ -76,7 +96,11 @@ Sonuç olarak, API ile ilgili sınıflara dokunmadan GUI sınıflarını değiş
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/bridge/structure-en-2x.png)
+
+</div>
 
 1. Soyutlama (**Abstraction**), üst düzey kontrol mantığı sağlar. Gerçek düşük seviyeli işi yapmak için uygulama nesnesine (implementation object) güvenir.
 2. Uygulama (**Implementation**), tüm uygulamalar için ortak olan arayüzü (interface) tanımlanır. Bir soyutlama, bir uygulama nesnesiyle yalnızca burada (bu tanımlanan interface )bildirilen yöntemler aracılığıyla iletişim kurabilir.
@@ -90,9 +114,13 @@ Soyutlama, uygulamayla aynı yöntemleri listeleyebilir, ancak genellikle soyutl
 
 Bu örnek, Köprü modelinin, cihazları ve uzaktan kumandalarını yöneten bir uygulamanın yekpare kodunu bölmeye nasıl yardımcı olabileceğini göstermektedir. Cihaz (`Device`) sınıfları uygulama yani implementation görevi görürken, Uzaktan Kumandalar (`Remote`) soyutlama yani abstraction görevi görür.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/bridge/example-en-2x.png)
 
 *Orijinal sınıf hiyerarşisi iki bölüme ayrılmıştır: cihazlar ve uzaktan kumandalar.*
+
+</div>
 
 Temel uzaktan kumanda sınıfı, bir cihaz nesnesi ile bağlantı kurduğu bir referans alanı tanımlar. Tüm uzaktan kumandalar, genel cihaz arabirimini (interface) kullanarak cihazlarla çalışır. Bu durum da aynı uzaktan kumandanın birden fazla cihaz türünü desteklemesine olanak tanır.
 
