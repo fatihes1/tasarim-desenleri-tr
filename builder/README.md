@@ -6,9 +6,11 @@
 
 İnşaatı (Builder), karmaşık nesneleri adım adım oluşturmanızı sağlayan bir yaratıcı (creational) tasarım desenidir. Bu desen, aynı oluşturma kodunu kullanarak bir nesnenin farklı türlerini ve temsillerini üretmenize olanak tanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/builder/builder-en-2x.png)
 
-  
+</div>  
 
 ##  🙁 Problem
 
@@ -28,9 +30,13 @@ En basit çözüm, temel `Home` sınıfını genişletmek ve tüm parametre komb
 
 Alt sınıfların oluşturulmasını gerek duymayan başka bir yaklaşım bulunmaktadır. Tüm ev nesnesini kontrol eden tüm olası parametreleri içeren büyük bir yapıcıyı (constructor) temel `Home` sınıfında oluşturabilirsiniz. Bu yaklaşım alt sınıflara ihtiyacı ortadan kaldırırken, başka bir sorun yaratır. Peki bu sorun nedir?
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/builder/problem2-2x.png)
 
 *Çok sayıda parametreye sahip yapıcının dezavantajı vardır: Parametrelerin tümüne her zaman ihtiyaç duyulmaz.*
+
+</div>
 
 Çoğu durumda, parametrelerin çoğu kullanılmayacak, bu da yapıcı çağrılarını oldukça karmaşık hale getirecektir. Örneğin, yüzme havuzları sadece evlerin bir kısmında bulunur. Örneğin on evin sadece birinde havuz olması durumunda, yüzme havuzları ile ilgili parametreler bu on evin dokuzunda gereksiz olacaktır.
 
@@ -39,9 +45,13 @@ Alt sınıfların oluşturulmasını gerek duymayan başka bir yaklaşım bulunm
 
 İnşaatçı (Builder) modeli, nesne oluşturma kodunu kendi sınıfından çıkarmanızı ve bunu oluşturucular (`Builders`) adı verilen ayrı nesnelere taşımanızı önerir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/builder/solution1-2x.png)
 
 *İnşaatçı (Builder) modeli, karmaşık nesneleri adım adım oluşturmanıza olanak tanır. Builder, ürün oluşturulurken diğer nesnelerin ürüne erişmesine izin vermez.*
+
+</div>
 
 Bu desen, nesne oluşturmayı bir dizi adıma (duvarları inşa etme (`buildWalls`), kapıyı inşa etme (`buildDoor`) vb.) ayırır ve organize eder. Bir nesne oluşturmak için bu adımlardan bazılarını bir oluşturucu (builder) nesne üzerinde çalıştırırsınız. Önemli olan şudur ki tüm adımları çağırmak zorunda değilsiniz. Bir nesnenin belirli bir yapılandırmasını üretmek için sadece gereken adımları çağırabilirsiniz.
 
@@ -49,9 +59,13 @@ Nesnenin çeşitli temsillerini oluşturmanız gerektiğinde, inşaat adımları
 
 Bu durumda, aynı inşaat adımlarını uygulayan ancak farklı bir şekilde uygulayan bir dizi farklı oluşturucu (builder) sınıfı oluşturabilirsiniz. Ardından bu oluşturuculara inşaat sürecinde (yani inşaat adımlarına çağrıların sıralı bir kümesi) farklı türde nesneler üretmek için kullanabilirsiniz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/builder/builder-comic-1-en-2x.png)
 
 *Farklı oluşturucular (builders) aynı görevi çeşitli şekillerde yürütürler.*
+
+</div>
 
 Örneğin, her şeyi ahşap ve camdan inşa eden bir oluşturucu (builder) hayal edin, her şeyi taş ve demirden inşa eden ikincisi ve altın ve elmas kullanan üçüncü bir oluşturucu (builder). Aynı adımları çağırsanız da, ilk oluşturucudan normal bir ev, ikincisinden küçük bir kale ve üçüncüsünden ise bir saray oluşturduğunu görürsünüz. Ancak, bu yalnızca inşaat adımlarını çağıran istemci kodunun ortak bir arayüz (interface) kullanarak yapımcılarla etkileşimde bulunabilmesi durumunda bu şekilde olur.
 
@@ -59,9 +73,13 @@ Bu durumda, aynı inşaat adımlarını uygulayan ancak farklı bir şekilde uyg
 
 Daha da ileri gidebilir ve ürünü oluşturmak için kullandığınız yapıcı adımlarına dair bir dizi çağrıyı yönetici (`Director`) olarak adlandırılan ayrı bir sınıfa çıkarabilirsiniz. Yönetici sınıfı, inşaat adımlarını hangi sırayla gerçekleştireceğini tanımlar, yapıcı ise bu adımların uygulanmasını sağlar.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/builder/builder-comic-2-en-2x.png)
 
 *Yönetici, çalışan bir ürün elde etmek için hangi yapım adımlarının uygulanması gerektiğini bilir*
+
+</div>
 
 Programınızda bir yönetici `Director` sınıfına sahip olmak kesinlikle zorunlu değildir. İnşaat adımlarını her zaman doğrudan istemci kodundan belirli bir sırayla çağırabilirsiniz. Ancak, yönetici sınıfı, programınızın genelinde yeniden kullanabileceğiniz çeşitli inşaat rutinlerini yerleştirmek için iyi bir yer olabilir.
 
@@ -70,7 +88,11 @@ Ayrıca, yönetici sınıfı, ürün oluşturmanın ayrıntılarını tamamen is
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/builder/structure-2x.png)
+
+</div>
   
 1. Oluşturucu arayüzü (Builder interface), tüm inşaatçı türleri için ortak olan ürün oluşturma adımlarını bildirir.
 2. Concrete builders, inşaat aşamalarının farklı uygulamalarını sağlar. Concrete builders ortak arayüzü takip etmeyen ürünler üretebilirler.
@@ -83,10 +105,13 @@ Ayrıca, yönetici sınıfı, ürün oluşturmanın ayrıntılarını tamamen is
 
 Oluşturucu (Builder) modelinin bu örneği, arabalar gibi farklı türdeki ürünleri oluştururken aynı nesne yapım (constructor) kodunu nasıl yeniden kullanabileceğinizi ve bunlara karşılık gelen kılavuzları nasıl oluşturabileceğinizi gösterir.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/builder/example-en-2x.png)
 
 *Arabaların adım adım yapım örneği ve bu araba modellerine uygun kullanıcı kılavuzları.*
+
+</div>
 
 
 Araç, yüzlerce farklı şekilde inşa edilebilen/oluşturulabilen karmaşık bir nesnedir. Araba (`Car`) sınıfını büyük bir yapılandırıcıyla (constructor) şişirmek yerine, araba montaj kodunu ayrı bir araba oluşturucu (builder) sınıfına çıkardık. Bu sınıf, bir arabanın çeşitli parçalarını yapılandırmak için bir dizi yönteme sahiptir.
