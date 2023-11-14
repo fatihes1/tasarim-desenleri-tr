@@ -5,7 +5,11 @@
 
 Şablon Yöntemi, üst sınıftaki bir algoritmanın iskeletini tanımlayan ancak alt sınıfların, yapısını değiştirmeden algoritmanın belirli adımlarını geçersiz kılmasına olanak tanıyan davranışsal (behavioral) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/template-method/template-method-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -14,9 +18,13 @@ Kurumsal belgeleri analiz eden bir veri madenciliği uygulaması oluşturduğunu
 
 Uygulamanın ilk sürümü yalnızca DOC dosyalarıyla çalışabildiğini düşünelim. Bir sonraki sürümde CSV dosyalarını destekleyebilir hale geldi. Bir ay sonra ona PDF dosyalarından veri çıkarmayı öğrettiniz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/template-method/problem-2x.png)
 
 *Veri madenciliği sınıfları çok sayıda yinelenen kod içerir.*
+
+</div>
 
 Bir noktada, her üç sınıfın da pek çok benzer koda sahip olduğunu fark ettiniz. Çeşitli veri formatlarıyla ilgilenmeye yönelik kod tüm sınıflarda tamamen farklı olsa da, veri işleme ve analize yönelik kod neredeyse aynıdır. Algoritma yapısını olduğu gibi bırakarak kod tekrarından kurtulmak harika olmaz mıydı?
 
@@ -28,9 +36,13 @@ Bu sınıfları kullanan istemci koduyla ilgili başka bir sorun daha olabilir. 
 
 Bunun veri madenciliği uygulamamızda nasıl sonuçlanacağını görelim. Üç ayrıştırma algoritmasının tümü için bir temel sınıf oluşturabiliriz. Bu sınıf, çeşitli belge işleme adımlarına yapılan bir dizi çağrıdan oluşan bir şablon yöntemini tanımlar.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/template-method/solution-en-2x.png)
 
 *Şablon yöntemi, algoritmayı adımlara bölerek alt sınıfların bu adımları geçersiz kılmasına izin verir, ancak asıl yöntemi geçersiz kılmaz.*
+
+</div>
 
 İlk başta, alt sınıfları bu yöntemler için kendi uygulamalarını sağlamaya zorlayarak tüm adımları soyut (`abstract`) olarak tanımlayabiliriz. Bizim durumumuzda, alt sınıflar zaten gerekli tüm uygulamalara sahiptir, bu nedenle yapmamız gereken tek şey, yöntemlerin imzalarını üst sınıfın yöntemleriyle eşleşecek şekilde ayarlamaktır.
 
@@ -45,9 +57,13 @@ Kanca (Hooks) adı verilen başka bir adım türü daha var. Hook, boş gövdeli
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/template-method/live-example-2x.png)
 
 *Tipik bir mimari plan, müşterinin ihtiyaçlarına daha iyi uyacak şekilde biraz değiştirilebilir.*
+
+</div>
 
 Toplu konut inşaatlarında şablon yöntemi yaklaşımı kullanılabilir. Standart bir ev inşa etmeye yönelik mimari plan, potansiyel sahibinin ortaya çıkan evin bazı ayrıntılarını ayarlamasına olanak tanıyan birkaç uzatma noktası içerebilir.
 
@@ -55,7 +71,11 @@ Temelin döşenmesi, çerçeveleme, duvarların inşa edilmesi, su ve elektrik i
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/template-method/structure-2x.png)
+
+</div>
 
 1. **Soyut Sınıf (Abstract Class)**, bir algoritmanın adımları olarak hareket eden yöntemlerin yanı sıra bu yöntemleri belirli bir sırayla çağıran gerçek şablon yöntemini de tanımlar. Adımlar soyut (`abstract`) olarak bildirilebilir veya bazı varsayılan uygulamalara sahip olabilir.
 
@@ -65,9 +85,13 @@ Temelin döşenmesi, çerçeveleme, duvarların inşa edilmesi, su ve elektrik i
 
 Bu örnekte Şablon Yöntemi modeli, basit bir strateji video oyununda yapay zekanın çeşitli dalları için bir **iskelet (skeleton)** sağlar.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/template-method/example-2x.png)
 
 *Basit bir video oyununun yapay zeka sınıfları.*
+
+</div>
 
 Oyundaki tüm ırklar neredeyse aynı türde birimlere ve binalara sahiptir. Bu nedenle, bazı ayrıntıları geçersiz kılabilirken aynı yapay zeka yapısını çeşitli ırklar için yeniden kullanabilirsiniz. Bu yaklaşımla, orkların yapay zekasını geçersiz kılarak onu daha agresif hale getirebilir, insanları daha savunma odaklı hale getirebilir ve canavarların hiçbir şey inşa etmesini engelleyebilirsiniz. Oyuna yeni bir ırk eklemek, yeni bir AI alt sınıfı oluşturmayı ve temel AI sınıfında belirtilen varsayılan yöntemlerin geçersiz kılınmasını gerektirecektir.
 
