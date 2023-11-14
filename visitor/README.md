@@ -9,7 +9,7 @@ Ziyaretçi, algoritmaları üzerinde çalıştıkları nesnelerden ayırmanıza 
 
 ![](https://refactoring.guru/images/patterns/content/visitor/visitor-2x.png)
 
-<div align="center">
+</div>
 
 
 ##  🙁 Problem
