@@ -6,28 +6,44 @@
 
 Komut, bir isteği, istekle ilgili tüm bilgileri içeren bağımsız bir nesneye dönüştüren davranışsal (behavioral) bir tasarım modelidir. Bu dönüşüm, istekleri yöntem bağımsız değişkenleri olarak aktarmanıza, bir isteğin yürütülmesini geciktirmenize, sıraya koymanıza ve geri alınamayan işlemleri desteklemenize olanak tanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/command/command-en-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
 
 Yeni bir metin düzenleyici uygulaması üzerinde çalıştığınızı hayal edin. Şu anki göreviniz, düzenleyicinin çeşitli işlemleri için bir dizi düğme içeren bir araç çubuğu oluşturmaktır. Araç çubuğundaki düğmelerin yanı sıra çeşitli iletişim kutularındaki genel düğmeler için kullanılabilecek normal bir `Button` sınıfı oluşturdunuz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem1-2x.png)
 
 *Uygulamanın tüm düğmeleri aynı sınıftan türetilmiştir.*
 
+</div>
+
 Bu düğmelerin tümü benzer görünse de hepsinin farklı şeyler yapması gerekiyor. Bu düğmelerin çeşitli tıklama eylemleri için oluşturduğunuz kodu nereye koyarsınız? En basit çözüm, butonun kullanıldığı her yer için tonlarca alt sınıf oluşturmaktır. Bu alt sınıflar, bir düğmeye tıklandığında yürütülmesi gereken kodu barındıracaktır.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem2-2x.png)
 
 *Çok sayıda düğme alt sınıfı oluştu. Bir süre sonra kontrol edilemez hal alabilir.*
 
+</div>
+
 Çok geçmeden bu yaklaşımın son derece kusurlu olduğunu fark edeceksiniz. İlk olarak, çok sayıda alt sınıfınız oluşacaktır. Eğer temel `Button` sınıfını her değiştirdiğinizde bu alt sınıflardaki kodu kırma riskini almıyorsanız bu sorun değil. Basitçe söylemek gerekirse, GUI kodunuz iş mantığının geçici koduna garip bir şekilde bağımlı hale geldi.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem3-en-2x.png)
 
 *Birkaç sınıf temelde aynı işlevi uygular.*
+
+</div>
 
 Ve işte işin en tatsız kısmı. Metni kopyalamak/yapıştırmak gibi bazı işlemlerin birden fazla yerden başlatılması gerekir. Örneğin, kullanıcı araç çubuğundaki küçük bir "Kopyala" düğmesini tıklayabilir veya içerik menüsü aracılığıyla bir şeyi kopyalayabilir veya klavyede `Ctrl+C` tuşlarına basabilir.
 
@@ -39,27 +55,37 @@ Başlangıçta, uygulamamızda yalnızca araç çubuğu bulunduğunda, çeşitli
 
 Kodda şöyle görünebilir: Bir GUI nesnesi, bir iş mantığı nesnesinin yöntemini çağırır ve ona bazı argümanlar iletir. Bu süreç genellikle bir nesnenin diğerine istek göndermesi olarak tanımlanır.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/solution1-en-2x.png)
 
 *GUI nesneleri, iş mantığı nesnelerine doğrudan erişebilir.*
 
+</div>
+
 Komut modeli, GUI nesnelerinin bu istekleri doğrudan göndermemesi gerektiğini savunur. Bunun yerine, çağrılan nesne, yöntemin adı ve argümanların listesi gibi tüm istek ayrıntılarını, bu isteği tetikleyen tek bir yöntemle ayrı bir komut sınıfına çıkarmalısınız.
 
 Komut nesneleri, çeşitli GUI ve iş mantığı nesneleri arasında bağlantı görevi görür. Artık GUI nesnesinin, isteği hangi iş mantığı nesnesinin alacağını ve nasıl işleneceğini bilmesine gerek yoktur. GUI nesnesi yalnızca tüm ayrıntıları işleyen komutu tetikler.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/solution2-en-2x.png)
 
 *İş mantığı katmanına bir komut aracılığıyla erişme.*
 
+</div>
+
 Önümüzdeki adım, komutlarınızı aynı arayüzü uygulamak (implement etmek) olmalıdır . Genellikle yalnızca parametre almayan tek bir yürütme yöntemine sahiptir. Bu arayüz, betik sınıflarının somut sınıflarına bağlı olmadan çeşitli komutları aynı istek gönderici ile kullanmanıza olanak tanır. Bir artı olarak, şimdi komut nesnelerini gönderici ile ilişkilendirebilir ve böylece göndericinin davranışını çalışma zamanında değiştirebilirsiniz.
 
 Belki de eksik parçayı fark etmişsinizdir. Nedir eksik olan parça? Elbette ki; istek parametreleri. Bir GUI nesnesi iş katmanı nesnesine bazı parametreler sağlamış olabilir. Ancak komut yürütme yönteminin herhangi bir parametresi olmadığı için, isteği alıcısına nasıl iletebiliriz? İşte komutun bu verilerle ya önceden yapılandırılması ya da kendi kendine alabilme yeteneğine sahip olması gerektiği ortaya çıkıyor.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/command/solution3-en-2x.png)
 
 *GUI nesneleri, işi komutlara devreder.*
+
+</div>
 
 Metin editörümüze geri dönelim. Komut (Command) modelini uyguladıktan sonra, çeşitli tıklama davranışlarını uygulamak için artık tüm bu düğme alt sınıflarına ihtiyacımız kalmayacaktır. Bir komut nesnesine referansı saklayan temel `Button` sınıfına tek bir alan koymak ve düğmenin bu komutu bir tıklamayla yürütmesini sağlamak yeterlidir.
 
@@ -72,9 +98,13 @@ Sonuç olarak komutlar, GUI ile iş mantığı katmanları arasındaki bağlant�
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/command/command-comic-1-2x.png)
 
 *Bir restoranda sipariş verme.*
+
+</div>
 
 Şehirde uzun bir yürüyüşten sonra güzel bir restorana gelip pencere kenarındaki masaya oturduğunuzu düşünelim. Dost canlısı bir garson yanınıza yaklaşıyor ve siparişinizi hızla alıp bir kağıda yazıyor. Garson mutfağa gider ve siparişi duvara yapıştırır. Bir süre sonra sipariş şefe ulaşır, şef de onu okur ve yemeği ona göre pişirir. Aşçı yemeği siparişle birlikte tepsiye yerleştirir. Garson tepsiyi teslim alır, her şeyin istediğiniz gibi olduğundan emin olmak için siparişi kontrol eder. Eğer her şey olması gerektiği gibi ise siparişinizi masanıza getirir.
 
@@ -83,7 +113,11 @@ Kağıt siparişi bir komut yani command görevi görür. Şef, siparişi servis
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/command/structure-2x.png)
+
+</div>
 
 1. **Sender** sınıfı (diğer adıyla çağrıcı - invoker) istekleri başlatmadan sorumludur. Bu sınıfın, bir komut nesnesine referansı depolamak için bir alana sahip olması gerekir. Gönderen yani **Sender**, isteği doğrudan alıcıya göndermek yerine bu komutu tetikler. Gönderenin, komut nesnesinin oluşturulmasından sorumlu **olmadığını** unutmayın. Genellikle istemciden yapıcı (constructor) aracılığıyla önceden oluşturulmuş bir komut alır.
 
@@ -101,9 +135,13 @@ Alıcı nesnede bir yöntemi yürütmek için gereken parametreleri, komut içer
 
 Bu örnekte **Komut** modeli, yürütülen işlemlerin geçmişinin izlenmesine yardımcı olur ve gerektiğinde bir işlemin geri alınmasını mümkün kılar.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/command/example-2x.png)
 
 *Bir metin düzenleyicide geri alınamayan işlemler.*
+
+</div>
 
 Komutlar, düzenleyicinin durumunu değiştiren komutla ilişkilendirilmiş bir işlemi gerçekleştirmeden önce düzenleyicinin durumunun yedek bir kopyasını oluştururlar (örneğin kesme ve yapıştırma gibi). Bir komut gerçekleştirildikten sonra, komut geçmişi (komut nesnelerinin bir yığını) ile o andaki düzenleyicinin durumunun bir yedeği birlikte saklanır. Daha sonra, kullanıcı bir işlemi geri alması gerektiğinde, uygulama geçmişten en son komutu alabilir, düzenleyicinin durumunun ilişkilendirilen yedeğini okuyabilir ve onu geri yükleyebilir.
 
