@@ -4,9 +4,11 @@
 ##  💬 Amaç
 
 Singleton, bir sınıfın yalnızca bir örneğe sahip olmasını sağlarken bu örneğe küresel bir erişim noktası sağlamanıza olanak tanıyan yaratıcı (creational) bir tasarım modelidir.
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/content/singleton/singleton-2x.png)
 
+</div>
 
 ##  🙁 Problem
 
@@ -16,10 +18,13 @@ Singleton modeli, Tek Sorumluluk İlkesini (Single Responsibility Principle) ihl
 Nasıl çalıştığına gelirsek; bir nesne oluşturduğunuzu hayal edin, ancak bir süre sonra yeni bir tane oluşturmak istediğinize karar verdiniz. Yeni bir nesne oluşturmak yerine zaten oluşturduğunuz nesneyi kullanabilirsiniz.
 Bu davranışın, tasarım gereği bir yapıcı (constructor) çağrısının her zaman yeni bir nesneyi döndürmesi gerekir. Bu yüzden bu davranışın normal bir yapıcı (constructor) ile uygulanamayacağını unutmayın.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/content/singleton/singleton-comic-1-en-2x.png)
 
 *İstemci her zaman aynı nesneyle çalıştırdığının farkına bile varmayabilir.*
+
+</div>
 
 2. **Oluşturulan örneğe global erişim noktası sağlama.** Aşina olabileceğiniz gibi, bazı temel nesneleri saklamak için global değişkenler kullanılabilir. Bunlar çok kullanışlı olsa da, aynı zamanda çok güvensizdir çünkü herhangi bir kod, bu değişkenlerin içeriğini üzerine yazabilir ve uygulamayı çökertebilir.
 Singleton deseni, bir nesneye programın herhangi bir yerinden erişmenizi sağlar. Ancak, bu örneğin diğer kodlar tarafından üzerine yazılmasını yani değiştirilmesini engeller.
@@ -42,7 +47,11 @@ Hükümet, Singleton deseninin mükemmel bir örneğidir. Bir ülkede sadece bir
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/singleton/structure-en-2x.png)
+
+</div>
 
 1. **Singleton** sınıfı, kendi sınıfının aynı örneğini döndüren statik yöntem `getInstance` barındırır.
 Singleton'un yapıcısı (constructor) istemci kodundan gizlenmelidir. Singleton nesnesini almanın tek yolu `getInstance` yöntemini çağırmak olmalıdır.
