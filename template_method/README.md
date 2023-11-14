@@ -57,9 +57,9 @@ Temelin döşenmesi, çerçeveleme, duvarların inşa edilmesi, su ve elektrik i
 
 ![](https://refactoring.guru/images/patterns/diagrams/template-method/structure-2x.png)
 
-1. **Soyut Sınıf (Abstract Class)**, bir algoritmanın adımları olarak hareket eden yöntemlerin yanı sıra bu yöntemleri belirli bir sırayla çağıran gerçek şablon yöntemini de bildirir. Adımlar soyut (`abstract`) olarak bildirilebilir veya bazı varsayılan uygulamalara sahip olabilir.
+1. **Soyut Sınıf (Abstract Class)**, bir algoritmanın adımları olarak hareket eden yöntemlerin yanı sıra bu yöntemleri belirli bir sırayla çağıran gerçek şablon yöntemini de tanımlar. Adımlar soyut (`abstract`) olarak bildirilebilir veya bazı varsayılan uygulamalara sahip olabilir.
 
-2. **Concrete Classes** tüm adımları geçersiz kılabilir ancak şablon yönteminin kendisini geçersiz kılamaz.
+2. **Concrete Classes** tüm adımları geçersiz kılabilir (override) ancak şablon yönteminin kendisini geçersiz kılamaz.
 
 ##  💻 Sözde Kod (Pseudocode)
 
@@ -162,15 +162,15 @@ class MonstersAI extends GameAI is
 
 ##  📝 Nasıl Uygulanır?
 
-1. Adımlara ayırıp ayıramayacağınızı görmek için hedef algoritmayı analiz edin. Hangi adımların tüm alt sınıflar için ortak olduğunu ve hangilerinin her zaman benzersiz olacağını düşünün.
+1. Adımlara ayırıp ayıramayacağınızı görmek için hedef algoritmayı analiz edin. Hangi adımların tüm alt sınıflar için ortak olduğunu ve hangilerinin ise benzersiz olacağını düşünün.
 
-2. Soyut temel sınıfı oluşturun ve şablon yöntemini ve algoritmanın adımlarını temsil eden bir dizi soyut yöntemi bildirin. İlgili adımları yürüterek şablon yöntemindeki algoritmanın yapısını ana hatlarıyla belirtin. Alt sınıfların geçersiz kılmasını önlemek için şablon yöntemini sonlandırmayı (`final`) düşünün.
+2. Soyut temel sınıfı (abstract base class) oluşturun. Şablon yöntemini ve algoritmanın adımlarını temsil eden bir dizi soyut yöntemi tanımlayın. İlgili adımları yürüterek şablon yöntemindeki algoritmanın yapısını ana hatlarıyla belirtin. Alt sınıfların geçersiz kılmasını (override) önlemek için şablon yöntemini sonlandırmayı (`final`) göz önüne alabilirsiniz.
 
-3. Tüm adımların soyut olması sorun değil. Ancak bazı adımların varsayılan uygulamaya sahip olması faydalı olabilir. Alt sınıfların bu yöntemleri uygulaması gerekmez.
+3. Tüm adımların soyut olması sorun değildir. Ancak bazı adımların varsayılan uygulamaya (default implementation) sahip olması faydalı olabilir. Alt sınıfların bu yöntemleri uygulaması gerekmez.
 
 4. Algoritmanın önemli adımları arasına hooks eklemeyi düşünün.
 
-5. Algoritmanın her varyasyonu için yeni bir somut alt sınıf oluşturun. Tüm soyut adımları uygulamalıdır, ancak isteğe bağlı olanlardan bazılarını da geçersiz kılabilir.
+5. Algoritmanın her varyasyonu için yeni bir soyut olmayan alt sınıf oluşturun. Bu sınıf, tüm soyut (abstract) adımları uygulamalıdır, ancak isteğe bağlı olanlardan bazılarını da geçersiz (override) kılabilir.
 
 ##  ⚖️ Artıları ve Eksileri
 
