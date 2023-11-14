@@ -5,16 +5,23 @@
 
 Proxy, başka bir nesne için bir yedek veya yer tutucu sağlamanıza olanak tanıyan yapısal (structural) bir tasarım desenidir. Proxy, orijinal nesneye erişimi kontrol ederek, isteğin orijinal nesneye ulaşmasından önce veya sonra bir şeyler yapmanıza olanak tanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/proxy/proxy-2x.png)
 
+</div>
 
 ##  🙁 Problem
 
 Bir nesneye erişimi neden kontrol etmek isteriz ki? İşte bir örnek: Çok büyük miktarda sistem kaynağı tüketen devasa bir nesneniz olduğunu düşünün. Zaman zaman ihtiyacınız olur ama her zaman ihtiyacınız olmayacaktır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/proxy/problem-en-2x.png)
 
 *Veritabanı sorguları gerçekten yavaş olabilir.*
+
+</div>
 
 Tembel başlatmayı (lazy initialization) deneyebilirsiniz: bu nesneyi yalnızca gerçekten ihtiyaç duyulduğunda oluşturur. Nesnenin tüm istemcilerinin bazı ertelenmiş başlatma kodlarını yürütmesi gerekir. Ne yazık ki, bu durum, muhtemelen çok fazla kod kopyasına neden olacaktır.
 
@@ -24,7 +31,11 @@ Tembel başlatmayı (lazy initialization) deneyebilirsiniz: bu nesneyi yalnızca
 
 Proxy modeli, orijinal hizmet nesnesiyle aynı arabirime (interface) sahip yeni bir proxy sınıfı oluşturmanızı önerir. Daha sonra uygulamanızı, proxy nesnesini orijinal nesnenin tüm istemcilerine aktaracak şekilde güncellersiniz. Bir istemciden bir istek aldıktan sonra proxy, gerçek bir hizmet nesnesi oluşturur ve tüm işi ona devreder.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/proxy/solution-en-2x.png)
+
+</div>
 
 *Proxy kendisini bir veritabanı nesnesi gibi gösterir. İstemcinin veya gerçek veritabanı nesnesinin haberi bile olmadan, yavaş başlatma (lazy initialization) ve sonuçları önbelleğe alma işlemlerinin üstesinden gelebilir.*
 
@@ -32,16 +43,24 @@ Ama bu kullanımın faydası nedir? Sınıfın birincil mantığından önce vey
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/proxy/live-example-2x.png)
 
 *Kredi kartları, tıpkı nakit para gibi ödemeler için kullanılabilir.*
+
+</div>
 
 Kredi kartı, bir para destesinin vekili (proxy) olan banka hesabının vekilidir. Her ikisi de aynı arayüzü uygular: ödeme yapmak için kullanılabilirler. Tüketici bu durumda çok mutludur çünkü etrafta bir sürü nakit taşımaya gerek kalmaz. Bir mağaza sahibi de, bir işlemden elde edilen gelirin, depozitoyu kaybetme veya bankaya giderken soyulma riski olmadan, mağazanın banka hesabına elektronik olarak eklenmesinden dolayı mutludur.
 
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/proxy/structure-2x.png)
+
+</div>
 
 1. **Hizmet Arayüzü (Service Interface)**, Hizmetin arayüzünü belirtir. Proxy'nin kendisini bir hizmet nesnesi olarak gizleyebilmesi için bu arayüzü takip etmesi gerekir.
 2. **Hizmet (Service)**, bazı yararlı iş mantığı sağlayan bir sınıftır.
@@ -55,9 +74,13 @@ Genellikle proxy'ler hizmet nesnelerinin tüm yaşam döngüsünü yönetir.
 
 Bu örnek, Proxy modelinin, üçüncü taraf bir YouTube entegrasyon kitaplığında yavaş başlatma ve önbelleğe alma işlemlerine nasıl yardımcı olabileceğini göstermektedir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/proxy/example-2x.png)
 
 *Bir servisin sonuçlarının proxy ile önbelleğe alınması.*
+
+</div>
 
 
 Kütüphane bize video indirme sınıfını sağlar. Ancak şuanki hali ile çok verimsiz. İstemci uygulaması aynı videoyu birden çok kez isterse, kitaplık ilk indirilen dosyayı önbelleğe alıp yeniden kullanmak yerine videoyu tekrar tekrar indirir.
