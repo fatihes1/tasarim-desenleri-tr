@@ -1,5 +1,12 @@
 ﻿# Tasarım Desenleri (Design Patterns)
+
+<div align="center">
+ 
 ![](https://refactoring.guru/images/refactoring/content/refactoring-2x.png)
+
+</div>
+
+
 ## Tasarım Deseni (Design Pattern) Nedir?
 Tasarım desenleri, yazılım tasarımında sıkça karşılaşılan sorunlara tipik çözümlerdir. Bunlar, kodunuzdaki tekrar eden tasarım sorunlarını çözmek için özelleştirebileceğiniz önceden hazırlanmış şablonlar gibi düşünülebilir.
 
