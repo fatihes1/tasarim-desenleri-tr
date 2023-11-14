@@ -6,8 +6,11 @@
 
 Flyweight, her bir nesnedeki tüm verileri saklamak yerine, durumun ortak bölümlerini birden çok nesne arasında paylaşır. Böylelikle kullanılabilir RAM miktarına daha fazla nesne sığdırmanıza olanak tanıyan yapısal (structural) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/flyweight/flyweight-2x.png)
 
+</div>
 
 ##  🙁 Problem
 
@@ -18,14 +21,22 @@ Tamamlandığında son işlemi yaptınız, oyunu oluşturdunuz ve arkadaşınız
 
 Asıl sorun parçacık sisteminizle ilgiliydi. Her bir parçacık, bir mermi, bir füze veya bir şarapnel parçası gibi, çok sayıda veri içeren ayrı bir nesne tarafından temsil ediliyordu. Bir oyuncunun ekranındaki vahşet bir noktaya ulaştığında, yeni oluşturulan parçacıklar artık kullanılabilir RAM'in içine sığmadı, bu nedenle program çöktü.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/flyweight/problem-en-2x.png)
+
+</div>
 
 
 ##  😊 Çözüm
 
 Parçacık (`Particle`) sınıfının daha yakından incelendiğinde, renk ve hareketli grafik alanlarının diğer alanlardan çok daha fazla bellek tükettiğini fark edebilirsiniz. Daha da kötüsü, bu iki alanın tüm parçacıklarda neredeyse aynı verileri depolamasıdır. Örneğin, tüm mermiler aynı renge ve hareketli grafiğe sahip olabilir.
 
+<div align="center">
+
 ![Flyweight pattern solution](https://refactoring.guru/images/patterns/diagrams/flyweight/solution1-en.png)
+
+</div>
 
 Bir parçacığın durumunun diğer kısımları, özellikle koordinatlar, hareket vektörü ve hız, her bir parçacık için benzersizdir. Sonuçta, bu alanların değerleri zaman içinde değişir. Bu veri, parçacığın var olduğu her zaman değişen bağlamı temsil ederken, renk ve sprite her bir parçacık için sabit kalır.
 
@@ -33,7 +44,11 @@ Bir nesnenin bu sabit verilerine genellikle içsel durum (**intrinsic state**) d
 
 Flyweight deseni, dışsal durumu nesnenin içine saklamayı bırakmanızı önerir. Bunun yerine, bu durumu (state) kullanan belirli yöntemlere iletmelisiniz. Sadece içsel durum nesnenin içinde kalır, böylece farklı bağlamlarda yeniden kullanabilirsiniz. Sonuç olarak, bu nesnelerden daha azına ihtiyacınız olur, çünkü sadece içsel durumda farklılık gösterirler ve bu, dışsal durumdan çok daha az varyasyona sahiptir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/flyweight/solution3-en-2x.png)
+
+</div>
 
 Oyunumuza geri dönelim. Parçacık sınıfımızdan dışsal durumu çıkardığımızı varsayarsak, oyundaki tüm parçacıkları temsil etmek için yalnızca üç farklı nesne yeterli olacaktır: bir mermi, bir füze ve bir şarapnel parçası. Muhtemelen şimdiye kadar tahmin ettiğiniz gibi, yalnızca içsel durumu depolayan bir nesneye flyweight denir. (Flyweight terimi, bokstan gelir ve 51 kg'dan (111 lbs) daha hafif olan bir dövüşçüyü ifade eder.)
 
@@ -43,7 +58,11 @@ Dışsal durum nereye taşınır? Bazı sınıflar hala dışsal durumları sakl
 
 Bizim durumumuzda, tüm parçacıkları, parçacıklar (`particles`) alanında depolayan ana Oyun (`Game`) nesnesi budur. Dışsal durumu bu sınıfa taşımak için, her bir parçacığın koordinatlarını, vektörlerini ve hızını depolamak için birkaç dizi alanı oluşturmanız gerekir. Ama hepsi bu kadar değil. Bir parçacığı temsil eden belirli bir flyweight'a referansları depolamak için başka bir diziye ihtiyacınız vardır. Aynı dizini kullanarak bir parçacığın tüm verilerine erişebilmeniz için bu dizilerin senkronize olması gerekir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/flyweight/solution2-en-2x.png)
+
+</div>
 
 Daha zarif bir çözüm, dışsal durumu depolayacak ve flyweight nesnesini referans birlikte tutacak ayrı bir bağlam sınıfı oluşturmaktır. Bu yaklaşım, sadece konteyner sınıfında tek bir dizi gerektirir.
 
@@ -61,7 +80,11 @@ Bu yöntemin yerleştirilebileceği birkaç seçenek vardır. En belirgin yer bi
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/flyweight/structure-2x.png)
+
+</div>
 
 1. **Flyweight** modeli sadece bir optimizasyondur. Optimizasyonu uygulamadan önce, programınızın aynı anda bellekte çok sayıda benzer nesneye sahip olmakla ilgili RAM tüketim sorununa sahip olduğundan emin olun. Bu sorunun başka anlamlı bir şekilde çözülemediğinden emin olun.
 2. **Flyweight** sınıfı, özgün nesnenin durumunun birden çok nesne arasında paylaşılabilen bölümünü içerir. Aynı flyweight nesnesi birçok farklı bağlamda kullanılabilir. Bir flyweight nesnesinin içinde depolanan duruma içsel (**intrinsic**) denir. Flyweight nesnesinin yöntemlerine parametre olarak verilen duruma ise dışsal (**extrinsic**) denir.
@@ -75,7 +98,11 @@ Bu yöntemin yerleştirilebileceği birkaç seçenek vardır. En belirgin yer bi
 
 Bu örnekte Flyweight modeli, milyonlarca ağaç nesnesinin bir tuval üzerinde işlenmesi sırasında bellek kullanımının azaltılmasına yardımcı olur.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/flyweight/example-2x.png)
+
+</div>
 
 Desen, yinelenen içsel durumu bir ana `Tree` sınıfından çıkarır ve onu `TreeType` uçucu ağırlığı sınıfına taşır.
 
