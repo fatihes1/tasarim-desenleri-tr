@@ -7,7 +7,11 @@
 
 Dekoratör, nesneleri, davranışları içeren özel sarmalayıcı nesnelerin içine yerleştirerek nesnelere yeni davranışlar eklemenizi sağlayan yapısal (structural) bir tasarım desenidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/decorator/decorator-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -16,16 +20,23 @@ Diğer programların kullanıcılarını önemli olaylar hakkında bilgilendirme
 
 Kütüphanenin ilk sürümü, yalnızca birkaç alanı, bir yapıcıyı ve tek bir gönderme yöntemini içeren `Notifier` sınıfına dayanıyordu. Bu yöntem, bir istemciden bir ileti argümanını kabul edebilir ve iletiyi bir bildirimciye (notifier) yapıcı aracılığıyla iletilen e-posta listesine gönderebilirdi. İstemci olarak hareket eden üçüncü taraf bir uygulama, bildirimci nesnesini bir kez oluşturup yapılandırmalı ve ardından her önemli bir şey olduğunda bunu kullanmalıydı.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/problem1-en-2x.png)
 
 *Bir program, önemli etkinliklerle ilgili bildirimleri önceden tanımlanmış bir e-posta grubuna göndermek için notifier sınıfını kullanabilir.*
 
+</div>
+
 Bir noktada, kütüphanenin kullanıcılarının yalnızca e-posta bildirimlerinden daha fazlasını beklediğini fark edersiniz. Birçoğu kritik konularda SMS almayı tercih eder. Diğerleri Facebook'ta bildirilmeyi ister ve elbette kurumsal kullanıcılar Slack bildirimleri almayı çok severler.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/problem2-2x.png)
 
 *Her bildirim türü, bir bildirimcinin (notifier) alt sınıfı olarak uygulanır.*
+
+</div>
 
 Ne kadar zor olabilir ki? `Notifier` yani sınıfını genişlettiniz ve ek bildirim yöntemlerini yeni alt sınıflara koydunuz. Artık istemcinin istediği bildirim sınıfını örneklemesi ve tüm sonraki bildirimler için kullanması gerekiyordu.
 
@@ -33,9 +44,13 @@ Ancak, ardından biri size makul bir şekilde şunu sordu: 'Neden birden fazla b
 
 Bu sorunu ele almak için birkaç bildirim yöntemini aynı sınıf içinde birleştiren özel alt sınıflar oluşturarak çözmeye çalıştınız. Ancak, bu yaklaşımın hem kütüphane kodunu hem de istemci kodunu aşırı şişireceği hızlıca kendini belli eder.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/problem3-2x.png)
 
 *Alt sınıfların kombinasyonu çoğaldıkça karmaşıklaşan yapı.*
+
+</div>
 
 Bildirim sınıflarını yapılandırmanın başka bir yolunu bulmalısınız ki sayıları yanlışlıkla Guinness rekorlarını kırmasın. Değil mi? 😅
 
@@ -50,10 +65,13 @@ Bu sakıncaları aşmanın yollarından biri, Kalıtım (Inheritance) deseni yer
 
 Bu yeni yaklaşımla bağlı yardımcı (helper) nesneyi kolayca başka bir nesne ile değiştirebilir ve çalışma zamanında konteynerın davranışını değiştirebilirsiniz. Bir nesne, çeşitli sınıfların davranışını kullanabilir, birden fazla nesneye referanslara sahip olabilir ve onlara her türlü işi devredebilir. Birleştirme/Kompozisyon deseni, Dekoratör deseni dahil birçok tasarım deseninin arkasındaki temel ilkedir. Bu konuyla ilgili olarak, desen tartışmasına geri dönelim.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/solution1-en-2x.png)
 
 *Inheritance vs. Aggregation*
+
+</div>
 
 Sarıcı (Wrapper), Dekoratör deseninin ana fikrini açıkça ifade eden alternatif bir takma adıdır. Bir sarıcı, hedef bir nesne ile ilişkilendirilebilen bir nesnedir. Sarıcı, hedefle aynı yöntem setini içerir ve aldığı tüm istekleri hedefe iletilmek üzere ona devreder. Ancak sarıcı, isteği hedefe iletmeden önce veya sonra işlemler yaparak sonucu değiştirebilir.
 
@@ -61,15 +79,23 @@ Basit bir sarıcı ne zaman gerçek bir dekoratör olur? Bahsettiğim gibi, sar�
 
 Bildirimler örneğimizde, basit e-posta bildirimi davranışını temel Bildirimci (`Notifier`) sınıfının içinde bırakalım, ancak diğer tüm bildirim yöntemlerini dekoratör haline getirelim.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/solution2-2x.png)
 
 *Çeşitli bildirim yöntemleri dekoratör haline gelir.*
 
-İstemci kodunun, temel bir bildirim nesnesini, müşterinin tercihleriyle eşleşen bir dizi dekoratöre sarması gerekir. Ortaya çıkan nesneler bir yığın (stack) olarak yapılandırılacaktır.
+</div>
+
+İstemci kodunun, temel bir bildirim nesnesini, müşterinin tercihleriyle eşleşen bir dizi dekoratöre sarması gerekir. Ortaya çıkan nesneler bir yığın (stack) olarak yapılandırılacaktır.ü
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/solution3-en-2x.png)
 
 *Uygulamalar, karmaşık bildirim dekoratör yığınlarını yapılandırabilir.*
+
+</div>
 
 Yığındaki son dekoratör, istemcinin aslında çalıştığı nesne olacaktır. Tüm dekoratörler, temel bildirimci ile aynı arayüzü uyguladığı için, istemci kodunun geri kalanı, saf (pure) bildirimci nesnesi ile mi yoksa dekore edilmiş nesne ile mi çalıştığına aldırmaz.
 
@@ -77,15 +103,23 @@ Bu yaklaşımı mesaj biçimlendirme veya alıcı listesi oluşturma gibi diğer
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/decorator/decorator-comic-1-2x.png)
 
 *Birden fazla parça kıyafet giyerek birleşik bir etki elde edersiniz.*
+
+</div>
 
 Giysi giymek, dekoratörleri kullanmanın bir örneğidir. Soğuk olduğunuzda kendinizi bir kazakla sararsınız. Kazakla hala soğuksanız, üzerine bir ceket giyebilirsiniz. Yağmur yağıyorsa, bir yağmurluk giyebilirsiniz. Tüm bu giysiler temel davranışınızı extend alır , ancak sizin bir parçanız değildir. Sıcak bir ortama girdiğinizde ve artık ihtiyaç duymadığınızda giysinin herhangi bir parçasını kolayca çıkarabilirsiniz.
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/structure-2x.png)
+
+</div>
 
 1. **Component**, hem sarmalayıcılar hem de sarılmış nesneler için ortak arayüzü bildirir.
 2. **Concrete Component**, sarılmış nesnelerin bir sınıfıdır. Dekoratörler tarafından değiştirilebilecek temel davranışı tanımlar.
@@ -98,11 +132,13 @@ Giysi giymek, dekoratörleri kullanmanın bir örneğidir. Soğuk olduğunuzda k
 
 Bu örnekte Dekoratör modeli, hassas verileri, bu verileri gerçekten kullanan koddan bağımsız olarak sıkıştırmanıza ve şifrelemenize olanak tanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/decorator/example-2x.png)
 
 *Şifreleme ve sıkıştırma dekoratörleri örneği.*
 
-
+</div>
 
 Uygulama, veri kaynağı nesnesini iki dekoratör çifti ile sarar. Her iki sargı, verinin diske yazılma ve diskten okunma şeklini değiştirir:
 
