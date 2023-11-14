@@ -17,7 +17,7 @@ Bir süre sonra uygulamanız oldukça popüler hale gelir. Her gün deniz taşı
 
 <div align="center">
 
-![](https://refactoring.guru/images/patterns/diagrxams/factory-method/problem1-en.png)
+![](https://refactoring.guru/images/patterns/diagrams/factory-method/problem1-en-2x.png)
 
 *Kodun geri kalanı zaten mevcut sınıflara bağlıysa programa yeni bir sınıf eklemek sanıldığı kadar kolay olmayacaktır.*
 
