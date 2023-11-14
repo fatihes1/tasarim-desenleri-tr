@@ -7,7 +7,11 @@
 
 Memento, uygulama ayrıntılarını açıklamadan bir nesnenin önceki durumunu kaydetmenize ve geri yüklemenize olanak tanıyan davranışsal (behavioral) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/memento/memento-en-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -16,18 +20,25 @@ Bir metin düzenleyici uygulaması oluşturduğunuzu düşünün. Düzenleyicini
 
 Bir noktada kullanıcıların metin üzerinde gerçekleştirilen işlemleri geri almasına izin vermeye karar verebilirsiniz. Bu özellik, yıllar geçtikçe o kadar yaygınlaştı ki günümüzde insanlar her uygulamanın bu özelliğe sahip olmasını bekliyor. Uygulama için doğrudan yaklaşımı (direct approach) tercih ettiğinizi düşünelim. Uygulama, herhangi bir işlem yapmadan önce tüm nesnelerin durumunu kaydeder ve bir depolama alanında tutar. Daha sonra kullanıcı bir eylemi geri almaya karar verdiğinde uygulama geçmişten en son anlık görüntüyü alır ve bunu tüm nesnelerin durumunu geri yüklemek için kullanır.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/problem1-en-2x.png)
 
 *Uygulama, bir işlemi gerçekleştirmeden önce nesnelerin durumunun anlık görüntüsünü kaydeder. Bu anlık görüntü, daha sonra nesneleri önceki durumlarına geri yüklemek için kullanılabilir.*
 
+</div>
+
 Bu durum anlık görüntülerini (snapshot) düşünelim. Tam olarak nasıl bir tane oluştururdunuz? Muhtemelen bir nesnedeki tüm alanları gözden geçirmeniz ve değerlerini depoya kopyalamanız gerekecektir. Ancak bu yalnızca nesnenin içeriğine yönelik oldukça esnek erişim kısıtlamalarına sahip olması durumunda işe yarar. Ne yazık ki çoğu gerçek nesne, diğerlerinin içlerine bu kadar kolay göz atmasına izin vermez ve tüm önemli verileri özel alanlarda gizler.
 
 Şimdilik bu sorunu bir kenara bırakalım ve nesnelerimizin hippiler gibi davrandığını varsayalım: açık ilişkileri tercih ediyor ve durumlarını halka açık (public) tutuyorlar. Bu yaklaşım acil sorunu çözecek ve nesnelerin durumlarının anlık görüntülerini istediğiniz zaman oluşturmanıza olanak tanıyacak olsa da, hala bazı ciddi sorunları vardır. Gelecekte, düzenleyici sınıflarından bazılarını yeniden düzenlemeye veya alanların bazılarını eklemeye veya kaldırmaya karar verebilirsiniz. Kulağa kolay geliyor ama aynı zamanda etkilenen nesnelerin durumunun kopyalanmasından sorumlu sınıfların değiştirilmesini de gerektiriyor.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/memento/problem2-en-2x.png)
 
 *Nesnenin özel durumunun (private state) bir kopyası nasıl oluşturulur?*
+
+</div>
 
 Ama dahası da var. Editörün durumunun gerçek "anlık görüntülerini" ele alalım. Hangi verileri içeriyor? En azından gerçek metni, imleç koordinatları, geçerli kaydırma konumu gibi bilgileri içermelidir. Anlık görüntü oluşturmak için bu değerleri toplamanız ve bunları bir tür kapsayıcıya koymanız gerekir.
 
@@ -45,10 +56,13 @@ Memento modeli, durum anlık görüntülerinin oluşturulmasını o durumun ger�
 
 Desen, nesnenin durumunun kopyasının hatıra (memento) adı verilen özel bir nesnede saklanmasını önerir. Hatıranın içeriğine, onu üreten nesne dışında başka hiçbir nesne erişemez. Diğer nesnelerin, anlık görüntünün meta verilerinin (oluşturulma zamanı, gerçekleştirilen işlemin adı vb.) getirilmesine izin verebilecek, ancak anlık görüntüde yer alan orijinal nesnenin durumunu getiremeyen sınırlı bir arayüz kullanarak hatıralarla iletişim kurması gerekir.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/solution-en-2x.png)
 
 *Oluşturan, hatıraya tam erişime sahipken bakıcı yalnızca meta verilere erişebilir.*
+
+</div>
 
 Bu kadar kısıtlayıcı bir politika, hatıraları genellikle bakıcı (caretakers) olarak adlandırılan diğer nesnelerin içinde saklamanıza olanak tanır. Bakıcı, hatıra ile yalnızca sınırlı arayüz aracılığıyla çalıştığından, hatıranın içinde saklanan duruma müdahale edemez. Aynı zamanda, yaratıcının hatıranın içindeki tüm alanlara erişimi vardır ve bu da onun istediği zaman önceki durumuna geri dönmesine olanak sağlar.
 
@@ -63,7 +77,11 @@ Bir kullanıcı geri alma işlemini tetiklediğinde, geçmiş, yığından en so
 
 Desenin klasik uygulaması, birçok popüler programlama dilinde (C++, C# ve Java gibi) mevcut olan iç içe geçmiş sınıfların desteğine dayanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/memento/structure1-2x.png)
+
+</div>
 
 1. **Originator** sınıfı, kendi durumunun anlık görüntülerini üretebildiği gibi gerektiğinde anlık görüntülerden durumunu da geri yükleyebilir.
 
@@ -78,7 +96,11 @@ Bir bakıcı, bir yığın hatıra saklayarak, yaratıcının geçmişini takip 
 
 İç içe geçmiş sınıfları desteklemeyen programlama dilleri için uygun alternatif bir uygulama var (evet, PHP, senden bahsediyoruz ☹️ ).
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/memento/structure2-2x.png)
+
+</div>
 
 1. Yuvalanmış sınıfların yokluğunda, bakıcıların yalnızca açıkça beyan edilen bir aracı arayüz aracılığıyla bir hatıra ile çalışabileceği ve yalnızca hatıranın meta verileriyle ilgili yöntemlerin bildirileceği bir kural oluşturarak hatıra alanlarına erişimi kısıtlayabilirsiniz.
 
@@ -88,7 +110,11 @@ Bir bakıcı, bir yığın hatıra saklayarak, yaratıcının geçmişini takip 
 
 Hatıra yoluyla diğer sınıfların yaratıcının durumuna erişmesine en ufak bir şans bile bırakmak istemediğinizde yararlı olan başka bir uygulama daha var.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/memento/structure3-2x.png)
+
+</div>
 
 1. Bu uygulama, birden fazla yaratıcı ve hatıra türüne sahip olmanıza olanak tanır. Her yaratıcı, karşılık gelen bir hatıra sınıfıyla çalışır. Ne yaratıcılar ne de hatıralar durumlarını kimseye ifşa etmez.
 
@@ -101,10 +127,13 @@ Hatıra yoluyla diğer sınıfların yaratıcının durumuna erişmesine en ufak
 
 Bu örnek, karmaşık metin düzenleyicisinin durumunun anlık görüntülerini depolamak ve gerektiğinde bu anlık görüntülerden daha önceki bir durumu geri yüklemek için Komut modelinin yanında Memento modelini kullanır.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/memento/example-2x.png)
 
 *Metin düzenleyicinin durumunun anlık görüntüleri kaydediliyor.*
+
+</div>
 
 Komut nesneleri bakıcı görevi görür. Komutlarla ilgili işlemleri yürütmeden önce editörün hatırasını alırlar. Bir kullanıcı en son komutu geri almaya çalıştığında, editör kendisini önceki duruma döndürmek için o komutta saklanan hatırayı kullanabilir.
 
