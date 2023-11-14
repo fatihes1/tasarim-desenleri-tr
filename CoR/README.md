@@ -6,7 +6,11 @@
 
 Sorumluluk Zinciri, istekleri bir işleyici zinciri boyunca aktarmanıza olanak tanıyan davranışsal (behavioral) bir tasarım modelidir. Bir istek aldıktan sonra her işleyici, isteği işlemeye veya zincirdeki bir sonraki işleyiciye iletmeye karar verir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/chain-of-responsibility/chain-of-responsibility-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -15,10 +19,13 @@ Sorumluluk Zinciri, istekleri bir işleyici zinciri boyunca aktarmanıza olanak 
 
 Biraz planlama yaptıktan sonra bu kontrollerin sıralı olarak yapılması gerektiğini fark ettiniz. Uygulama, kullanıcının kimlik bilgilerini içeren bir istek aldığında, sistemde kullanıcının kimliğini doğrulamayı deneyebilir. Ancak bu kimlik bilgileri doğru değilse ve kimlik doğrulama başarısız olursa kalan kontrollere devam etmenin bir anlamı yoktur.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/problem1-en-2x.png)
 
 *Sipariş sisteminin bunu gerçekleştirebilmesi için isteğin bir dizi kontrolden geçmesi gerekir.*
+
+</div>
 
 Önümüzdeki birkaç ay boyunca bu sıralı kontrollerden birkaçını daha uygulamaya devam ettiğinizi düşünelim.
 
@@ -26,9 +33,13 @@ Biraz planlama yaptıktan sonra bu kontrollerin sıralı olarak yapılması gere
 - Daha sonra birisi sistemin kaba kuvvetle şifre kırmaya karşı savunmasız olduğunu fark etti. Bunu geçersiz kılmak için hemen aynı IP adresinden gelen tekrarlanan başarısız istekleri filtreleyen bir kontrol eklediniz.
 - Başka biri, aynı verileri içeren tekrarlanan isteklerde önbelleğe alınmış sonuçları döndürerek sistemi hızlandırabileceğinizi önerdi. Bu nedenle, isteğin yalnızca önbelleğe alınmış uygun bir yanıt olmadığında sisteme geçmesine izin veren başka bir kontrol eklediniz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/problem2-en-2x.png)
 
 *Kod büyüdükçe daha karmaşık hale geldi.*
+
+</div>
 
 Zaten karmakarışık görünen çeklerin kodu, her yeni özellik eklendikçe daha da şişirildi. Bir kontrolün değiştirilmesi bazen diğerlerini de doğal olarak etkiler. Hepsinden kötüsü, sistemin diğer bileşenlerini korumak için kontrolleri yeniden kullanmaya çalıştığınızda, kodun bir kısmını kopyalamak zorunda kalırsınız, çünkü bu bileşenler kontrollerin bazılarını gerektirir ama bütün kontrolleri gerektirmez.
 
@@ -45,26 +56,38 @@ Desen, bu işleyicileri bir zincire bağlamanızı önerir. Her bağlantılı i�
 
 Sipariş sistemleriyle ilgili örneğimizde; bir işleyici işlemi gerçekleştirir ve ardından isteği zincirin daha aşağılarına iletip iletmeyeceğine karar verir. İsteğin doğru verileri içerdiğini varsayarsak, tüm işleyiciler kimlik doğrulama kontrolleri veya önbelleğe alma gibi birincil davranışlarını yürütebilir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/solution1-en-2x.png)
 
 *İşleyiciler bir zincir oluşturacak şekilde tek tek dizilir.*
+
+</div>
 
 Bununla birlikte, bir istek alındığında işleyicinin onu işleyip işleyemeyeceğine karar verdiği biraz farklı bir yaklaşım ve kuralları vardır. Yapabiliyorsa isteği daha fazla iletmez. Yani ya isteği işleyen tek bir işleyicidir ya da hiç işlemez. Bu yaklaşım, grafiksel bir kullanıcı arayüzü içindeki yığınlarındaki (stack) olaylarla uğraşırken çok yaygındır.
 
 Örneğin, bir kullanıcı bir düğmeyi tıklattığında olay, düğmeyle başlayan, kapsayıcıları (formlar veya paneller gibi) boyunca ilerleyen ve ana uygulama penceresiyle biten GUI öğeleri zinciri boyunca yayılır. Olay, zincirde onu idare edebilen ilk öge tarafından işlenir. Bu örnek aynı zamanda dikkat çekicidir çünkü bir nesne ağacından her zaman bir zincirin çıkarılabileceğini gösterir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/solution2-en-2x.png)
 
 *Bir nesne ağacının dalından bir zincir oluşturulabilir.*
+
+</div>
 
 Tüm işleyici sınıflarının aynı arayüzü uygulaması çok önemlidir. Her beton işleyicisi yalnızca yürütme (`execute`) yöntemine sahip olan aşağıdakiyle ilgilenmelidir. Bu şekilde, kodunuzu sınıflara bağlamadan çeşitli işleyicileri kullanarak çalışma zamanında zincirler oluşturabilirsiniz.
 
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/chain-of-responsibility/chain-of-responsibility-comic-1-en-2x.png)
 
 *Teknik destek çağrısı birden fazla operatör üzerinden yapılabilir.*
+
+</div>
 
 Bir senaryo düşünelim: Bilgisayarınıza yeni bir donanım parçası satın aldınız ve yüklediniz. Bir inek (geek) olduğunuzdan, bilgisayarda yüklü birkaç işletim sistemi vardır. Donanımın desteklenip desteklenmediğini görmek için hepsini önyüklemeye çalışırsınız. Windows donanımı otomatik olarak algılar ve etkinleştirir. Ancak, sevgili Linux'unuz yeni donanımla çalışmayı reddediyor. Küçük bir umutla, kutunun üzerinde yazılı olan teknik destek telefon numarasını aramaya karar verdiniz.
 
@@ -76,7 +99,11 @@ Sonunda operatör çağrınızı, bir ofis binasının karanlık bodrumundaki ya
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/structure-2x.png)
+
+</div>
 
 1. **İşleyici (Handler)**, tüm beton işleyicileri için ortak olan arayüzü (interface) tanımlar. Genellikle istekleri işlemek için tek bir yöntem içerir, ancak bazen zincirdeki bir sonraki işleyiciyi ayarlamak için başka bir yöntem de barındırabilir.
 2. **Temel İşleyici (Base Handler)**, tüm işleyici sınıflarında ortak olan standart kodu barındırabileceğiniz isteğe bağlı bir sınıftır.
@@ -91,17 +118,25 @@ Genellikle bu sınıf, bir sonraki işleyiciye referansı depolamak için bir al
 
 Bu örnekte Sorumluluk Zinciri modeli, etkin GUI öğeleri için bağlamsal yardım bilgilerinin görüntülenmesinden sorumludur.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/example-en-2x.png)
 
 *GUI sınıfları Bileşik (Composite) desenle oluşturulmuştur. Her öge kendi kapsayıcı öğesine bağlıdır. Herhangi bir noktada, öğenin kendisiyle başlayan ve kapsayıcı öğelerin tümüne uzanan bir öge zinciri oluşturabilirsiniz.*
+
+</div>
 
 Uygulamanın GUI'si genellikle bir nesne ağacı olarak yapılandırılmıştır. Örneğin, uygulamanın ana penceresini oluşturan `Dialog` sınıfı, nesne ağacının kökü olacaktır. İletişim kutusunda, diğer `Panels` , `Buttons` ve `TextFields` gibi basit düşük düzeyli öğeleri içerebilecek Paneller (`Panels`) bulunur.
 
 Basit bir bileşen, bileşene atanmış bir yardım metni olduğu sürece, kısa bağlamsal araç ipuçlarını gösterebilir. Ancak daha karmaşık bileşenler, kılavuzdan bir alıntı göstermek veya tarayıcıda bir sayfa açmak gibi bağlamsal yardımı göstermenin kendi yollarını tanımlar.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/chain-of-responsibility/example2-en-2x.png)
 
 *Bir yardım isteği GUI nesnelerinden bu şekilde geçer.*
+
+</div>
 
 Kullanıcı fare imlecini bir öğenin üzerine getirip `F1` tuşuna bastığında, uygulama işaretçinin altındaki bileşeni algılar ve ona bir yardım isteği gönderir. İstek, yardım bilgilerini görüntüleyebilen öğeye ulaşana kadar öğenin tüm kapsayıcılarında kabarır.
 
