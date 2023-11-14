@@ -7,8 +7,11 @@
 
 Gözlemci, birden çok nesneyi, gözlemledikleri nesnenin başına gelen olaylar hakkında bilgilendirmek için bir abonelik mekanizması tanımlamanıza olanak tanıyan davranışsal (behavioral) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/observer/observer-2x.png?id=d5a83e115528e9fd633f04ad2650f1db)
 
+</div>
 
 ##  🙁 Problem
 
@@ -16,10 +19,13 @@ Gözlemci, birden çok nesneyi, gözlemledikleri nesnenin başına gelen olaylar
 
 Müşteri her gün mağazayı ziyaret edebilir ve ürünün stok durumunu kontrol edebilir. Ancak ürün hâlâ yoldayken bu gezilerin çoğu anlamsız olacaktır.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/content/observer/observer-comic-1-en-2x.png?id=8e89674eb83b01e82203987e600ba59e)
 
 *Mağazayı ziyaret etme ve spam gönderme karşılaştırması*
+
+</div>
 
 Öte yandan, mağaza her yeni ürün piyasaya çıktığında tüm müşterilerine tonlarca e-posta gönderebilir. Bu e-postalar spam olarak kabul edilebilir. Bu, bazı müşterileri mağazaya bitmek bilmeyen yolculuklardan kurtaracaktır. Aynı zamanda yeni ürünlerle ilgilenmeyen diğer müşterilerinin de canını sıkacaktır.
 
@@ -33,9 +39,13 @@ Observer modeli, yayıncı sınıfına bir abonelik mekanizması eklemenizi ve b
  1.  abone nesnelerine yapılan referansların listesini depolamak için bir dizi alanından,
  2. abonelerin bu listeye eklenmesine ve listeden çıkarılmasına izin veren çeşitli genel yöntemlerden oluşur.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/observer/solution1-en-2x.png?id=a6bc643488b8fbc8bbb309539139c316)
 
 *Abonelik mekanizması, tek tek nesnelerin etkinlik bildirimlerine abone olmasına olanak tanır.*
+
+</div>
 
 Artık yayıncının başına önemli bir olay geldiğinde abonelerinin üzerinden geçer ve nesnelerine özel bildirim yöntemini çağırır.
 
@@ -43,17 +53,25 @@ Gerçek uygulamalarda, aynı yayıncı sınıfının etkinliklerini izlemekle il
 
 Bu nedenle tüm abonelerin aynı arayüzü uygulaması ve yayıncının onlarla yalnızca bu arayüz üzerinden iletişim kurması çok önemli. Bu arayüz, yayıncının bildirimle birlikte bazı bağlamsal verileri iletmek için kullanabileceği bir dizi parametreyle birlikte bildirim yöntemini beyan etmelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/observer/solution2-en-2x.png?id=630cfb84753c258aa4e8500e189c0b65)
 
 *Yayıncı, abonelerin nesnelerinde belirli bildirim yöntemini çağırarak aboneleri bilgilendirir.*
+
+</div>
 
 Uygulamanızda birden fazla farklı yayıncı türü varsa ve abonelerinizi hepsiyle uyumlu hale getirmek istiyorsanız daha da ileri giderek tüm yayıncıların aynı arayüzü izlemesini sağlayabilirsiniz. Bu arayüzün yalnızca birkaç abonelik yöntemini tanımlaması gerekir. Arayüz, abonelerin yayıncıların durumlarını sınıflarıyla bağlantı kurmadan gözlemlemelerine olanak tanıyacak.
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/observer/observer-comic-2-en-2x.png?id=2147046fb16c427533db8ed85e8cce4c)
 
 *Dergi ve gazete abonelikleri.*
+
+</div>
 
 Bir gazete veya dergiye abone olursanız, bir sonraki sayının mevcut olup olmadığını kontrol etmek için artık mağazaya gitmenize gerek yoktur. Bunun yerine, yayıncı yeni sayıları yayınlandıktan hemen sonra veya hatta önceden doğrudan posta kutunuza gönderir.
 
@@ -62,7 +80,11 @@ Yayıncı, abonelerin bir listesini tutar ve hangi dergilerle ilgilendiklerini b
 
 ##  ⚙️ Yapı
 
+<div align="center">
+	
 ![](https://refactoring.guru/images/patterns/diagrams/observer/structure-2x.png?id=228af9bded4d6ee6daf43a0e23cca9ff)
+
+</div>
 
 1. **Yayıncı (Publisher)** diğer nesnelerin ilgisini çeken olayları yayınlar. Bu olaylar, yayıncı durumunu değiştirdiğinde veya bazı davranışları yürüttüğünde meydana gelir. Yayıncılar, listeye yeni abonelerin katılmasına ve mevcut abonelerin listeden çıkmasına olanak tanıyan bir abonelik altyapısı içerir.
 
@@ -81,10 +103,13 @@ Yayıncı, abonelerin bir listesini tutar ve hangi dergilerle ilgilendiklerini b
 
 Bu örnekte **Observer modeli**, metin düzenleyici nesnesinin durumundaki değişiklikler hakkında diğer hizmet nesnelerine bildirimde bulunmasına olanak tanır.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/observer/example-2x.png?id=e2838e1562325e485fc7c2828a8ca445)
 
 *Nesneleri, diğer nesnelerin başına gelen olaylar hakkında bilgilendirmek.*
+
+</div>
 
 Abonelerin listesi dinamik olarak derlenir: Nesneler, uygulamanızın istenen davranışına bağlı olarak çalışma zamanında bildirimleri dinlemeye başlayabilir veya durdurabilir.
 
