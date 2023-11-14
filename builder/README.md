@@ -350,7 +350,7 @@ public interface Builder {
 }
 ```
 
-⤵️ 📄 `builders/CarBuilder.java:`: Araba (Car) builder'ı
+⤵️ 📄 `builders/CarBuilder.java`: Araba (Car) builder'ı
 
 ```java
 package fatihes1.builder.example.builders;
