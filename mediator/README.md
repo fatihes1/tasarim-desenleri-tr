@@ -7,24 +7,34 @@
 
 Mediator, nesneler arasındaki kaotik bağımlılıkları azaltmanıza olanak tanıyan davranışsal bir tasarım modelidir. Desen, nesneler arasındaki doğrudan iletişimi kısıtlar ve onları yalnızca bir aracı nesne aracılığıyla işbirliği yapmaya zorlar.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/content/mediator/mediator-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
 
 Müşteri profilleri oluşturmak ve düzenlemek için bir iletişim kutunuzun olduğunu varsayalım. Metin alanları, onay kutuları, düğmeler gibi çeşitli form kontrollerinden oluşur.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/problem1-en-2x.png)
 
 *Uygulama geliştikçe kullanıcı arayüzünün öğeleri arasındaki ilişkiler kaotik hale gelebilir.*
 
+</div>
+
 Form öğelerinden bazıları diğerleriyle etkileşime girebilir. Örneğin, "Bir köpeğim var" onay kutusunun seçilmesi, köpeğin adının girilmesi için gizli bir metin alanının ortaya çıkmasına neden olabilir. Başka bir örnek, verileri kaydetmeden önce tüm alanların değerlerini doğrulaması gereken (validation) gönder düğmesidir.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/problem2-2x.png)
 
 *Elementlerin diğer elementlerle birçok ilişkisi olabilir. Bu nedenle, bazı öğelerde yapılan değişiklikler diğerlerini etkileme ihtimali yüksektir.*
+
+</div>
 
 Bu mantığın doğrudan form öğelerinin kodunun içine uygulanmasını sağlayarak, bu öğelerin sınıflarının uygulamanın diğer formlarında yeniden kullanılmasını çok daha zorlaştırırsınız. Örneğin, köpeğin metin alanına bağlı olduğundan bu onay kutusu sınıfını başka bir formda kullanamazsınız. Profil formunun oluşturulmasında yer alan tüm sınıfları kullanabilir veya hiçbirini kullanamazsınız.
 
@@ -34,9 +44,13 @@ Mediator modeli, birbirinden bağımsız kılmak istediğiniz bileşenler arası
 
 Profil düzenleme formu içeren örneğimizde, diyalog sınıfının kendisi aracı olarak hareket edebilir. Büyük olasılıkla, diyalog sınıfı zaten tüm alt öğelerinin farkındadır, dolayısıyla bu sınıfa yeni bağımlılıklar eklemenize bile gerek kalmayacaktır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/solution1-en-2x.png)
 
 *Kullanıcı arayüzü öğeleri, aracı nesne aracılığıyla dolaylı olarak iletişim kurmalıdır.*
+
+</div>
 
 En önemli değişiklik asıl form öğelerinde meydana gelir. Gönder düğmesini ele alalım. Önceden, bir kullanıcı düğmeye her tıkladığında, tüm bireysel form öğelerinin değerlerini doğrulamak zorundaydı. Artık tek işi, tıklama hakkında iletişim kutusunu bilgilendirmektir. Bu bildirimi aldıktan sonra iletişim kutusunun kendisi doğrulamaları gerçekleştirir veya görevi ayrı ayrı öğelere aktarır. Böylece, bir düzine form öğesine bağlı olmak yerine düğme yalnızca diyalog sınıfına bağımlıdır.
 
@@ -46,9 +60,13 @@ Bu şekilde Mediator modeli, çeşitli nesneler arasındaki karmaşık ilişkile
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/live-example-2x.png)
 
 *Uçak pilotları, uçağını bir sonraki kimin indireceğine karar verirken birbirleriyle doğrudan konuşmazlar. Tüm iletişim kontrol kulesinden geçer.*
+
+</div>
 
 Havaalanı kontrol alanına yaklaşan veya ayrılan uçak pilotları birbirleriyle doğrudan iletişim kurmazlar. Bunun yerine, uçak pistine yakın bir yerde yüksek bir kulede oturan bir hava trafik kontrolörüyle konuşurlar. Hava trafik kontrolörü olmasaydı, pilotların havaalanı yakınındaki her uçaktan haberdar olması ve düzinelerce pilottan oluşan bir komiteyle iniş önceliklerini tartışması gerekecekti. Bu muhtemelen uçak kazası istatistiklerini oldukça artırırdı.
 
@@ -56,7 +74,11 @@ Kulenin tüm uçuşu kontrol etmesine gerek yok. Yalnızca terminal alanındaki 
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/structure-2x.png)
+
+</div>
 
 1. **Bileşenler (Components)**, iş mantığını içeren çeşitli sınıfları ifade eder. Her bileşenin, arabulucu arayüzünün türüyle bildirilen bir arabulucuya referansı vardır. Bileşen, arabulucunun gerçek sınıfının farkında değildir; bu nedenle, bileşeni farklı bir aracıya bağlayarak diğer programlarda yeniden kullanabilirsiniz.
 
@@ -72,10 +94,13 @@ Bir bileşenin bakış açısından her şey tamamen kara bir kutuya benzer. Gö
 
 Bu örnekte, **Mediator** modeli çeşitli kullanıcı arayüzü sınıfları arasındaki karşılıklı bağımlılıkları ortadan kaldırmanıza yardımcı olur: düğmeler, onay kutuları ve metin etiketleri.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/mediator/example-2x.png)
 
 *Kullanıcı arayüzü iletişim kutusu sınıflarının yapısı.*
+
+</div>
 
 Kullanıcı tarafından tetiklenen bir öğe, olması gerektiği gibi görünse bile diğer öğelerle doğrudan iletişim kurmaz. Bunun yerine, öğenin yalnızca aracısına olay hakkında bilgi vermesi ve bu bildirimle birlikte bağlamsal bilgileri iletmesi gerekir.
 
