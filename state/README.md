@@ -5,16 +5,24 @@
 
 Durum, bir nesnenin iç durumu değiştiğinde davranışını değiştirmesine olanak tanıyan davranışsal (behavioral) bir tasarım modelidir. Nesnenin, sınıfını değiştirmiş gibi görünür.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/state/state-en-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
 
 Durum modeli, Sonlu Durum Makinesi (Finite-State Machine) kavramıyla yakından ilgilidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/state/problem1-2x.png)
 
 *Sonlu Durum Makinesi (Finite-State Machine)*
+
+</div>
 
 Ana fikir, herhangi bir anda bir programın bulunabileceği sınırlı sayıda durumun bulunmasıdır. Herhangi bir benzersiz durumda program farklı davranır ve program bir durumdan diğerine anında geçiş yapabilir. Bununla beraber mevcut duruma bağlı olarak program diğer belirli durumlara geçebilir veya geçmeyebilir. Geçişler olarak adlandırılan bu anahtarlama kuralları da sonludur ve önceden belirlenmiştir.
 
@@ -23,9 +31,13 @@ Bu yaklaşımı nesnelere de uygulayabilirsiniz. Bir `Document` sınıfımız ol
 	- Moderasyonda olan belgeyi herkese açık (public) hale getirir, ancak yalnızca geçerli kullanıcı yöneticiyse.
 	- Yayınlandı da ise hiçbir şey yapmaz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/state/problem2-en-2x.png)
 
 *Bir belge nesnesinin olası durumları ve geçişleri.*
+
+</div>
 
 Durum makineleri genellikle nesnenin mevcut durumuna bağlı olarak uygun davranışı seçen çok sayıda koşullu ifadeden (`if` veya `switch`) oluşur. Genellikle bu "durum" yalnızca nesnenin alanlarının değerlerinin bir kümesidir. Sonlu durumlu makineleri daha önce hiç duymamış olsanız bile, muhtemelen en az bir kez durum uygulamışsınızdır. Aşağıdaki kod yapısı size bir şeyler hatırlatıyor mu?
 
@@ -59,10 +71,13 @@ Durum modeli, bir nesnenin tüm olası durumları için yeni sınıflar oluştur
 
 Bağlam (context) adı verilen orijinal nesne, tüm davranışları kendi başına uygulamak yerine, mevcut durumunu temsil eden durum nesnelerinden birine bir referans saklar ve durumla ilgili tüm işleri bu nesneye devreder.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/state/solution-en-2x.png)
 
 *Belge, işi bir durum nesnesine devreder.*
 
+</div>
 
 Bağlamı başka bir duruma geçirmek için etkin durum nesnesini bu yeni durumu temsil eden başka bir nesneyle değiştirin. Bu ancak tüm durum sınıflarının aynı arayüzü izlemesi ve bağlamın kendisinin bu arayüz aracılığıyla bu nesnelerle çalışması durumunda mümkündür.
 
@@ -81,7 +96,11 @@ Akıllı telefonunuzdaki düğmeler ve anahtarlar, cihazın mevcut durumuna bağ
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/state/structure-en-2x.png)
+
+</div>
 
 1. **Bağlam (Context)**, somut durum nesnelerinden birine bir referansı saklar ve duruma özgü tüm işleri ona devreder. Bağlam durum nesnesi ile durum arayüzü aracılığıyla iletişim kurar. Bağlam, kendisine yeni bir durum nesnesi iletmek için bir ayarlayıcıyı ortaya çıkarır.
 
@@ -97,10 +116,13 @@ Durum nesneleri, bağlam nesnesine bir geri referans depolayabilir. Bu referans 
 
 Bu örnekte **Durum (State)** modeli, mevcut oynatma durumuna bağlı olarak medya oynatıcının aynı kontrollerinin farklı davranmasına olanak tanır.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/state/example-2x.png)
 
 *Durum nesneleriyle nesne davranışını değiştirme örneği.*
+
+</div>
 
 Oyuncunun ana nesnesi her zaman oynatıcı için işin çoğunu gerçekleştiren bir durum nesnesine bağlıdır. Bazı eylemler, oynatıcının mevcut durum nesnesini bir başkasıyla değiştirir; bu da oynatıcının kullanıcı etkileşimlerine tepki verme şeklini değiştirir.
 
