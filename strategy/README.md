@@ -5,7 +5,11 @@
 
 Strateji, bir algoritma ailesi tanımlamanıza, her birini ayrı bir sınıfa yerleştirmenize ve nesnelerini birbirinin yerine kullanılabilir hale getirmenize olanak tanıyan davranışsal (behavioral) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/strategy/strategy-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -18,9 +22,13 @@ Uygulamanın ilk sürümü yalnızca yollar üzerindeki rotaları oluşturabiliy
 
 Ancak bu yalnızca başlangıçtır. Daha sonra bisikletçiler için rota oluşturmayı eklemeyi düşünebilirsiniz. Ve daha sonra, bir şehrin tüm turistik mekanlarını dolaşacak rotalar oluşturmak için başka bir seçenek daha...
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/strategy/problem-2x.png)
 
 *Navigasyon uygulaması kodu şişirildi.*
+
+</div>
 
 İş açısından bakıldığında uygulama başarılı olsa da teknik kısım başınızı çok ağrıtacaktır. Her yeni yönlendirme algoritması eklediğinizde, gezginin (navigator) main sınıfının boyutu iki katına çıkar. Bir noktada bu devasa kodun bakımı çok zor hale gelebilir.
 
@@ -39,9 +47,13 @@ Bağlam, iş için uygun bir algoritmanın seçilmesinden sorumlu değildir. Bun
 
 Bu şekilde bağlam stratejilerden bağımsız hale gelir, böylece bağlamın kodunu veya diğer stratejileri değiştirmeden yeni algoritmalar ekleyebilir veya mevcut algoritmaları değiştirebilirsiniz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/strategy/solution-2x.png)
 
 *Rota planlama stratejileri.*
+
+</div>
 
 Navigasyon uygulamamızda her yönlendirme algoritması tek bir `buildRoute` yöntemiyle kendi sınıfına çıkarılabilir (extracted). Yöntem bir başlangıç ​​ve varış noktasını parametre olarak bekler. Rotanın kontrol noktalarının bir koleksiyonunu döndürür.
 
@@ -49,7 +61,11 @@ Aynı argümanlar verildiğinde, her yönlendirme sınıfı farklı bir rota olu
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/strategy/strategy-comic-1-en-2x.png)
+
+</div>
 
 
 Havaalanına gitmeniz gerektiğini düşünün. Otobüse binebilir, taksi çağırabilir veya bisikletinize binebilirsiniz. Bunlar sizin ulaşım stratejilerinizdir. Bütçe veya zaman kısıtlaması gibi faktörlere bağlı olarak stratejilerden birini seçebilirsiniz.
@@ -57,7 +73,11 @@ Havaalanına gitmeniz gerektiğini düşünün. Otobüse binebilir, taksi çağ�
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/strategy/structure-2x.png)
+
+</div>
 
 1. **Bağlam (Context)**, stratejilerden birine referansı tutar ve bu nesneyle yalnızca strateji arayüzü aracılığıyla iletişim kurar.
 
