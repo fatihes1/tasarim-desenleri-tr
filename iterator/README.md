@@ -5,16 +5,24 @@
 
 Yineleyici, bir koleksiyonun öğeleri arasında, onun temel temsilini (liste, yığın, ağaç vb.) açığa çıkarmadan geçiş yapmanızı sağlayan davranışsal bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/iterator/iterator-en-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
 
 Koleksiyonlar (Collections) programlamada en çok kullanılan veri türlerinden biridir. Bununla birlikte, bir koleksiyon yalnızca bir grup nesne için bir konteynerdir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/iterator/problem1-2x.png)
 
 *Çeşitli koleksiyon türleri.*
+
+</div>
 
 Çoğu koleksiyon, öğelerini basit listelerde saklar. Ancak bunlardan bazıları yığınlara, ağaçlara, grafiklere ve diğer karmaşık veri yapılarına dayanmaktadır.
 
@@ -22,16 +30,23 @@ Ancak bir koleksiyon nasıl yapılandırılmış olursa olsun, diğer kodların 
 
 Listeye dayalı bir koleksiyonunuz varsa bu kolay bir iş gibi görünebilir. Tüm öğelerin üzerinden geçmeniz yeterli. Peki ağaç gibi karmaşık bir veri yapısının öğelerini sırayla nasıl geçersiniz? Örneğin, bir gün bir ağacın derinliğini ön planda tutarak geçiş yapmakta sorun yaşamazsınız. Ancak ertesi gün genişlik öncelikli geçişe ihtiyaç duyabilirsiniz. Gelecek hafta ağaç öğelerine rastgele erişim gibi başka bir erişim yöntemine ihtiyacınız olabilir.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/iterator/problem2-2x.png)
 
 *Aynı koleksiyonda birkaç farklı şekilde geçiş yapılabilir.*
 
+</div>
+
 Çok geçmeden bu yaklaşımın son derece kusurlu olduğunu fark edeceksiniz. İlk olarak, çok sayıda alt sınıfınız oluşacaktır. Eğer temel `Button` sınıfını her değiştirdiğinizde bu alt sınıflardaki kodu bozma riskini almıyorsanız bu sorun değil. Basitçe söylemek gerekirse, GUI kodunuz iş mantığının geçici koduna garip bir şekilde bağımlı hale geldi.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/command/problem3-en-2x.png)
 
 *Birkaç sınıf temelde aynı işlevi uygular.*
+
+</div>
 
 Koleksiyona giderek daha fazla geçiş algoritması eklemek, birincil sorumluluğu olan verimli veri depolamayı giderek zorlaştırır. Ek olarak, bazı algoritmalar belirli bir uygulamaya göre uyarlanabilir, dolayısıyla bunları genel bir koleksiyon sınıfına dahil etmek yanlış bir seçim olabilir.
 
@@ -41,9 +56,13 @@ Koleksiyona giderek daha fazla geçiş algoritması eklemek, birincil sorumlulu�
 
 Yineleyici (iterator) modelinin ana fikri, bir koleksiyonun geçiş davranışını yineleyici adı verilen ayrı bir nesneye çıkarmaktır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/iterator/solution1-2x.png)
 
 *Yineleyiciler çeşitli geçiş algoritmaları uygular. Birkaç yineleyici nesne aynı anda aynı koleksiyonda dolaşabilir.*
+
+</div>
 
 Algoritmanın kendisinin uygulanmasına ek olarak, bir yineleyici nesne, geçerli konum ve sonuna kadar kaç öğenin kaldığı gibi tüm geçiş ayrıntılarını kapsar. Bu nedenle, birkaç yineleyici aynı koleksiyonda birbirinden bağımsız olarak aynı anda geçebilir.
 
@@ -53,9 +72,13 @@ Tüm yineleyiciler aynı arayüzü uygulamalıdır yani implement etmelidir. Bu,
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/iterator/iterator-comic-1-en-2x.png)
 
 *Roma'da dolaşmanın çeşitli yolları vardır.*
+
+</div>
 
 Birkaç günlüğüne Roma'yı ziyaret etmeyi ve onun tüm önemli turistik yerlerini ve ilgi çekici yerlerini ziyaret etmeyi planlıyorsunuz. Ancak oraya vardığınızda, Colosseum'u bile bulamadan daireler çizerek çok fazla zaman harcayabilirsiniz. Bununla beraber kaybolmanız işten bile değildir.
 
@@ -67,7 +90,11 @@ Tüm bu seçenekler (kafanızda doğan rastgele yönler, akıllı telefon gezgin
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/iterator/structure-2x.png)
+
+</div>
 
 1. **Yineleyici (Iterator)** arayüzü, bir koleksiyonda geçiş yapmak için gereken işlemleri tanımlar: sonraki öğeyi getirme, geçerli konumu alma, yinelemeyi yeniden başlatma gibi.
 
@@ -85,10 +112,13 @@ Genellikle istemciler, yineleyicileri kendi başlarına oluşturmazlar; bunun ye
 
 Bu örnekte **Iterator** modeli, Facebook'un sosyal grafiğine erişimi kapsayan özel bir koleksiyon türünde gezinmek için kullanılıyor. Koleksiyon, profilleri çeşitli şekillerde geçebilen çeşitli yineleyiciler sağlar.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/iterator/example-2x.png)
 
 *Sosyal profiller üzerinde yineleme örneği.*
+
+</div>
 
 
 **Arkadaşlar (friends)** yineleyicisi, belirli bir profildeki arkadaşların üzerinden geçmek için kullanılabilir. **Meslektaşlar (colleagues)** yineleyicisi de aynısını yapar, ancak hedef kişiyle aynı şirkette çalışmayan arkadaşları hariç tutar. Her iki yineleyici de istemcilerin, kimlik doğrulama ve REST isteklerini gönderme gibi uygulama ayrıntılarına girmeden profilleri almasına olanak tanıyan ortak bir arayüz uygular.
