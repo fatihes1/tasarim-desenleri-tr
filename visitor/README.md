@@ -10,7 +10,7 @@ Ziyaretçi, algoritmaları üzerinde çalıştıkları nesnelerden ayırmanıza 
 
 ##  🙁 Problem
 
-Ekibinizin devasa bir grafik (graph) halinde yapılandırılmış coğrafi bilgilerle çalışan bir uygulama geliştirdiğini hayal edin. Grafiğin her düğümü (node), şehir gibi karmaşık bir varlığın yanı sıra endüstriler, gezi alanları vb. gibi daha ayrıntılı şeyleri de temsil edebilir. Temsil ettikleri nesneler arasında bir yol varsa, düğümler diğerleriyle bağlanır. Temelde her düğüm türü kendi sınıfı tarafından temsil edilirken, her belirli düğüm bir nesnedir.
+Ekibinizin devasa bir grafik (graph) halinde yapılandırılmış coğrafi bilgilerle çalışan bir uygulama geliştirdiğini hayal edin. Grafiğin her düğümü (node), şehir gibi karmaşık bir varlığın yanı sıra endüstriler, gezi alanları gibi daha ayrıntılı şeyleri de temsil edebilir. Temsil ettikleri nesneler arasında bir yol varsa, düğümler diğerleriyle bağlanır. Temelde her düğüm türü kendi sınıfı tarafından temsil edilirken, her belirli düğüm bir nesnedir.
 
 ![](https://refactoring.guru/images/patterns/diagrams/visitor/problem1-2x.png)
 
@@ -18,7 +18,7 @@ Ekibinizin devasa bir grafik (graph) halinde yapılandırılmış coğrafi bilgi
 
 Bir noktada grafiği XML formatına aktarmanız gerekebilir. İlk başta iş oldukça basit görünür. Her düğüm sınıfına bir dışa aktarma yöntemi eklemeyi ve ardından grafiğin her bir düğümünün üzerinden geçmek için özyinelemeden yararlanarak dışa aktarma yöntemini yürütmeyi planlayabilirsiniz. Çözüm basit ve zarifti: Polimorfizm sayesinde, dışa aktarma yöntemini çağıran kodu somut düğüm sınıflarına bağlayamazsınız.
 
-Maalesef sistem mimarı mevcut düğüm sınıflarını değiştirmenize izin vermedi. Kodun halihazırda üretimde olduğunu ve değişikliklerinizdeki olası bir hata nedeniyle kodu bozma riskini almak istemediğini söyledi. Bu durumda ne yapacaksınız?
+Maalesef sistem mimarı mevcut düğüm sınıflarını değiştirmenize izin vermedi. Kodun halihazırda canlıda (production) olduğunu ve değişikliklerinizdeki olası bir hata nedeniyle kodu bozma riskini almak istemediğini söyledi. Bu durumda ne yapacaksınız?
 
 ![](https://refactoring.guru/images/patterns/diagrams/visitor/problem2-en-2x.png)
 
@@ -26,11 +26,11 @@ Maalesef sistem mimarı mevcut düğüm sınıflarını değiştirmenize izin ve
 
 Ayrıca sistem mimarı XML dışa aktarma kodunun düğüm sınıfları içinde olmasının mantıklı olup olmadığını sorgulayabilir. Bu sınıfların birincil işi coğrafi verilerle çalışmaktır. XML dışa aktarma davranışı burada yanlış bir konumlandırma olabilir.
 
-Reddetmesinin başka bir nedeni daha vardır: Bu özellik uygulandıktan sonra, pazarlama departmanından birinin sizden farklı bir formatta dışa aktarma olanağı sağlamanızı veya başka tuhaf şeyler talep etmesi kuvvetle muhtemeldir. Bu sizi yine o değerli ve çabuk bozulabilecek sınıfları değiştirmeye zorlayacaktır.
+Reddetmesinin başka bir nedeni daha vardır: Bu özellik uygulandıktan sonra, pazarlama departmanından birinin sizden farklı bir formatta dışa aktarma olanağı sağlamanızı veya başka tuhaf şeyler talep etmesi oldukça muhtemeldir. Bu sizi yine o değerli ve çabuk bozulabilecek sınıfları değiştirmeye zorlayacaktır.
 
 ##  😊 Çözüm
 
-Ziyaretçi modeli, yeni davranışı mevcut sınıflara entegre etmeye çalışmak yerine, ziyaretçi adı verilen ayrı bir sınıfa yerleştirmenizi önerir. Davranışı gerçekleştirmesi gereken orijinal nesne artık ziyaretçinin yöntemlerinden birine argüman olarak aktarılır ve yöntemin nesne içinde bulunan tüm gerekli verilere erişimi sağlanır.
+Ziyaretçi modeli, yeni davranışı mevcut sınıflara entegre etmeye çalışmak yerine, ziyaretçi (visitor) adı verilen ayrı bir sınıfa yerleştirmenizi önerir. Davranışı gerçekleştirmesi gereken orijinal nesne artık ziyaretçinin yöntemlerinden birine argüman olarak aktarılır ve yöntemin nesne içinde bulunan tüm gerekli verilere erişimi sağlanır.
 
 Peki ya bu davranış farklı sınıflardaki nesneler üzerinde yürütülebiliyorsa? Örneğin, XML dışa aktarımındaki durumumuzda, gerçek uygulama muhtemelen çeşitli düğüm sınıflarında biraz farklı olacaktır. Böylece, ziyaretçi sınıfı bir tane değil, her biri farklı türde argümanlar alabilen bir dizi yöntem tanımlayabilir, örneğin:
 
@@ -54,9 +54,9 @@ foreach (Node node in graph)
 }
 ```
 
-Neden yöntem aşırı yüklemeyi kullanmıyoruz (method overloading) diye sorabilirsiniz. Bu, farklı parametre kümelerini destekleseler bile tüm yöntemlere aynı adı verdiğiniz zamandır. Ne yazık ki, programlama dilimizin onu desteklediğini varsaysak bile (Java ve C#'ın yaptığı gibi), bunun bize bir faydası olmayacaktır. Bir düğüm nesnesinin tam sınıfı önceden bilinmediğinden, aşırı yükleme mekanizması yürütülecek doğru yöntemi belirleyemez. Temel `Node` sınıfının bir nesnesini alan yöntem varsayılan olarak kullanılır.
+Neden yöntem aşırı yüklemeyi kullanmıyoruz (method overloading) diye sorabilirsiniz. Bu, farklı parametre kümelerini destekleseler bile tüm yöntemlere aynı adı verdiğiniz zamanda kullanılan bir yöntemdir. Ne yazık ki, programlama dilimizin onu desteklediğini varsaysak bile (Java ve C#'ın yaptığı gibi), bunun bize bir faydası olmayacaktır. Bir düğüm nesnesinin tam sınıfı önceden bilinmediğinden, aşırı yükleme (overloading) mekanizması yürütülecek doğru yöntemi belirleyemez. Temel `Node` sınıfının bir nesnesini alan yöntem varsayılan olarak kullanılır.
 
-Şanslıyız ki Ziyaretçi modeli bu sorunu giderir. **Double Dispatch** adlı bir teknik kullanır ve bu teknik, hantal koşullar olmadan bir nesne üzerinde doğru yöntemin yürütülmesine yardımcı olur. İstemcinin çağrılacak yöntemin uygun bir sürümünü seçmesine izin vermek yerine, bu seçimi ziyaretçiye argüman olarak ilettiğimiz nesnelere devretsek nasıl olur? Nesneler kendi sınıflarını bildikleri için ziyaretçiye uygun yöntemi daha az sıkıntıyla seçebilecekler. Bir ziyaretçiyi kabul eder ve ona hangi ziyaret yönteminin uygulanması gerektiğini söyler.
+Şanslıyız ki Ziyaretçi modeli bu sorunu giderir. Nasıl mı? **Double Dispatch** adlı bir teknik kullanarak. Bu teknik, hantal koşullar olmadan bir nesne üzerinde doğru yöntemin yürütülmesine yardımcı olur. İstemcinin çağrılacak yöntemin uygun bir sürümünü seçmesine izin vermek yerine, bu seçimi ziyaretçiye argüman olarak ilettiğimiz nesnelere devretsek nasıl olur? Nesneler kendi sınıflarını bildikleri için ziyaretçiye uygun yöntemi daha az sıkıntıyla seçebilecekler. Bir ziyaretçiyi kabul eder ve ona hangi ziyaret yönteminin uygulanması gerektiğini söyler.
 
 ```java
 // Client code
@@ -76,7 +76,7 @@ class Industry is
     // ...
 ```
 
-Ancak şöyle bir durum var. Sonuçta düğüm sınıflarını değiştirmek zorunda kaldık. Neyse ki, en azından değişiklik önemsizdir ve kodu bir kez daha değiştirmeden başka davranışlar eklememize olanak tanır.
+Ancak şöyle bir durum var. Sonuçta düğüm sınıflarını değiştirmek zorunda kaldık. Neyse ki, değişiklik çokta önemli değildir ve kodu bir kez daha değiştirmeden başka davranışlar eklememize olanak tanır.
 
 Artık tüm ziyaretçiler için ortak bir arayüz çıkarırsak, mevcut tüm düğümler, uygulamaya tanıttığınız herhangi bir ziyaretçiyle çalışabilir. Kendinizi düğümlerle ilgili yeni bir davranış tanıtırken bulursanız tek yapmanız gereken yeni bir ziyaretçi sınıfı uygulamak yani implement etmektir.
 
@@ -206,14 +206,14 @@ class Application is
 
 ##  📝 Nasıl Uygulanır?
 
-1. Ziyaretçi arayüzünü, programda bulunan her somut öğe sınıfı için bir ziyaret (visiting) yöntemi seti ile bildirin.
+1. Ziyaretçi arayüzünü, programda bulunan her somut öğe sınıfı için bir ziyaret (visiting) yöntemi seti ile tanımlayın.
 
 2. Eleman arayüzünü tanımlayın. Mevcut bir öğe sınıfı hiyerarşisiyle çalışıyorsanız, soyut kabul (acceptance) yöntemini hiyerarşinin temel sınıfına ekleyin. Bu yöntem bir ziyaretçi nesnesini argüman olarak kabul etmelidir.
 
-3. Kabul yöntemlerini tüm concrete element sınıflarında uygulayın. Bu yöntemler, çağrıyı, gelen ziyaretçi nesnesindeki mevcut öğenin sınıfıyla eşleşen bir ziyaret yöntemine yönlendirmelidir.
+3. Kabul (acceptance) yöntemlerini tüm concrete element sınıflarında uygulayın. Bu yöntemler, çağrıyı, gelen ziyaretçi nesnesindeki mevcut öğenin sınıfıyla eşleşen bir ziyaret yöntemine yönlendirmelidir.
 
-4. Öğe sınıfları yalnızca ziyaretçi arayüzü aracılığıyla ziyaretçilerle çalışmalıdır. Ancak ziyaretçilerin, ziyaret yöntemlerinin parametre türleri olarak adlandırılan tüm concrete element sınıflarından haberdar olmaları gerekir.
-Ziyaretçinin element sınıfının bazı özel üyelerine erişmesi gerekeceği bir durumla karşılaşabilirsiniz. Bu durumda, öğenin kapsüllenmesini ihlal ederek bu alanları veya yöntemleri herkese açık hale getirebilir veya ziyaretçi sınıfını öğe sınıfına yerleştirebilirsiniz. İkincisi yalnızca iç içe geçmiş sınıfları destekleyen bir programlama diliyle çalışacak kadar şanslıysanız mümkündür.
+4. Öğe sınıfları yalnızca ziyaretçi arayüzü aracılığıyla ziyaretçilerle (visitor) çalışmalıdır. Ancak ziyaretçilerin, ziyaret yöntemlerinin parametre türleri olarak adlandırılan tüm concrete element sınıflarından haberdar olmaları gerekir.
+Ziyaretçinin element sınıfının bazı özel üyelerine erişmesi gerekeceği bir durumla karşılaşabilirsiniz. Bu durumda, öğenin kapsüllenmesini ihlal ederek bu alanları veya yöntemleri herkese açık hale (public) getirebilir. Bununla beraber dilerseniz ziyaretçi sınıfını öğe sınıfına yerleştirebilirsiniz. İkincisi yalnızca iç içe geçmiş sınıfları destekleyen bir programlama diliyle çalışıyorsanız mümkündür.
 
 5. Müşteri, ziyaretçi nesneleri oluşturmalı ve bunları kabul (acceptance) yöntemleriyle öğelere aktarmalıdır.
 
