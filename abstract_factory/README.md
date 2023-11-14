@@ -6,11 +6,11 @@
 
 "Soyut Fabrika" (Abstract Factory), sınıflarını belirtmeden ilgili nesne ailelerini üretmenize olanak tanıyan yaratıcı (creational) bir tasarım modelidir.
 
-  
+<div align="center">  
 
 ![](https://refactoring.guru/images/patterns/content/abstract-factory/abstract-factory-en-2x.png)
 
-  
+</div>  
 
 ##  🙁 Problem
 
@@ -20,15 +20,23 @@ Bir mobilya mağazası simülatörü oluşturduğunuzu hayal edin. Kodunuz aşa�
 
 2. Bu ürün ailesinin çeşitli varyantları olabilir. Örneğin `Chair` , `Sofa` , `CoffeeTable`  ürünlerinin her biri için şu çeşitleri mevcuttur: `Modern`, `Victorian`, `ArtDeco`.
 
+<div align="center">  
+
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/problem-en-2x.png)
 
 *Ürün çeşitleri ve varyantları.*
 
- Müşteriler, birbiriyle uyumlu olmayan mobilyalar aldıklarında oldukça sinirleniyorlar. Bundan dolayı aynı ailedeki diğer nesnelerle eşleşecek şekilde bireysel mobilya nesneleri oluşturmanın bir yoluna ihtiyacınız var.
+</div>
+
+Müşteriler, birbiriyle uyumlu olmayan mobilyalar aldıklarında oldukça sinirleniyorlar. Bundan dolayı aynı ailedeki diğer nesnelerle eşleşecek şekilde bireysel mobilya nesneleri oluşturmanın bir yoluna ihtiyacınız var.
+
+<div align="center">   
 
 ![](https://refactoring.guru/images/patterns/content/abstract-factory/abstract-factory-comic-1-en-2x.png)
 
 *Modern tarzda bir kanepe, Viktorya tarzı sandalyelerle eşleşmez.*
+
+</div>
 
 Ayrıca programa yeni ürünler veya ürün aileleri eklerken mevcut kodunuzu değiştirmek istemezsiniz. Buna karşın, mobilya satıcıları kataloglarını çok sık günceller ve bu durum her gerçekleştiğinde temel kodu değiştirmek zorunda kalmak işin içinden çıkılmaz bir hal alacaktır.
 
@@ -37,25 +45,37 @@ Ayrıca programa yeni ürünler veya ürün aileleri eklerken mevcut kodunuzu de
 
 Abstract Factory deseninin önerdiği ilk şey, ürün ailesinin her farklı ürünü için arayüzleri (interface) açıkça tanımlamaktır (örneğin, sandalye, kanepe veya sehpa gibi). Ardından ürünlerin tüm varyasyonlarını bu arayüzleri takip edecek şekilde yapabilirsiniz. Örneğin, tüm sandalye varyasyonları `Chair` arayüzünü uygulayabilir; tüm kahve masası varyasyonları `CoffeeTable` arayüzünü uygulayabilirsiniz.
 
+<div align="center">  
+
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/solution1-2x.png)
 
 *Aynı nesnenin tüm varyantları tek bir sınıf hiyerarşisine taşınmalıdır.*
 
 ![](https://refactoring.guru/images/patterns/diagrams/factory-method/structure.png)
 
+</div>
+
 Bir sonraki adım, Abstract Factory olarak adlandırılan, ürün ailesinin bir parçası olan tüm ürünler için yaratma yöntemlerinin bir listesini içeren bir arayüzü (interface) bildirmektir (örneğin, `createChair`, `createSofa` ve `createCoffeeTable` gibi). Bu yöntemler, önceki arayüzler tarafından temsil edilen soyut (abstract) ürün türlerini döndürmelidir: `Chair`, `Sofa`, `CoffeeTable` vb.
+
+<div align="center">  
 
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/solution2-2x.png)
 
 *Her concrete fabrikası belirli bir ürün çeşidine karşılık gelir.*
 
+</div>
+
 Peki, ürün varyasyonları nasıl işlenir? Ürün ailesinin her varyasyonu için `AbstractFactory` arayüzüne dayalı ayrı bir fabrika sınıfı oluştururuz. Bir fabrika, belirli bir türün ürünlerini döndüren bir sınıftır. Örneğin, `ModernFurnitureFactory` sınıfını kullanarak sadece `ModernChair`, `ModernSofa` ve `ModernCoffeeTable` nesneleri oluşturabilir.
 
 İstemci (client) kodunun hem fabrikalarla hem de ürünlerle ilgili soyut arayüzler (abstract interface) aracılığıyla çalışması gerekir. Bu, gerçek istemci kodunu bozmadan, istemci koduna ilettiğiniz fabrikanın türünü ve istemci kodunun aldığı ürün çeşidini değiştirmenize olanak tanır.
 
+<div align="center">  
+
 ![](https://refactoring.guru/images/patterns/content/abstract-factory/abstract-factory-comic-2-en-2x.png)
 
 *İstemci, birlikte çalıştığı fabrikanın soyut olmayan (non abstract) sınıfını umursamamalıdır.*
+
+</div>
 
 Diyelim ki istemci bir fabrikanın bir sandalye üretmesini istiyor. İstemcinin fabrikanın sınıfı hakkında bilgi sahibi olması gerekmez ve hangi türde bir sandalye aldığı önemli değildir. Modern bir model veya Viktorya tarzı bir sandalye olması fark etmeksizin, istemci tüm sandalyeleri aynı şekilde işlemelidir. Bu işlemi soyut (abstract) `Chair` arayüzünü (interface) kullanarak yapar. Bu yaklaşımla, istemcinin sandalye hakkında bildiği tek şey, sandalyenin `sitOn` yani oturma yöntemini herhangi bir şekilde uyguladığıdır. Ayrıca, döndürülen sandalye varyasyonu her ne olursa olsun, aynı fabrika nesnesi tarafından üretilen koltuk veya sehpa türüyle her zaman eşleşecektir.
 
@@ -65,7 +85,11 @@ Açıklığa kavuşturulması gereken bir şey daha kaldı: Eğer istemci yalnı
 
 ##  ⚙️ Yapı
 
+<div align="center">  
+
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/structure-2x.png)
+
+</div>
   
 1. **Abstract Products**, bir ürün ailesini oluşturan farklı ilgili ürünler için arayüzleri bildirir.
 2. **Concrete Products**, soyut ürünlerin farklı uygulamalarıdır ve varyantlar tarafından gruplandırılır. Her soyut ürün (sandalye/kanepe), verilen tüm varyasyonlarda (Viktorya/Modern) uygulanmalıdır.
@@ -78,10 +102,13 @@ Açıklığa kavuşturulması gereken bir şey daha kaldı: Eğer istemci yalnı
 
 Bu örnek, Abstract Factory deseninin, istemci kodunu somut UI sınıflarına bağlamadan, oluşturulan tüm öğelerin seçilen işletim sistemi ile uyumlu olduğu ve  çoklu platformlar için UI öğeleri oluşturmak için nasıl kullanılabileceğini göstermektedir.
 
+<div align="center">  
 
 ![](https://refactoring.guru/images/patterns/diagrams/abstract-factory/example-2x.png)
 
 *Platformlar arası kullanıcı arayüzü sınıfları örneği.*
+
+</div>
 
 Aynı UI öğelerinin çoklu platform uygulamasında benzer şekilde davranması beklenir, ancak farklı işletim sistemlerinde biraz farklı görünmelidir. Ayrıca, UI öğelerinin mevcut işletim sisteminin stilini yansıttığından emin olmak sizin görevinizdir. Örneğin, programınızın Windows'ta çalıştırıldığında macOS denetimlerini oluşturmasını istemezsiniz.
 
