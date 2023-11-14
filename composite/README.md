@@ -7,7 +7,11 @@
 
 Kompozit, nesneleri ağaç yapıları halinde oluşturmanıza ve daha sonra bu yapılarla sanki ayrı nesnelermiş gibi çalışmanıza olanak tanıyan yapısal (structural) bir tasarım desenidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/composite/composite-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -18,9 +22,13 @@ Kompozit desenini kullanmak, uygulamanızın temel modelini bir ağaç olarak te
 
 Diyelim ki bu sınıfları kullanan bir sipariş sistemi oluşturmaya karar verdiniz. Siparişler, paketlenmemiş basit ürünleri içerebileceği gibi aynı zamanda ürünlerle ya da diğer kutularla doldurulmuş kutuları içerebilir. Böyle bir siparişin toplam fiyatını nasıl belirlersiniz?
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/composite/problem-en-2x.png)
 
 *Bir sipariş, kutularda paketlenmiş, daha büyük kutuları içeren kutular vb. çeşitli ürünlerden oluşabilir. Bütün yapı baş aşağı bir ağaca benziyor.*
+
+</div>
 
 Doğrudan yaklaşımı deneyebilirsiniz: tüm kutuları açın, tüm ürünleri gözden geçirin ve sonra toplamı hesaplayın. Bu gerçek dünyada yapılabilir; ancak bir programda, bir döngüyü çalıştırmak kadar basit değildir. Hangi ürünlerin ve kutuların sınıfını geçtiğinizi, kutuların iç içe geçmişlik seviyesini ve diğer can sıkıcı ayrıntıları önceden bilmelisiniz. Tüm bunlar, doğrudan yaklaşımı uğraştırıcı, hatta imkansız kılar.
 
@@ -30,24 +38,35 @@ Kompozit deseni, ürünler ve kutular ile ortak bir arayüz aracılığıyla ça
 
 Bu yöntem nasıl çalışır? Bir ürün için, sadece ürünün fiyatını döndürmelidir. Bir kutu için ise kutunun içerdiği her öğeyi gözden geçirir, fiyatını sorar ve ardından bu kutu için bir toplam fiyat döndürür. Bu öğelerden biri daha küçük bir kutu ise, o kutunun da içeriği gözden geçirilir ve bu şekilde iç bileşenlerin fiyatları hesaplanana kadar devam eder. Bir kutu, nihai fiyata bazı ek maliyetler ekleyebilir, örneğin ambalaj maliyeti gibi.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/content/composite/composite-comic-1-en-2x.png)
 
 *Bileşik desen, bir davranışı bir nesne ağacının tüm bileşenleri üzerinde yinelemeli olarak çalıştırmanıza olanak tanır.*
 
+</div>
+
 Bu yaklaşımın en büyük faydası, ağacı oluşturan nesnelerin oluşturulduğu sınıflar hakkında endişelenmenize gerek olmamasıdır. Bir nesnenin basit bir ürün mü yoksa karmaşık bir kutu mu olduğunu bilmeye ihtiyacınız yoktur. Ortak arayüz üzerinden hepsini aynı şekilde işleyebilirsiniz. Bir yöntem çağırdığınızda, nesneler kendileri isteği aşağıdaki ağaca iletirler.
 
 ## 🚙 Gerçek Dünya Örneği
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/composite/live-example-2x.png)
 
 *Askeri yapıya bir örnek.*
 
+</div>
+
 Çoğu ülkenin orduları hiyerarşik olarak yapılandırılmıştır. Bir ordu, birkaç tümeni içerir; bir tümen, bir dizi tugaydır ve bir tugay gruplara ayrılabilir, bu gruplar ise takımlara ayrılabilir. Sonunda, bir takım gerçek askerlerden oluşan küçük bir gruptur. Emirler hiyerarşinin en üstünden verilir ve her asker, ne yapılması gerektiğini öğrenene kadar her seviyeden aşağıya iletilir.
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/composite/structure-en-2x.png)
+
+</div>
 
 1. Bileşen (**Composite**) arayüzü, ağacın hem basit hem de karmaşık elemanları için ortak olan işlemleri barındırır.
 2. Yaprak (**Leaf**), bir ağacın alt öğeleri olmayan temel bir öğesidir.
@@ -61,9 +80,13 @@ Bir istek alındığında, konteyner işi alt öğelerine devreder, ara sonuçla
 
 Bu örnekte, bileşik/kompozit desen, bir grafik düzenleyicide geometrik şekilleri oluşturmanıza olanak tanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/composite/example-2x.png)
 
 *Geometrik şekiller düzenleyici örneği.*
+
+</div>
 
 `CompoundGraphic` sınıfı, başka bileşik şekiller de dahil olmak üzere bir dizi alt şekli içerebilen bir konteynerdir. Bileşik bir şekil, basit bir şekil ile aynı yöntemlere sahiptir. Ancak, kendi başına bir şey yapmak yerine bileşik bir şekil isteği tüm çocuklarına tekrarlayarak iletir ve sonucu toplar.
 
