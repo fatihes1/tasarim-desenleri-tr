@@ -5,7 +5,11 @@
 
 Bağdaştırıcı, uyumsuz arayüzlere sahip nesnelerin ortak çalışmasına olanak tanıyan yapısal (structural) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/adapter/adapter-en-2x.png)
+
+</div>
 
 
 ##  🙁 Problem
@@ -14,9 +18,13 @@ Hayal edin ki bir hisse senedi piyasası izleme uygulaması oluşturuyorsunuz. U
 
 Bir noktada, uygulamayı akıllı bir üçüncü taraf analiz kütüphanesi ile entegre ederek iyileştirmeye karar verebilirsiniz. Ancak bir sorun var: analiz kütüphanesi yalnızca JSON formatındaki verilerle çalışıyor.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/adapter/problem-en-2x.png)
 
 *Verilerin uygulamanızla uyumlu olmayan bir biçimde olmasını beklediğinden, analiz kütüphanesini olduğu gibi kullanamazsınız.*
+
+</div>
 
 Kütüphaneyi XML ile çalışacak şekilde değiştirebilirsiniz. Ancak bu, kütüphaneye dayalı olan mevcut kodları bozabilir. Dahası, kütüphanenin kaynak koduna erişiminiz olmayabilir, bu da bu yaklaşımı imkansız hale getirecektir.
 
@@ -31,18 +39,26 @@ Adaptörler, verileri farklı biçimlere dönüştürmekle kalmaz, aynı zamanda
 
 1. Adaptör, mevcut nesnelerden biriyle uyumlu bir arayüz tanımlar. 
 2. Bu arayüzü kullanarak mevcut nesne, adaptörün yöntemlerini güvenli bir şekilde çağırabilir. 
-3. Bir çağrı aldığında, adaptör bu isteği ikinci nesneye iletiyor, ancak ikinci nesnenin beklediği biçimde ve sırayla iletiyor. 
+3. Bir çağrı aldığında, adaptör bu isteği ikinci nesneye iletiyor, ancak ikinci nesnenin beklediği biçimde ve sırayla iletiyor.
+
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/adapter/solution-en-2x.png)
+
+</div>
 
 
 Stock market uygulamamıza geri dönelim. Uyumsuz format sorununu çözmek için, uygulamanızın doğrudan çalıştığı her sınıf için XML'den JSON'a dönüşüm adaptörleri oluşturabilirsiniz. Ardından kodunuzu yalnızca bu adaptörler aracılığıyla kütüphane ile iletişim kuracak şekilde ayarlayabilirsiniz. Bir adaptör bir çağrı aldığında, gelen XML verilerini JSON yapısına çevirir ve çağrıyı sarmalanan bir analiz nesnesinin uygun yöntemlerine ileterek işlemi gerçekleştirir.
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/adapter/adapter-comic-1-en-2x.png)
 
 *Yurt dışı gezisinden önce ve sonra bir bavul.*
+
+</div>
 
 Amerika'dan Avrupa'ya ilk seyahat ettiğinizde, dizüstü bilgisayarınızı şarj etmeye çalışırken sürpriz bir durumla karşılaşabilirsiniz. Farklı ülkelerde farklı güç prizi ve priz standartları olduğu için Amerikan prizi Alman prizine uymaz. Sorunu Amerikan tarzı bir prizi ve Avrupa tarzı bir fişi olan bir güç prizi adaptörü kullanarak çözebilirsiniz.
 
@@ -53,8 +69,11 @@ Amerika'dan Avrupa'ya ilk seyahat ettiğinizde, dizüstü bilgisayarınızı şa
 
 Bu uygulama, nesne kompozisyonu ilkesini kullanır: bağdaştırıcı bir nesnenin arayüzünü uygular ve diğerini sarar. Tüm popüler programlama dillerinde uygulanabilir.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/diagrams/adapter/structure-object-adapter-2x.png)
+
+</div>
 
 1. **Client**, programın mevcut iş mantığını içeren bir sınıftır.
 2. **İstemci Arayüzü (Client Interface)**, istemci koduyla işbirliği yapabilmek için diğer sınıfların izlemesi gereken bir protokolü açıklar.
@@ -64,7 +83,11 @@ Bu uygulama, nesne kompozisyonu ilkesini kullanır: bağdaştırıcı bir nesnen
 
 #### Sınıf Adaptörü
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/adapter/structure-class-adapter-2x.png)
+
+</div>
 
 1. Sınıf Bağdaştırıcısının (Class Adapter) davranışları hem istemciden hem de hizmetten devraldığı için herhangi bir nesneyi sarması gerekmez. Uyarlama, geçersiz kılınan yöntemler dahilinde gerçekleşir. Ortaya çıkan bağdaştırıcı, mevcut bir istemci sınıfının yerine kullanılabilir.
 
@@ -72,9 +95,13 @@ Bu uygulama, nesne kompozisyonu ilkesini kullanır: bağdaştırıcı bir nesnen
 
 Adaptör modelinin bu örneği, kare mandallar (square pegs) ve yuvarlak delikler (round holes) arasındaki klasik çatışmaya dayanmaktadır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/adapter/example-2x.png)
 
 *Kare mandalların yuvarlak deliklere uyarlanması.*
+
+</div>
 
 Adaptör, yarıçapı karenin çapının yarısına (başka bir deyişle, kare çiviyi barındırabilecek en küçük dairenin yarıçapına) sahip yuvarlak bir çivi gibi davranır.
 
