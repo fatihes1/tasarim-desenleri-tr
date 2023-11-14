@@ -10,23 +10,23 @@ Strateji, bir algoritma ailesi tanımlamanıza, her birini ayrı bir sınıfa ye
 
 ##  🙁 Problem
 
-Bir gün sıradan gezginler için bir navigasyon uygulaması oluşturmaya karar verdiniz. Uygulama, kullanıcıların herhangi bir şehirde hızlı bir şekilde yönlendirilmelerine yardımcı olan güzel bir harita etrafında şekilleniyordu.
+Bir gün sıradan gezginler için bir navigasyon uygulaması oluşturmaya karar verdiğinizi düşünelim. Uygulama, kullanıcıların herhangi bir şehirde hızlı bir şekilde yönlendirilmelerine yardımcı olan güzel bir harita etrafında şekillenmektedir.
 
-Uygulamanın en çok talep edilen özelliklerinden biri de otomatik rota planlamaydı. Kullanıcı bir adres girebilmeli ve o hedefe giden en hızlı rotanın haritada görüntülendiğini görebilmelidir.
+Uygulamanın en çok talep edilen özelliklerinden biri de, süpriz olmayacağı üzere otomatik rota planlamadır. Kullanıcı bir adres girebilmeli ve o hedefe giden en hızlı rotanın haritada görüntülendiğini görebilmelidir.
 
 Uygulamanın ilk sürümü yalnızca yollar üzerindeki rotaları oluşturabiliyordu. Arabayla seyahat eden vatandaşlar sevinçten havalara uçtu. Ancak görünen o ki herkes tatilde araba kullanmayı sevmiyor. Bir sonraki güncellemeyle birlikte yürüyüş rotaları oluşturma seçeneği eklediniz. Hemen ardından insanların güzergahlarında toplu taşımayı kullanmalarına imkan veren bir seçenek daha eklediniz.
 
-Ancak bu yalnızca başlangıçtı. Daha sonra bisikletçiler için rota oluşturmayı eklemeyi düşündünüz. Ve daha sonra, bir şehrin tüm turistik mekanlarını dolaşacak rotalar oluşturmak için başka bir seçenek.
+Ancak bu yalnızca başlangıçtır. Daha sonra bisikletçiler için rota oluşturmayı eklemeyi düşünebilirsiniz. Ve daha sonra, bir şehrin tüm turistik mekanlarını dolaşacak rotalar oluşturmak için başka bir seçenek daha...
 
 ![](https://refactoring.guru/images/patterns/diagrams/strategy/problem-2x.png)
 
 *Navigasyon uygulaması kodu şişirildi.*
 
-İş açısından bakıldığında uygulama başarılı olsa da teknik kısım başınızı çok ağrıtacaktır. Her yeni yönlendirme algoritması eklediğinizde, gezginin (navigator) main sınıfının boyutu iki katına çıktı. Bir noktada bu devasa kodun bakımı çok zor hale geldi.
+İş açısından bakıldığında uygulama başarılı olsa da teknik kısım başınızı çok ağrıtacaktır. Her yeni yönlendirme algoritması eklediğinizde, gezginin (navigator) main sınıfının boyutu iki katına çıkar. Bir noktada bu devasa kodun bakımı çok zor hale gelebilir.
 
-Algoritmalardan birinde yapılacak herhangi bir değişiklik, ister basit bir hata düzeltmesi ister sokak puanında hafif bir ayarlama olsun, tüm sınıfı etkiledi ve halihazırda çalışmakta olan kodda hata yaratma olasılığını arttırdı.
+Algoritmalardan birinde yapılacak herhangi bir değişiklik, ister basit bir hata düzeltmesi ister sokak puanında hafif bir ayarlama olsun, tüm sınıfı etkiler ve halihazırda çalışmakta olan kodda hata oluşturma olasılığını da arttırır.
 
-Ayrıca ekip çalışması verimsiz hale geldi. Başarılı sürümün hemen ardından işe alınan ekip arkadaşlarınız, birleştirme çakışmarını (merge conflicts) çözmek için çok fazla zaman harcadıklarından şikayetçi olmaya başladı. Yeni bir özelliğin uygulanması için, diğer kişilerin ürettiği kodlarla çelişen (conflict) aynı büyük sınıfın kodlarını değiştirmenizi gerektirir.
+Ayrıca ekip çalışması verimsiz hale gelecektir. Başarılı sürümün hemen ardından işe alınan ekip arkadaşlarınız, birleştirme çakışmalarını (merge conflicts) çözmek için çok fazla zaman harcadıklarından şikayetçi olmaya başlayabilirler. Yeni bir özelliğin uygulanması için, diğer kişilerin ürettiği kodlarla çelişen (conflict) aynı büyük sınıfın kodlarını değiştirmenizi gerektirir.
 
 
 ##  😊 Çözüm
@@ -35,7 +35,7 @@ Strateji modeli, belirli bir şeyi birçok farklı yolla yapan bir sınıfı alm
 
 Bağlam (context) olarak adlandırılan orijinal sınıfın, stratejilerden birine referansı depolamak için bir alana sahip olması gerekir. Bağlam, işi kendi başına yürütmek yerine bağlantılı bir strateji nesnesine yürütme işini devreder.
 
-Bağlam, iş için uygun bir algoritmanın seçilmesinden sorumlu değildir. Bunun yerine istemci (client) istenen stratejiyi bağlama aktarır. Aslında bağlam stratejiler hakkında pek bir şey bilmemektedir. Aynı genel arayüz (interface) üzerinden tüm stratejilerle çalışır; bu, seçilen strateji içinde kapsüllenmiş algoritmayı tetiklemek için yalnızca tek bir yöntemi ortaya çıkarır.
+Bağlam, iş için uygun bir algoritmanın seçilmesinden sorumlu değildir. Bunun yerine istemci (client) istenen stratejiyi bağlama aktarır. Aslında bağlam yani context, stratejiler hakkında pek bir şey bilmemektedir. Aynı genel arayüz (interface) üzerinden tüm stratejilerle çalışır; bu durum, seçilen strateji içinde kapsüllenmiş algoritmayı tetiklemek için yalnızca tek bir yöntemi ortaya çıkarır.
 
 Bu şekilde bağlam stratejilerden bağımsız hale gelir, böylece bağlamın kodunu veya diğer stratejileri değiştirmeden yeni algoritmalar ekleyebilir veya mevcut algoritmaları değiştirebilirsiniz.
 
@@ -43,9 +43,9 @@ Bu şekilde bağlam stratejilerden bağımsız hale gelir, böylece bağlamın k
 
 *Rota planlama stratejileri.*
 
-Navigasyon uygulamamızda her yönlendirme algoritması tek bir `buildRoute` yöntemiyle kendi sınıfına çıkarılabilir (extracted). Yöntem bir başlangıç ​​ve varış noktasını kabul eder. Rotanın kontrol noktalarının bir koleksiyonunu döndürür.
+Navigasyon uygulamamızda her yönlendirme algoritması tek bir `buildRoute` yöntemiyle kendi sınıfına çıkarılabilir (extracted). Yöntem bir başlangıç ​​ve varış noktasını parametre olarak bekler. Rotanın kontrol noktalarının bir koleksiyonunu döndürür.
 
-Aynı argümanlar verildiğinde, her yönlendirme sınıfı farklı bir rota oluşturabilse de, asıl görevi harita üzerinde bir dizi kontrol noktası oluşturmak olduğundan, main `Navigator` sınıfı hangi algoritmanın seçildiğiyle pek ilgilenmez. Sınıfın, aktif yönlendirme stratejisini değiştirmeye yönelik bir yöntemi vardır. Bu yöntem sayesinde, kullanıcı arayüzündeki düğmeler gibi istemcileri, halihazırda seçili olan yönlendirme davranışını başka bir davranışla değiştirebilir.
+Aynı argümanlar verildiğinde, her yönlendirme sınıfı farklı bir rota oluşturabilse de, asıl görevi harita üzerinde bir dizi kontrol noktası oluşturmak olduğundan, main `Navigator` sınıfı hangi algoritmanın seçildiğiyle pek ilgilenmez. Sınıfın, aktif yönlendirme stratejisini değiştirmeye yönelik bir yöntemi vardır. Bu yöntem sayesinde, kullanıcı arayüzündeki düğmeler gibi UI elementlerini kullanarak, halihazırda seçili olan yönlendirme davranışını başka bir davranışla değiştirebilir.
 
 ## 🚙 Gerçek Dünya Örneği
 
@@ -65,7 +65,7 @@ Havaalanına gitmeniz gerektiğini düşünün. Otobüse binebilir, taksi çağ�
 
 3. **Concrete Strategies**, bağlamın kullandığı algoritmanın farklı varyasyonlarını uygular yani implement eder.
 
-4. Bağlam, algoritmayı çalıştırmaya her ihtiyaç duyduğunda bağlantılı strateji nesnesindeki yürütme yöntemini çağırır. Bağlam ne tür bir stratejiyle çalıştığını veya algoritmanın nasıl yürütüldüğünü bilmiyor.
+4. **Bağlam (Context)**, algoritmayı çalıştırmaya her ihtiyaç duyduğunda bağlantılı strateji nesnesindeki yürütme yöntemini çağırır. Bağlam ne tür bir stratejiyle çalıştığını veya algoritmanın nasıl yürütüldüğünü bilmez.
 
 5. **İstemci (Client)** belirli bir strateji nesnesi oluşturur ve onu bağlama aktarır. Bağlam, istemcilerin çalışma zamanında bağlamla ilişkili stratejiyi değiştirmesine olanak tanıyan bir ayarlayıcıyı ortaya çıkarır.
 
@@ -164,9 +164,9 @@ class ExampleApplication is
 
 ##  📝 Nasıl Uygulanır?
 
-1. Bağlam sınıfında sık sık değişiklik yapmaya yatkın bir algoritma tanımlayın. Ayrıca çalışma zamanında aynı algoritmanın bir varyantını seçip yürüten büyük bir koşul da olabilir.
+1. Bağlam sınıfında sık sık değişiklik yapmaya yatkın bir algoritma tanımlayın. Ayrıca çalışma zamanında aynı algoritmanın bir varyantını seçip yürüten büyük bir koşullu ifade de olabilir.
 
-2. Algoritmanın tüm değişkenleri için ortak olan strateji arayüzünü bildirin.
+2. Algoritmanın tüm değişkenleri için ortak olan strateji arayüzünü tanımlayın.
 
 3. Tüm algoritmaları tek tek kendi sınıflarına çıkarın. Hepsi strateji arayüzünü uygulamalıdır yani implement etmelidir.
 
