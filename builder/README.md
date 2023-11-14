@@ -14,9 +14,13 @@
 
 Birçok alanın ve iç içe geçmiş nesnelerin zahmetli, adım adım başlatılmasını gerektiren karmaşık bir nesne düşünün. Bu tür başlatma kodu genellikle çok sayıda parametreye sahip korkunç bir yapıcı (constructor) içine gömülür. Veya daha da kötüsü: istemci kodunun her tarafına dağılmış durumdadır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/builder/problem1-2x.png)
 
 *Bir nesnenin olası her yapılandırması için bir alt sınıf oluşturarak programı fazla karmaşık hale getirebilirsiniz.*
+
+</div>
 
  Örneğin, bir Ev (`Home`) nesnesi oluşturmanın nasıl yapılacağını düşünelim. Basit bir ev inşa etmek için dört duvar ve bir zemin inşa etmeniz, bir kapı takmanız, bir çift pencere takmanız ve bir çatı inşa etmeniz gerekiyor. Ancak daha büyük, daha parlak bir ev isterseniz, arka bahçe gibi daha karmaşık başka özellikler (ısıtma sistemi, su tesisatı ve elektrik tesisatı gibi) isterseniz ne olur?
 
