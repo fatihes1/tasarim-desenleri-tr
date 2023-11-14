@@ -4,7 +4,12 @@
 
 Cephe, bir kitaplığa, bir çerçeveye veya diğer herhangi bir karmaşık sınıf kümesine basitleştirilmiş bir arayüz sağlayan yapısal bir tasarım desenidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/facade/facade-2x.png)
+
+
+</div>
 
 
 ##  🙁 Problem
@@ -24,15 +29,23 @@ Bir arayüz, uygulamanızı çok sayıda özelliğe sahip karmaşık bir kütüp
 
 ## 🚙 Gerçek Dünya Örneği
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/facade/live-example-en-2x.png)
 
 *Telefonla sipariş verme..*
+
+</div>
 
 Telefon siparişi vermek için bir mağazayı aradığınızı düşünün. Bir operatör, mağazanın tüm hizmetlerine ve departmanlarına karşı sizin cephenizdir (facade). Operatör size sipariş sistemine, ödeme ağ geçitlerine ve çeşitli teslimat hizmetlerine basit bir sesli arayüz sağlar.
 
 ##  ⚙️ Yapı
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/facade/structure-2x.png)
+
+</div>
 
 1. **Facade** yani cephe, alt sistemin işlevselliğinin belirli bir bölümüne kolay erişim sağlar. Müşterinin talebini nereye yönlendireceğini ve tüm hareketli parçaların nasıl çalıştırılacağını bilir.
 2. Tek bir cepheyi, onu başka bir karmaşık yapı haline getirebilecek ilgisiz özelliklerle kirletmeyi önlemek için bir **Additional Facade** sınıfı oluşturulabilir. Ek cepheler hem müşteriler hem de diğer cepheler tarafından kullanılabilir.
@@ -45,9 +58,13 @@ Alt sistem sınıfları cephenin varlığından haberdar değildir. Sistem için
 
 Bu örnekte Cephe (Facade) modeli, karmaşık bir video dönüştürme çerçevesiyle etkileşimi basitleştirir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/facade/example-2x.png)
 
 *Tek bir cephe sınıfında birden fazla bağımlılığın izole edilmesine bir örnek.*
+
+</div>
 
 Kodunuzu doğrudan düzinelerce çerçeve sınıfı ile çalıştırmak yerine, bu işlevselliği kapsayan ve kodun geri kalanından gizleyen bir arayüz sınıfı oluşturursunuz. Bu yapı aynı zamanda çerçevenin gelecekteki sürümlerine yükseltme veya başka bir çerçeve ile değiştirme çabasını minimize etmenize de yardımcı olur. Uygulamanızda değiştirmeniz gereken tek şey, arayüzün yöntemlerinin uygulanması olurdu.
 
