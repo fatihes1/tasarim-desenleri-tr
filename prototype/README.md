@@ -5,9 +5,11 @@
 
 Prototip, kodunuzu sınıflarına bağımlı hale getirmeden mevcut nesneleri kopyalamanıza olanak tanıyan, yaratıcı (creational) bir tasarım modelidir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/prototype/prototype-2x.png)
 
-  
+</div>  
 
 ##  🙁 Problem
 
@@ -16,9 +18,13 @@ Bir nesnenin tam bir kopyasını oluşturmak istiyorsanız, öncelikle aynı sı
 
 Gayet kolay değil mi! Ancak burada bir hile var. Bu şekilde kopyalanamayan nesneler de vardır çünkü nesnenin bazı alanları gizli (private) olabilir ve nesnenin kendisi dışında görünmez olabilir.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/prototype/prototype-comic-1-en-2x.png)
 
 *Bir nesnenin "dışarıdan" kopyalanması her zaman mümkün değildir.*
+
+</div>
 
  Doğrudan yaklaşımla ilgili başka bir sorun daha var. Bir kopya oluşturmak için nesnenin sınıfını bilmelisiniz, bu da kodunuzu o sınıfa bağımlı hale getirir. Eğer bu ek bağımlılık sizi korkutmuyorsa, başka bir sorun daha var. Bazen (örneğin bir yöntemdeki bir parametre bazı arabirimleri (interface) izleyen nesneleri kabul ettiğinde,) yalnızca nesnenin extend edildiği arabirimi (interface) bilirsiniz, ancak sınıfını bilmezsiniz.
 
@@ -30,10 +36,13 @@ Klonlama yönteminin uygulanması, tüm sınıflarda çok benzerdir. Yöntem, me
 
 Klonlamayı destekleyen bir nesneye prototip denir. Nesnelerinizin onlarca alanı ve yüzlerce olası yapılandırması varsa, bunları alt sınıflandırmak yerine klonlamak, alternatif bir çözüm olabilir.
 
+<div align="center">
 
 ![](https://refactoring.guru/images/patterns/content/prototype/prototype-comic-2-en-2x.png)
 
 *İnşaatçı (Builder) modeli, karmaşık nesneleri adım adım oluşturmanıza olanak tanır. Builder, ürün oluşturulurken diğer nesnelerin ürüne erişmesine izin vermez.*
+
+</div>
 
 Bu desen, nesne oluşturmayı bir dizi adıma (duvarları inşa etme (`buildWalls`), kapıyı inşa etme (`buildDoor`) vb.) ayırır ve organize eder. Bir nesne oluşturmak için bu adımlardan bazılarını bir oluşturucu (builder) nesne üzerinde çalıştırırsınız. Önemli olan şudur ki tüm adımları çağırmak zorunda değilsiniz. Bir nesnenin belirli bir yapılandırmasını üretmek için sadece gereken adımları çağırabilirsiniz.
 
@@ -41,9 +50,13 @@ Nesnenin çeşitli temsillerini oluşturmanız gerektiğinde, inşaat adımları
 
 Bu durumda, aynı inşaat adımlarını uygulayan ancak farklı bir şekilde uygulayan bir dizi farklı oluşturucu (builder) sınıfı oluşturabilirsiniz. Ardından bu oluşturuculara inşaat sürecinde (yani inşaat adımlarına çağrıların sıralı bir kümesi) farklı türde nesneler üretmek için kullanabilirsiniz.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/builder/builder-comic-1-en-2x.png)
 
 *Önceden oluşturulmuş prototipler alt sınıflandırmaya (subclassing) alternatif olabilir.*
+
+</div>
 
 Örneğin, her şeyi ahşap ve camdan inşa eden bir oluşturucu (builder) hayal edin, her şeyi taş ve demirden inşa eden ikincisi ve altın ve elmas kullanan üçüncü bir oluşturucu (builder). Aynı adımları çağırsanız da, ilk oluşturucudan normal bir ev, ikincisinden küçük bir kale ve üçüncüsünden ise bir saray oluşturduğunu görürsünüz. Ancak, bu yalnızca inşaat adımlarını çağıran istemci kodunun ortak bir arayüz (interface) kullanarak yapımcılarla etkileşimde bulunabilmesi durumunda bu şekilde olur.
 
@@ -53,9 +66,13 @@ Nasıl çalıştığını merak ediyorsanız, şu şekilde: çeşitli şekillerd
 
 Gerçek hayatta prototipler, bir ürünün seri üretimine başlamadan önce çeşitli testler yapmak için kullanılır. Ancak bu durumda prototipler herhangi bir gerçek üretimde rol almaz, pasif bir rol oynarlar.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/content/prototype/prototype-comic-3-en-2x.png)
 
 *Bir hücrenin bölünmesi.*
+
+</div>
 
 Endüstri prototipleri kendilerini gerçekten kopyalamadığı için, deseni çok daha yakın bir benzetme, mitotik hücre bölünme sürecidir (biyoloji dersinden aşina olabilirsiniz). Mitotik bölünmeden sonra aynı hücrelerin bir çifti oluşur. Orijinal hücre bir prototip gibi hareket eder ve kopyayı oluştururken aktif bir rol oynar.
 
@@ -64,7 +81,11 @@ Endüstri prototipleri kendilerini gerçekten kopyalamadığı için, deseni ço
 
 #### Temel Uygulama
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/prototype/structure-2x.png)
+
+</div>
   
 1. **Prototip** arayüzü klonlama yöntemlerini bildirir. Çoğu durumda, tek bir klon (`clone`) yöntemi vardır.
 2. **Concrete Prototype** sınıfı klonlama yöntemini uygular. Orijinal nesnenin verilerini klona kopyalamanın yanı sıra, bu yöntem bağlantılı nesneleri klonlamak, özyinelemeli bağımlılıkları çözmek vb. için de kullanılır. Ayrıca, ilgili klonlama işleminin bazı aşırı durumlarını da ele alabilir.
@@ -72,7 +93,11 @@ Endüstri prototipleri kendilerini gerçekten kopyalamadığı için, deseni ço
 
 #### Prototip Kayıt Uygulaması
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/prototype/structure-prototype-cache-2x.png)
+
+</div>
 
 1. **Prototip Registry**, sık kullanılan prototiplere erişmenin kolay bir yolunu sağlar. Kopyalanmaya hazır bir dizi önceden oluşturulmuş nesneyi saklar. En basit prototip kayıt defteri, bir ad → prototip (`name -> prototype`) karma haritasıdır. Ancak, basit bir addan daha iyi arama ölçütlerine ihtiyacınız varsa, kayıt defterinin çok daha sağlam bir sürümünü oluşturabilirsiniz.
 
@@ -81,9 +106,13 @@ Endüstri prototipleri kendilerini gerçekten kopyalamadığı için, deseni ço
 
 Bu örnekte Prototip modeli, kodu sınıflarına bağlamadan geometrik nesnelerin tam kopyalarını oluşturmanıza olanak tanır.
 
+<div align="center">
+
 ![](https://refactoring.guru/images/patterns/diagrams/prototype/example-2x.png)
 
 *Bir sınıf hiyerarşisine ait olan bir dizi nesneyi klonlama.*
+
+</div>
 
 Tüm şekil (`Shape`) sınıfları, bir klonlama yöntemi sağlayan aynı arayüzü izler. Bir alt sınıf, kendi alan değerlerini sonuç nesnesine kopyalamadan önce ebeveynin klonlama yöntemini çağırabilir.
 
